@@ -11,10 +11,10 @@
       "@components/*": ["components/*"],
       "@helpers/*": ["helpers/*"],
       "@hooks/*": ["hooks/*"],
+      "@interfaces/*": ["interfaces/*"],
       "@navigation/*": ["navigation/*"],
       "@services/*": ["services/*"],
       "@redux/*": ["redux/*"],
-      "@types/*": ["types/*"],
       "@screens/*": ["screens/*"],
       "@utils/*": ["utils/*"]
     }

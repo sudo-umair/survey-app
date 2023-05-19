@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { EnumeratorScreens as Screens } from '@common/screens';
-import { IEnumeratorStackParamList } from '@/types/navigation';
+import type { IEnumeratorStackParamList } from '@interfaces/navigation';
 
 const Stack = createNativeStackNavigator<IEnumeratorStackParamList>();
 
