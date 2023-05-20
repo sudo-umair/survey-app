@@ -6,6 +6,7 @@ import { STACKS } from '@common/stacks';
 
 // screens
 import SignupScreen from '@screens/enumerator/signup-screen';
+import LoginScreen from '@screens/enumerator/login-screen';
 
 const Stack = createNativeStackNavigator<IEnumeratorStackParamList>();
 
@@ -18,6 +19,7 @@ const EnumeratorStack = () => {
       id={STACKS.ENUMERATOR}
     >
       <Stack.Screen name={Screens.SignUp} component={SignupScreen} />
+      <Stack.Screen name={Screens.Login} component={LoginScreen} />
     </Stack.Navigator>
   );
 };

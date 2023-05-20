@@ -9,3 +9,9 @@ export type IEnumeratorSignupScreenProps = NativeStackScreenProps<
   EnumeratorScreens.SignUp,
   STACKS.ENUMERATOR
 >;
+
+export type IEnumeratorLoginScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.Login,
+  STACKS.ENUMERATOR
+>;
