@@ -15,7 +15,12 @@ const Button: React.FC<IButtonProps> = ({
     <Pressable
       disabled={disabled}
       onPress={onPress}
-      style={[styles.container, disabled && styles.disabled, buttonStyle]}
+      style={({ pressed }) => [
+        styles.container,
+        disabled && styles.disabled,
+        pressed && styles.pressed,
+        buttonStyle,
+      ]}
     >
       {isLoading ? (
         <ActivityIndicator size='small' color='white' />
@@ -41,6 +46,9 @@ const styles = StyleSheet.create({
   },
   disabled: {
     backgroundColor: COLORS.TERTIARY,
+  },
+  pressed: {
+    backgroundColor: COLORS.PRIMARY,
   },
   label: {
     fontSize: 16,
