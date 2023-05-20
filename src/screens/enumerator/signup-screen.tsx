@@ -79,7 +79,7 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
-          value={record.lastName}
+          value={record.email}
           onChangeText={(text) => onChangeText(text, 'email')}
           keyboardType='email-address'
         />
