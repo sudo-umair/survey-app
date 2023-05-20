@@ -89,7 +89,7 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
         <TextInput
           value={record.password}
           onChangeText={(text) => onChangeText(text, 'password')}
-          secureTextEntry={showPassword}
+          secureTextEntry={!showPassword}
         />
       </View>
       <View style={styles.inputContainer}>
@@ -98,7 +98,7 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
           <TextInput
             value={record.confirmPassword}
             onChangeText={(text) => onChangeText(text, 'confirmPassword')}
-            secureTextEntry={showPassword}
+            secureTextEntry={!showPassword}
             inputStyle={{
               width: '80%',
               marginVertical: 0,
@@ -162,6 +162,12 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
         />
       </View>
       <Button onPress={onSubmit} title='Sign Up' />
+      <Text
+        onPress={() => navigation.navigate(EnumeratorScreens.Login)}
+        style={styles.link}
+      >
+        Already a user?
+      </Text>
     </ScrollContainer>
   );
 };
@@ -203,5 +209,13 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 5,
+  },
+  link: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.PRIMARY,
+    textDecorationLine: 'underline',
+    marginTop: 5,
   },
 });
