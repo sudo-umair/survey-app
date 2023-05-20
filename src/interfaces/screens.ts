@@ -15,3 +15,9 @@ export type IEnumeratorLoginScreenProps = NativeStackScreenProps<
   EnumeratorScreens.Login,
   STACKS.ENUMERATOR
 >;
+
+export type IEnumeratorHomeScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.Home,
+  STACKS.ENUMERATOR
+>;

@@ -6,6 +6,7 @@ import type {
   TextInputProps,
 } from 'react-native/types';
 
+// UI Components
 export interface IContainerProps {
   children: React.ReactNode;
   containerStyle?: ViewStyle | ViewStyle[];
@@ -43,4 +44,13 @@ export interface IButtonProps {
   buttonTextStyle?: TextStyle | TextStyle[];
   isLoading?: boolean;
   disabled?: boolean;
+}
+
+// Enumerator Screens Components
+export interface ISurveyComponentProps {
+  title: string;
+  onPress: () => void;
+  isSelected: boolean;
+  containerStyle?: ViewStyle | ViewStyle[];
+  textStyle?: TextStyle | TextStyle[];
 }
