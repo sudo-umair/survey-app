@@ -9,7 +9,6 @@ module.exports = (async () => {
       assetExts: assetExts.filter((ext) => ext !== 'svg'), // Add any other asset extensions you may use
       sourceExts: [...sourceExts, 'jsx', 'js', 'ts', 'tsx'], // Add any other source extensions you may use
       extraNodeModules: {
-        '@': `${__dirname}/src`,
         '@assets': `${__dirname}/src/assets`,
         '@common': `${__dirname}/src/common`,
         '@config': `${__dirname}/src/config`,
