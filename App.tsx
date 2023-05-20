@@ -5,6 +5,7 @@ import { store, persistor } from '@redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { COLORS } from '@common/colors';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
           <AppNavigator />
         </PersistGate>
       </Provider>
-      <StatusBar style='auto' />
+      <StatusBar backgroundColor={COLORS.PRIMARY} style='light' />
     </SafeAreaView>
   );
 }
