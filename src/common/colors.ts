@@ -4,5 +4,6 @@ export enum COLORS {
   SECONDARY = '#212A3E',
   TERTIARY = '#9BA4B5',
   WHITE = '#FFFFFF',
+  BLACK = '#000000',
   GRAY = '#E5E5E5',
 }

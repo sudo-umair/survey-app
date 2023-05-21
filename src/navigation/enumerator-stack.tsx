@@ -8,6 +8,8 @@ import { STACKS } from '@common/stacks';
 import SignupScreen from '@screens/enumerator/signup-screen';
 import LoginScreen from '@screens/enumerator/login-screen';
 import HomeScreen from '@screens/enumerator/home-screen';
+import SectionAScreen from '@screens/enumerator/section-a-screen';
+import SectionBScreen from '@screens/enumerator/section-b-screen';
 
 const Stack = createNativeStackNavigator<IEnumeratorStackParamList>();
 
@@ -22,6 +24,8 @@ const EnumeratorStack = () => {
       <Stack.Screen name={Screens.SignUp} component={SignupScreen} />
       <Stack.Screen name={Screens.Login} component={LoginScreen} />
       <Stack.Screen name={Screens.Home} component={HomeScreen} />
+      <Stack.Screen name={Screens.SectionA} component={SectionAScreen} />
+      <Stack.Screen name={Screens.SectionB} component={SectionBScreen} />
     </Stack.Navigator>
   );
 };

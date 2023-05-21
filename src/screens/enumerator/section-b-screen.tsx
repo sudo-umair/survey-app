@@ -5,20 +5,18 @@ import { COLORS } from '@common/colors';
 import Acknowledgment from '@components/enumerator/section-a-screen/acknowledgment';
 import Container from '@components/ui/container';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_A_QUESTIONS } from '@common/data';
+import { SECTION_B_QUESTIONS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
-import { IEnumeratorSectionAScreenProps } from '@interfaces/screens';
+import { IEnumeratorSectionBScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
-import { useFocusEffect } from '@react-navigation/native';
 
-const SectionAScreen = ({
+const SectionBScreen = ({
   navigation,
   route,
-}: IEnumeratorSectionAScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_A_QUESTIONS);
-  const [render, setRender] = useState(1);
+}: IEnumeratorSectionBScreenProps) => {
+  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
 
   const onChange = (text: string, index: number) => {
     const newQuestions = [...questions];
@@ -26,53 +24,36 @@ const SectionAScreen = ({
     setQuestions(newQuestions);
   };
 
+  useEffect(() => {
+    // console.log('questions', questions);
+  }, [questions]);
+
   const onPress = () => {
-    console.log('questions', questions);
-    if (!checkAnswers()) {
-      alert('Please answer all the questions');
-      return;
-    }
-
-    navigation.navigate(EnumeratorScreens.SectionB);
-  };
-
-  const checkAnswers = () => {
-    if (questions.find((q) => q.answer === '')) {
-      return false;
-    }
-    return true;
+    // navigation.navigate(EnumeratorScreens.SectionC);
+    console.log(
+      'questions',
+      questions.find((q) => q.questionId === 'B8')
+    );
   };
 
   return (
     <ScrollContainer contentContainerStyle={styles.rootContentContainer}>
-      <Text style={styles.title}>
-        Section A: Informed Consent Form and Identification
-      </Text>
-      <Container containerStyle={styles.container}>
-        <Acknowledgment name='Muhammad Umair' />
-      </Container>
+      <Text style={styles.title}>Section B:Area and Respondent</Text>
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          if (index === 1) {
-            if (questions[0].answer !== 'Yes') {
-              // to prevent check inputs error if A2 is not visible
-              questions[1].answer = 'None';
-              // to hide A2 if answer of A1 is not Yes
-              return null;
-            }
-          }
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
         keyExtractor={(item) => item.questionId}
         scrollEnabled={false}
+        keyboardShouldPersistTaps='handled'
       />
       <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
   );
 };
 
-export default SectionAScreen;
+export default SectionBScreen;
 
 const styles = StyleSheet.create({
   rootContentContainer: {

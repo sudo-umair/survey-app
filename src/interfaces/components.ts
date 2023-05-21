@@ -5,6 +5,7 @@ import type {
   ScrollViewProps,
   TextInputProps,
 } from 'react-native/types';
+import { IQuestion } from './common';
 
 // UI Components
 export interface IContainerProps {
@@ -53,4 +54,14 @@ export interface ISurveyComponentProps {
   isSelected: boolean;
   containerStyle?: ViewStyle | ViewStyle[];
   textStyle?: TextStyle | TextStyle[];
+}
+
+export interface IAcknowledgmentProps {
+  name: string;
+}
+
+export interface IQuestionBoxProps {
+  item: IQuestion;
+  index: number;
+  onChange: (value: string, index: number) => void;
 }

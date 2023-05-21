@@ -9,4 +9,6 @@ export type IEnumeratorStackParamList = {
   [EnumeratorScreens.SignUp]: undefined;
   [EnumeratorScreens.Login]: undefined;
   [EnumeratorScreens.Home]: undefined;
+  [EnumeratorScreens.SectionA]: undefined;
+  [EnumeratorScreens.SectionB]: undefined;
 };

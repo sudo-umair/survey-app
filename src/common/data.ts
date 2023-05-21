@@ -1,5 +1,200 @@
+import { IQuestion } from '@interfaces/common';
+
 export enum SURVEY_COMPONENTS {
   A = 'A',
   B = 'B',
   C = 'C',
 }
+
+export const SECTION_A_QUESTIONS: IQuestion[] = [
+  {
+    questionId: 'A1',
+    question:
+      'Do you have any questions you would like to discuss at this point?',
+    answer: 'Yes',
+    questionType: 'radio',
+    options: ['Yes', 'No', 'Don’t know'],
+  },
+  {
+    questionId: 'A2',
+    question: 'what are the questions?',
+    answer: '',
+    questionType: 'text',
+    options: [],
+  },
+  {
+    questionId: 'A3',
+    question:
+      'I have read the informed consent and Confidentiality Form to the respondent and he/she has indicated his/her understanding',
+    answer: '',
+    questionType: 'text',
+    options: [],
+  },
+  {
+    questionId: 'A4',
+    question: 'Date of interview: (Day-Month-Year)',
+    answer: '',
+    questionType: 'date',
+    options: [],
+  },
+  {
+    questionId: 'A5',
+    question: 'Start time of interview: (AM/PM)',
+    answer: '',
+    questionType: 'time',
+    options: [],
+  },
+];
+
+export const SECTION_B_QUESTIONS: IQuestion[] = [
+  {
+    questionId: 'B1',
+    question: 'District',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B2',
+    question: 'Taluka',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B3',
+    question: 'Union Council',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B4',
+    question: 'Name of Village/Goth',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B5',
+    question: 'Home Address',
+    options: [],
+    answer: '',
+    questionType: 'text-area',
+  },
+  {
+    questionId: 'B6',
+    question: 'Contact No (Mobile/Landline)',
+    options: [],
+    answer: '',
+    questionType: 'number',
+  },
+  {
+    questionId: 'B7',
+    question: 'Name of Respondent/Beneficiary',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B8',
+    question: 'Gender',
+    options: ['Male', 'Female', 'Other (Specify)'],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'B9',
+    question: 'Age (years)',
+    options: [],
+    answer: '',
+    questionType: 'number',
+  },
+  {
+    questionId: 'B10',
+    question: 'Marital Status',
+    options: ['Married', 'Single'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'B11',
+    question: "Beneficiary's Category",
+    options: [
+      'Female Headed Household',
+      'Landless Farmer',
+      'Head of household is dependant',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'B12',
+    question: 'Total Family size',
+    options: [],
+    answer: '',
+    questionType: 'number',
+  },
+  {
+    questionId: 'B12a',
+    question: 'Male members',
+    options: [],
+    answer: '',
+    questionType: 'number',
+  },
+  {
+    questionId: 'B12b',
+    question: 'Female members',
+    options: [],
+    answer: '',
+    questionType: 'number',
+  },
+  {
+    questionId: 'B13',
+    question: 'Status of house',
+    options: ['Own house', 'Rented', 'Other (Specify)'],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'B14a',
+    question: 'Number of HH members currently earning: Male members',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B14b',
+    question: 'Number of HH members currently earning: Female members',
+    options: [],
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'B15',
+    question: 'Source of income',
+    options: [
+      'Daily wages',
+      'Agriculture',
+      'Pvt. Job',
+      'Govt. Job',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'B16',
+    question: 'Total monthly Income',
+    options: [
+      '10,000 to 20,000',
+      '20,000 to 30,000',
+      '40,000 to 50,000',
+      '50,000 to 60,000',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+];

@@ -12,3 +12,23 @@ export interface IEnumerator {
   creationDate?: string;
   modificationDate?: string;
 }
+
+export interface IQuestion {
+  questionId: string;
+  question: string;
+  options: string[];
+  answer: string;
+  questionType:
+    | 'text'
+    | 'number'
+    | 'text-area'
+    | 'radio'
+    | 'radio-text'
+    | 'checkbox'
+    | 'date'
+    | 'time';
+}
+
+export interface IMonths {
+  [key: string]: string;
+}
