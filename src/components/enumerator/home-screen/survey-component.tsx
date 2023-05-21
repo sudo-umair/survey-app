@@ -2,6 +2,7 @@ import { StyleSheet, Text, Pressable } from 'react-native';
 import React from 'react';
 import type { ISurveyComponentProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SurveyComponent: React.FC<ISurveyComponentProps> = ({
   title,
@@ -20,6 +21,14 @@ const SurveyComponent: React.FC<ISurveyComponentProps> = ({
       >
         {title}
       </Text>
+      {isSelected && (
+        <MaterialCommunityIcons
+          name='check'
+          size={24}
+          color={COLORS.WHITE}
+          style={styles.selectedIcon}
+        />
+      )}
     </Pressable>
   );
 };
@@ -35,6 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   selected: {
     backgroundColor: COLORS.SECONDARY,
@@ -42,5 +52,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     color: COLORS.WHITE,
+  },
+  selectedIcon: {
+    position: 'absolute',
+    right: 20,
   },
 });
