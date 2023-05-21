@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useMemo, useState } from 'react';
 import { IQuestionBoxProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import Container from '../ui/container';
@@ -16,14 +16,16 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
   item,
   onChange,
 }) => {
-  const radioOptions = item.options?.map((option) => ({
-    id: option,
-    label: option,
-    value: option,
-  }));
+  const radioOptions = useMemo(() => {
+    return item.options?.map((option) => ({
+      id: option,
+      label: option,
+      value: option,
+    }));
+  }, [item.options]);
 
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
-  const [selectedId, setSelectedId] = useState<string>();
+  const [selectedId, setSelectedId] = useState<string>('');
 
   return (
     <Fragment>
