@@ -2,8 +2,6 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
-import Acknowledgment from '@components/enumerator/section-a-screen/acknowledgment';
-import Container from '@components/ui/container';
 import type { IQuestion } from '@interfaces/common';
 import { SECTION_B_QUESTIONS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
@@ -19,14 +17,12 @@ const SectionBScreen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
 
   const onChange = (text: string, index: number) => {
-    const newQuestions = [...questions];
-    newQuestions[index].answer = text;
-    setQuestions(newQuestions);
+    setQuestions((prev) => {
+      const newQuestions = [...prev];
+      newQuestions[index].answer = text;
+      return newQuestions;
+    });
   };
-
-  useEffect(() => {
-    // console.log('questions', questions);
-  }, [questions]);
 
   const onPress = () => {
     // navigation.navigate(EnumeratorScreens.SectionC);
@@ -37,7 +33,10 @@ const SectionBScreen = ({
   };
 
   return (
-    <ScrollContainer contentContainerStyle={styles.rootContentContainer}>
+    <ScrollContainer
+      keyboardShouldPersistTaps='handled'
+      contentContainerStyle={styles.rootContentContainer}
+    >
       <Text style={styles.title}>Section B:Area and Respondent</Text>
       <FlatList
         data={questions}

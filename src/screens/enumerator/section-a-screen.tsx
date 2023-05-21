@@ -1,5 +1,5 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import Acknowledgment from '@components/enumerator/section-a-screen/acknowledgment';
@@ -11,28 +11,26 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionAScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
-import { useFocusEffect } from '@react-navigation/native';
 
 const SectionAScreen = ({
   navigation,
   route,
 }: IEnumeratorSectionAScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_A_QUESTIONS);
-  const [render, setRender] = useState(1);
 
   const onChange = (text: string, index: number) => {
-    const newQuestions = [...questions];
-    newQuestions[index].answer = text;
-    setQuestions(newQuestions);
+    setQuestions((prev) => {
+      const newQuestions = [...prev];
+      newQuestions[index].answer = text;
+      return newQuestions;
+    });
   };
 
   const onPress = () => {
-    console.log('questions', questions);
-    if (!checkAnswers()) {
-      alert('Please answer all the questions');
-      return;
-    }
-
+    // if (!checkAnswers()) {
+    //   alert('Please answer all the questions');
+    //   return;
+    // }
     navigation.navigate(EnumeratorScreens.SectionB);
   };
 
@@ -44,7 +42,10 @@ const SectionAScreen = ({
   };
 
   return (
-    <ScrollContainer contentContainerStyle={styles.rootContentContainer}>
+    <ScrollContainer
+      keyboardShouldPersistTaps='handled'
+      contentContainerStyle={styles.rootContentContainer}
+    >
       <Text style={styles.title}>
         Section A: Informed Consent Form and Identification
       </Text>
