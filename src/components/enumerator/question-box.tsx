@@ -8,6 +8,7 @@ import TextInput from '../ui/text-input';
 import RadioGroup from 'react-native-radio-buttons-group';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Button from '../ui/button';
+import { Picker } from '@react-native-picker/picker';
 import { dateFormatter, timeFormatter } from '@utils/formatters';
 import * as Haptics from 'expo-haptics';
 
@@ -89,7 +90,6 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             )}
           </Fragment>
         )}
-
         {(item.questionType === 'date' || item.questionType === 'time') && (
           <Button
             buttonStyle={styles.inputStyle}
@@ -105,6 +105,26 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             }}
           />
         )}
+        {item.questionType === 'picker' && (
+          <Picker
+            selectedValue={item.answer}
+            onValueChange={(itemValue) => onChange(itemValue, index)}
+            style={styles.inputStyle}
+            selectionColor={COLORS.PRIMARY}
+            dropdownIconColor={COLORS.PRIMARY}
+            dropdownIconRippleColor={COLORS.PRIMARY}
+            itemStyle={{ color: COLORS.PRIMARY, borderWidth: 2 }}
+          >
+            {item.options?.map((option) => (
+              <Picker.Item
+                key={option}
+                label={option}
+                value={option}
+                color={COLORS.PRIMARY}
+              />
+            ))}
+          </Picker>
+        )}
       </Container>
       {showDateTimePicker && (
         <RNDateTimePicker
@@ -114,7 +134,8 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
           onChange={(event, selectedDate) => {
             setShowDateTimePicker(false);
             if (selectedDate) {
-              onChange(selectedDate.toString(), index);
+              event.type === 'dismissed' && onChange('', index);
+              event.type === 'set' && onChange(selectedDate.toString(), index);
             }
           }}
           maximumDate={new Date()}
@@ -128,11 +149,11 @@ export default QuestionBox;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 5,
     borderColor: COLORS.PRIMARY,
     borderWidth: 1,
     borderRadius: 10,
-    marginVertical: 10,
+    marginBottom: 10,
   },
   question: {
     fontSize: FONT_SIZES.MEDIUM,
@@ -142,11 +163,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   inputStyle: {
-    marginHorizontal: 0,
-    marginBottom: 0,
+    marginHorizontal: 5,
   },
   radioGroupContainer: {
-    marginHorizontal: 0,
+    marginHorizontal: -5,
     marginBottom: 0,
     justifyContent: 'space-between',
     alignItems: 'flex-start',

@@ -33,3 +33,15 @@ export type IEnumeratorSectionBScreenProps = NativeStackScreenProps<
   EnumeratorScreens.SectionB,
   STACKS.ENUMERATOR
 >;
+
+export type IEnumeratorSectionCScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionDScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD,
+  STACKS.ENUMERATOR
+>;

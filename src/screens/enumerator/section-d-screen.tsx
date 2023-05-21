@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_B_QUESTIONS } from '@common/data';
+import { SECTION_D_QUESTIONS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
-import { IEnumeratorSectionBScreenProps } from '@interfaces/screens';
+import { IEnumeratorSectionDScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 
-const SectionBScreen = ({
+const SectionDScreen = ({
   navigation,
   route,
-}: IEnumeratorSectionBScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
+}: IEnumeratorSectionDScreenProps) => {
+  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D_QUESTIONS);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -25,11 +25,7 @@ const SectionBScreen = ({
   };
 
   const onPress = () => {
-    navigation.navigate(EnumeratorScreens.SectionC);
-    console.log(
-      'questions',
-      questions.find((q) => q.questionId === 'B8')
-    );
+    // navigation.navigate(EnumeratorScreens.SectionC);
   };
 
   return (
@@ -37,7 +33,7 @@ const SectionBScreen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>Section B: Area and Respondent</Text>
+      <Text style={styles.title}>Section D: Project Impact</Text>
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
@@ -52,7 +48,7 @@ const SectionBScreen = ({
   );
 };
 
-export default SectionBScreen;
+export default SectionDScreen;
 
 const styles = StyleSheet.create({
   rootContentContainer: {
