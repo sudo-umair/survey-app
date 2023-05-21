@@ -16,13 +16,14 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
   item,
   onChange,
 }) => {
-  const radioOptions = useMemo(() => {
-    return item.options?.map((option) => ({
-      id: option,
-      label: option,
-      value: option,
-    }));
-  }, [item.options]);
+  const radioOptions =
+    useMemo(() => {
+      return item.options?.map((option) => ({
+        id: option,
+        label: option,
+        value: option,
+      }));
+    }, [item.options]) ?? [];
 
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');

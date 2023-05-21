@@ -37,7 +37,7 @@ const SectionBScreen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>Section B:Area and Respondent</Text>
+      <Text style={styles.title}>Section B: Area and Respondent</Text>
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {

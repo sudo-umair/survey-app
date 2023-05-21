@@ -17,7 +17,7 @@ export interface IEnumerator {
 export interface IQuestion {
   questionId: string;
   question: string;
-  options: string[];
+  options?: string[];
   answer: string;
   questionType:
     | 'text'
