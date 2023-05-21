@@ -25,6 +25,7 @@ export interface IQuestion {
     | 'text-area'
     | 'radio'
     | 'radio-text'
+    | 'picker'
     | 'date'
     | 'time';
   keyboardType?: KeyboardType;
