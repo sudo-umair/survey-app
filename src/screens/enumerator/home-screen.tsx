@@ -7,6 +7,7 @@ import { COLORS } from '@common/colors';
 import SurveyComponent from '@components/enumerator/home-screen/survey-component';
 import Button from '@components/ui/button';
 import { SURVEY_COMPONENTS } from '@common/data';
+import { FONT_SIZES } from '@common/fonts';
 
 const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
   const [selectedComponents, setSelectedComponents] = useState<string[]>([]);
@@ -21,11 +22,12 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
 
   const onProceed = () => {
     console.log('selectedComponents', selectedComponents.sort());
+    navigation.navigate(EnumeratorScreens.SectionA);
   };
 
   return (
     <Container containerStyle={styles.rootContainer}>
-      <Text style={styles.title}>Select Component</Text>
+      <Text style={styles.title}>Select Components</Text>
       <SurveyComponent
         title='A'
         onPress={() => onPress(SURVEY_COMPONENTS.A)}
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 30,
+    fontSize: FONT_SIZES.TITLE,
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,

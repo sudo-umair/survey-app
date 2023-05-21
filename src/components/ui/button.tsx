@@ -2,6 +2,8 @@ import { StyleSheet, Text, ActivityIndicator, Pressable } from 'react-native';
 import React from 'react';
 import type { IButtonProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
+import { FONT_SIZES } from '@common/fonts';
+import * as Haptics from 'expo-haptics';
 
 const Button: React.FC<IButtonProps> = ({
   title,
@@ -11,10 +13,14 @@ const Button: React.FC<IButtonProps> = ({
   isLoading,
   disabled,
 }) => {
+  const onPressHandler = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+    onPress?.();
+  };
   return (
     <Pressable
       disabled={disabled}
-      onPress={onPress}
+      onPress={onPressHandler}
       style={({ pressed }) => [
         styles.container,
         buttonStyle,
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PRIMARY,
   },
   label: {
-    fontSize: 16,
+    fontSize: FONT_SIZES.LARGE,
     color: COLORS.WHITE,
   },
 });

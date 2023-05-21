@@ -2,6 +2,7 @@ import { StyleSheet, TextInput as Input } from 'react-native';
 import React from 'react';
 import { ITextInputProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
+import { FONT_SIZES } from '@common/fonts';
 
 const TextInput: React.FC<ITextInputProps> = ({
   value,
@@ -54,5 +55,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: COLORS.PRIMARY,
     borderWidth: 1,
+    fontSize: FONT_SIZES.MEDIUM,
   },
 });

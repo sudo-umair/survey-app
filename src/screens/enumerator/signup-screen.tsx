@@ -9,6 +9,7 @@ import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
 import { EnumeratorScreens } from '@common/screens';
+import { FONT_SIZES } from '@common/fonts';
 
 interface IEnumeratorRecord extends IEnumerator {
   confirmPassword: string;
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 30,
+    fontSize: FONT_SIZES.TITLE,
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
   },
   label: {
-    fontSize: 16,
+    fontSize: FONT_SIZES.LARGE,
     fontWeight: 'bold',
     marginHorizontal: 20,
     color: COLORS.PRIMARY,
@@ -211,7 +212,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   link: {
-    fontSize: 16,
+    fontSize: FONT_SIZES.MEDIUM,
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,
