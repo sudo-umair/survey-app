@@ -167,14 +167,16 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     question: 'Number of HH members currently earning: Male members',
     options: [],
     answer: '',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B14b',
     question: 'Number of HH members currently earning: Female members',
     options: [],
     answer: '',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B15',

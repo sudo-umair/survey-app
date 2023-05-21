@@ -67,6 +67,7 @@ const SectionAScreen = ({
         }}
         keyExtractor={(item) => item.questionId}
         scrollEnabled={false}
+        keyboardShouldPersistTaps='handled'
       />
       <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
