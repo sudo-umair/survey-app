@@ -1,3 +1,4 @@
+import type { KeyboardType } from 'react-native/types';
 export interface IEnumerator {
   id?: string;
   firstName: string;
@@ -24,9 +25,9 @@ export interface IQuestion {
     | 'text-area'
     | 'radio'
     | 'radio-text'
-    | 'checkbox'
     | 'date'
     | 'time';
+  keyboardType?: KeyboardType;
 }
 
 export interface IMonths {

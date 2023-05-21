@@ -88,6 +88,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     options: [],
     answer: '',
     questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B7',
@@ -109,6 +110,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     options: [],
     answer: '',
     questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B10',
@@ -135,6 +137,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     options: [],
     answer: '',
     questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B12a',
@@ -142,6 +145,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     options: [],
     answer: '',
     questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B12b',
@@ -149,6 +153,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     options: [],
     answer: '',
     questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'B13',
@@ -196,5 +201,6 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     ],
     answer: '',
     questionType: 'radio-text',
+    keyboardType: 'numeric',
   },
 ];

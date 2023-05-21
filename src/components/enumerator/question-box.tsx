@@ -43,9 +43,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             value={item.answer}
             autoFocus={index === 0}
             autoCapitalize={'words'}
-            keyboardType={
-              item.questionType === 'number' ? 'numeric' : 'default'
-            }
+            keyboardType={item.keyboardType ?? 'default'}
             multiline={item.questionType === 'text-area'}
             numberOfLines={item.questionType === 'text-area' ? 2 : 1}
           />
@@ -84,7 +82,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
                 value={item.answer}
                 onChangeText={(text) => onChange(text, index)}
                 inputStyle={styles.inputStyle}
-                keyboardType={'default'}
+                keyboardType={item.keyboardType ?? 'default'}
                 autoCapitalize='words'
               />
             )}
