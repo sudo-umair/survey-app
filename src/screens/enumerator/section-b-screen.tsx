@@ -26,10 +26,6 @@ const SectionBScreen = ({
 
   const onPress = () => {
     navigation.navigate(EnumeratorScreens.SectionC);
-    console.log(
-      'questions',
-      questions.find((q) => q.questionId === 'B8')
-    );
   };
 
   return (

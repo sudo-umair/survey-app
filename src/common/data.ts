@@ -244,9 +244,9 @@ export const SECTION_C_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C3',
     question: 'What was the source of irrigation before HEIS?',
-    options: ['Canal irrigation', ' Barani/Rainfed', 'Other (Specify)'],
+    options: ['Canal irrigation', 'Barani/Rainfed', 'Other (Specify)'],
     answer: '',
-    questionType: 'radio',
+    questionType: 'radio-text',
   },
   {
     questionId: 'C4',
@@ -264,10 +264,10 @@ export const SECTION_C_QUESTIONS: IQuestion[] = [
       'Pivot irrigation',
       'Rain Gun irrigation',
       'Landscape irrigation',
-      'Other (specify)',
+      'Other (Specify)',
     ],
     answer: '',
-    questionType: 'radio',
+    questionType: 'radio-text',
   },
   {
     questionId: 'C6',
@@ -292,7 +292,7 @@ export const SECTION_C_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C9',
     question: 'How was the quality of HEIS?',
-    options: ['Best', 'Very good', '3. Good', '4. Average', '5. Below Average'],
+    options: ['Best', 'Very good', 'Good', 'Average', 'Below Average'],
     answer: '',
     questionType: 'radio',
   },
@@ -320,7 +320,7 @@ export const SECTION_C_QUESTIONS: IQuestion[] = [
     questionId: 'C13',
     question:
       'Have you received any training of maintenance, operating and troubleshooting?',
-    options: ['1. Yes', '2. No'],
+    options: ['Yes', 'No'],
     answer: '',
     questionType: 'radio',
   },
