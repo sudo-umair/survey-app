@@ -6,4 +6,7 @@ export enum EnumeratorScreens {
   SectionB = 'SectionB',
   SectionC = 'SectionC',
   SectionD = 'SectionD',
+  ComponentA = 'ComponentA',
+  ComponentB = 'ComponentB',
+  ComponentC = 'ComponentC',
 }

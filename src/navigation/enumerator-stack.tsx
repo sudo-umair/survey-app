@@ -12,6 +12,9 @@ import SectionAScreen from '@screens/enumerator/section-a-screen';
 import SectionBScreen from '@screens/enumerator/section-b-screen';
 import SectionCScreen from '@screens/enumerator/section-c-screen';
 import SectionDScreen from '@screens/enumerator/section-d-screen';
+import ComponentAScreen from '@screens/enumerator/component-a-screen';
+import ComponentBScreen from '@screens/enumerator/component-b-screen';
+import ComponentCScreen from '@screens/enumerator/component-c-screen';
 
 const Stack = createNativeStackNavigator<IEnumeratorStackParamList>();
 
@@ -26,10 +29,15 @@ const EnumeratorStack = () => {
       <Stack.Screen name={Screens.Login} component={LoginScreen} />
       <Stack.Screen name={Screens.SignUp} component={SignupScreen} />
       <Stack.Screen name={Screens.Home} component={HomeScreen} />
+      {/* Sections */}
       <Stack.Screen name={Screens.SectionA} component={SectionAScreen} />
       <Stack.Screen name={Screens.SectionB} component={SectionBScreen} />
       <Stack.Screen name={Screens.SectionC} component={SectionCScreen} />
       <Stack.Screen name={Screens.SectionD} component={SectionDScreen} />
+      {/* Components */}
+      <Stack.Screen name={Screens.ComponentA} component={ComponentAScreen} />
+      <Stack.Screen name={Screens.ComponentB} component={ComponentBScreen} />
+      <Stack.Screen name={Screens.ComponentC} component={ComponentCScreen} />
     </Stack.Navigator>
   );
 };

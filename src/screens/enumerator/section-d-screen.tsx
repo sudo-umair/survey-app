@@ -25,7 +25,7 @@ const SectionDScreen = ({
   };
 
   const onPress = () => {
-    // navigation.navigate(EnumeratorScreens.SectionC);
+    navigation.navigate(EnumeratorScreens.ComponentA);
   };
 
   return (
