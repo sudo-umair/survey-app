@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text } from 'react-native';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
@@ -20,6 +20,17 @@ const SectionBScreen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
+
+      // calculate female members on bases of total members minus male members
+      if (index === 12) {
+        const totalMembers = Number(questions[11].answer);
+        const maleMembers = Number(questions[12].answer);
+        if (totalMembers > maleMembers) {
+          newQuestions[13].answer = (totalMembers - maleMembers).toString();
+        } else {
+          newQuestions[index].answer = '';
+        }
+      }
       return newQuestions;
     });
   };
