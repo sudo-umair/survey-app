@@ -12,7 +12,8 @@ const ComponentCScreen = ({
   route,
 }: IEnumeratorComponentCScreenProps) => {
   const onPress = () => {
-    navigation.navigate(EnumeratorScreens.ComponentB);
+    // navigation.navigate(EnumeratorScreens.ComponentB);
+    alert('Survey submitted!');
   };
 
   return (
