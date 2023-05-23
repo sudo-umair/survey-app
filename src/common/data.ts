@@ -80,7 +80,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     questionId: 'B1',
     question: 'District',
     options: districtsInSindh.sort(),
-    answer: '',
+    answer: districtsInSindh.sort()[0],
     questionType: 'picker',
   },
   {
@@ -92,7 +92,6 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B3',
     question: 'Union Council',
-
     answer: '',
     questionType: 'text',
   },
