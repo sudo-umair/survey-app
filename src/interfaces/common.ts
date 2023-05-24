@@ -16,7 +16,7 @@ export interface IQuestion {
   questionId: string;
   question: string;
   options?: string[];
-  answer: string | Date;
+  answer: string;
   questionType:
     | 'text'
     | 'number'

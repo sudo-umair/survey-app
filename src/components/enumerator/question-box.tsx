@@ -94,11 +94,9 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
           <Button
             buttonStyle={styles.inputStyle}
             title={
-              item.answer === ''
-                ? `Select ${item.questionType === 'time' ? 'Time' : 'Date'}`
-                : item.questionType === 'time'
-                ? timeFormatter(new Date(item.answer))
-                : dateFormatter(new Date(item.answer))
+              item.questionType === 'date'
+                ? dateFormatter(item.answer)
+                : timeFormatter(item.answer)
             }
             onPress={() => {
               setShowDateTimePicker(true);
@@ -111,7 +109,6 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             mode='dropdown'
             onValueChange={(itemValue) => onChange(itemValue, index)}
             style={styles.inputStyle}
-            selectionColor={COLORS.PRIMARY}
             dropdownIconColor={COLORS.PRIMARY}
             dropdownIconRippleColor={COLORS.PRIMARY}
             itemStyle={{ color: COLORS.PRIMARY, borderWidth: 2 }}

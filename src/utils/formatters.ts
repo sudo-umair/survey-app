@@ -7,7 +7,8 @@ export const CnicFormatter = (cnic: string) => {
   return cnic;
 };
 
-export const dateFormatter = (date: Date) => {
+export const dateFormatter = (dateStr: string) => {
+  const date = new Date(dateStr);
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
@@ -15,7 +16,8 @@ export const dateFormatter = (date: Date) => {
   return strDate;
 };
 
-export const timeFormatter = (date: Date) => {
+export const timeFormatter = (dateStr: string) => {
+  const date = new Date(dateStr);
   let hours = date.getHours();
   const minutes = date.getMinutes();
   const ampm = hours >= 12 ? 'PM' : 'AM';

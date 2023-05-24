@@ -64,13 +64,13 @@ export const SECTION_A_QUESTIONS: IQuestion[] = [
   {
     questionId: 'A4',
     question: 'Date of interview: (Day-Month-Year)',
-    answer: new Date(),
+    answer: new Date().toISOString(),
     questionType: 'date',
   },
   {
     questionId: 'A5',
     question: 'Start time of interview: (AM/PM)',
-    answer: new Date(),
+    answer: new Date().toISOString(),
     questionType: 'time',
   },
 ];
