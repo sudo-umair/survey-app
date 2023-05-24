@@ -1,6 +1,4 @@
 export enum EnumeratorScreens {
-  SignUp = 'SignUp',
-  Login = 'Login',
   Home = 'Home',
   SectionA = 'SectionA',
   SectionB = 'SectionB',
@@ -9,4 +7,14 @@ export enum EnumeratorScreens {
   ComponentA = 'ComponentA',
   ComponentB = 'ComponentB',
   ComponentC = 'ComponentC',
+}
+
+export enum AdminScreens {
+  Home = 'Home',
+}
+
+export enum AuthScreens {
+  SignUp = 'SignUp',
+  Login = 'Login',
+  ChooseRole = 'ChooseRole',
 }

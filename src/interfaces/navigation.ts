@@ -1,13 +1,22 @@
 // Type definitions for navigation
-import { EnumeratorScreens } from '@common/screens';
+import { EnumeratorScreens, AuthScreens, AdminScreens } from '@common/screens';
+
+// AuthStackParamList
+export type IAuthStackParamList = {
+  [AuthScreens.ChooseRole]: undefined;
+  [AuthScreens.Login]: {
+    role: 'enumerator' | 'admin';
+  };
+  [AuthScreens.SignUp]: undefined;
+};
 
 // AdminStackParamList
-export type IAdminStackParamList = {};
+export type IAdminStackParamList = {
+  [AdminScreens.Home]: undefined;
+};
 
 // EnumeratorStackParamList
 export type IEnumeratorStackParamList = {
-  [EnumeratorScreens.SignUp]: undefined;
-  [EnumeratorScreens.Login]: undefined;
   [EnumeratorScreens.Home]: undefined;
   [EnumeratorScreens.SectionA]: undefined;
   [EnumeratorScreens.SectionB]: undefined;

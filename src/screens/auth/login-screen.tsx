@@ -1,27 +1,34 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import type { IEnumeratorLoginScreenProps } from '@interfaces/screens';
+import type { IAuthLoginScreenProps } from '@interfaces/screens';
 import TextInput from '@components/ui/text-input';
 import { COLORS } from '@common/colors';
 import ScrollContainer from '@components/ui/scroll-container';
 import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
-import { EnumeratorScreens } from '@common/screens';
+import { AuthScreens } from '@common/screens';
 import { FONT_SIZES } from '@common/fonts';
+import { useAppDispatch } from '@redux/store';
+import { STACKS } from '@common/stacks';
+import { setRole } from '@redux/user-reducer';
 
 interface IEnumeratorRecord {
   email: string;
   password: string;
 }
 
-const LoginScreen = ({ navigation, route }: IEnumeratorLoginScreenProps) => {
+const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
   const [record, setRecord] = useState<IEnumeratorRecord>({
     email: '',
     password: '',
   });
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const role = route.params?.role;
+
+  const dispatch = useAppDispatch();
 
   const onChangeText = (text: string, key: keyof typeof record) => {
     setRecord((prevState) => ({
@@ -30,8 +37,12 @@ const LoginScreen = ({ navigation, route }: IEnumeratorLoginScreenProps) => {
     }));
   };
 
+  const goToSignUpScreen = () => {
+    navigation.navigate(AuthScreens.SignUp);
+  };
+
   const onSubmit = () => {
-    navigation.navigate(EnumeratorScreens.Home);
+    dispatch(setRole(role));
   };
 
   const checkInputs = () => {};
@@ -42,7 +53,9 @@ const LoginScreen = ({ navigation, route }: IEnumeratorLoginScreenProps) => {
       containerStyle={styles.rootContainer}
       keyboardShouldPersistTaps='handled'
     >
-      <Text style={styles.title}>Log In</Text>
+      <Text style={styles.title}>
+        {role === 'admin' ? 'Admin' : 'Enumerator'} Login
+      </Text>
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -85,12 +98,11 @@ const LoginScreen = ({ navigation, route }: IEnumeratorLoginScreenProps) => {
         </View>
       </View>
       <Button onPress={onSubmit} title='Log In' />
-      <Text
-        onPress={() => navigation.navigate(EnumeratorScreens.SignUp)}
-        style={styles.link}
-      >
-        Not a user?
-      </Text>
+      {role === 'enumerator' && (
+        <Text onPress={goToSignUpScreen} style={styles.link}>
+          Not a user?
+        </Text>
+      )}
     </ScrollContainer>
   );
 };
