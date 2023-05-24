@@ -47,6 +47,7 @@ export interface IButtonProps {
   children?: ReactNode;
   disabled?: boolean;
   dynamic?: boolean;
+  haptics?: boolean;
 }
 
 // Enumerator Screens Components
