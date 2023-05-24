@@ -39,13 +39,14 @@ export interface ITextInputProps {
 }
 
 export interface IButtonProps {
-  title: string;
+  title?: string;
   onPress?: () => void;
   buttonStyle?: ViewStyle | ViewStyle[];
   buttonTextStyle?: TextStyle | TextStyle[];
   isLoading?: boolean;
   children?: ReactNode;
   disabled?: boolean;
+  dynamic?: boolean;
 }
 
 // Enumerator Screens Components

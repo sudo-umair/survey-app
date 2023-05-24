@@ -13,6 +13,7 @@ const Button: React.FC<IButtonProps> = ({
   isLoading,
   disabled,
   children,
+  dynamic = true,
 }) => {
   const onPressHandler = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
@@ -26,7 +27,7 @@ const Button: React.FC<IButtonProps> = ({
         styles.container,
         buttonStyle,
         disabled && styles.disabled,
-        pressed && styles.pressed,
+        pressed && dynamic && styles.pressed,
       ]}
     >
       {isLoading ? (
@@ -34,7 +35,9 @@ const Button: React.FC<IButtonProps> = ({
       ) : (
         <Fragment>
           {children && children}
-          <Text style={[styles.label, buttonTextStyle]}>{title}</Text>
+          <Text style={[styles.label, buttonTextStyle]}>
+            {title ?? 'Button'}
+          </Text>
         </Fragment>
       )}
     </Pressable>

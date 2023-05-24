@@ -1,26 +1,54 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import type { IAdminHomeScreenProps } from '@interfaces/screens';
 import Container from '@components/ui/container';
 import { COLORS } from '@common/colors';
 import Button from '@components/ui/button';
 import { FONT_SIZES } from '@common/fonts';
+import { AdminScreens } from '@common/screens';
 
 const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
-  const onProceed = () => {
-    console.log('Proceed');
-  };
+  const goToUsersList = () => navigation.navigate(AdminScreens.UsersList);
+
+  const goToSurveysList = () => navigation.navigate(AdminScreens.SurveysList);
 
   return (
     <Container containerStyle={styles.rootContainer}>
-      <Text style={styles.title}>Admin Home</Text>
-
-      <Button
-        title='Proceed'
-        onPress={onProceed}
-        buttonStyle={styles.button}
-        buttonTextStyle={{ color: COLORS.WHITE }}
-      />
+      <Text style={styles.title}>Stats</Text>
+      <View style={styles.row}>
+        <Button
+          title={`Users\n${20}`}
+          onPress={goToUsersList}
+          buttonStyle={styles.rowButton}
+          buttonTextStyle={styles.buttonText}
+        />
+        <Button
+          title={`Surveys\n${30}`}
+          onPress={goToSurveysList}
+          buttonStyle={styles.rowButton}
+          buttonTextStyle={styles.buttonText}
+        />
+      </View>
+      <View>
+        <Button
+          title={`Component A: ${33}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+        />
+        <Button
+          title={`Component B: ${33}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+        />
+        <Button
+          title={`Component C: ${33}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+        />
+      </View>
     </Container>
   );
 };
@@ -29,7 +57,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    paddingVertical: 10,
+    padding: 10,
   },
   title: {
     fontSize: FONT_SIZES.TITLE,
@@ -39,10 +67,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  button: {
-    position: 'absolute',
-    bottom: 10,
-    left: 0,
-    right: 0,
+  row: {
+    flexDirection: 'row',
+    gap: 5,
+    marginBottom: 20,
+  },
+  rowButton: {
+    width: '40%',
+    aspectRatio: 1,
+  },
+  colButton: {
+    marginBottom: 20,
+    height: 80,
+  },
+  buttonText: {
+    fontSize: FONT_SIZES.EXTRA_LARGE,
+    textAlign: 'center',
   },
 });

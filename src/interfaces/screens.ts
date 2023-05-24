@@ -33,6 +33,18 @@ export type IAdminHomeScreenProps = NativeStackScreenProps<
   STACKS.ADMIN
 >;
 
+export type IAdminUsersListScreenProps = NativeStackScreenProps<
+  IAdminStackParamList,
+  AdminScreens.UsersList,
+  STACKS.ADMIN
+>;
+
+export type IAdminSurveysListScreenProps = NativeStackScreenProps<
+  IAdminStackParamList,
+  AdminScreens.SurveysList,
+  STACKS.ADMIN
+>;
+
 // Enumerator Screens
 export type IEnumeratorHomeScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,

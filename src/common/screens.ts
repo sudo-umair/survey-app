@@ -11,6 +11,8 @@ export enum EnumeratorScreens {
 
 export enum AdminScreens {
   Home = 'Home',
+  UsersList = 'UsersList',
+  SurveysList = 'SurveysList',
 }
 
 export enum AuthScreens {
