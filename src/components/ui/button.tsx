@@ -1,5 +1,5 @@
 import { StyleSheet, Text, ActivityIndicator, Pressable } from 'react-native';
-import React from 'react';
+import React, { Fragment } from 'react';
 import type { IButtonProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import { FONT_SIZES } from '@common/fonts';
@@ -12,6 +12,7 @@ const Button: React.FC<IButtonProps> = ({
   onPress,
   isLoading,
   disabled,
+  children,
 }) => {
   const onPressHandler = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
@@ -31,7 +32,10 @@ const Button: React.FC<IButtonProps> = ({
       {isLoading ? (
         <ActivityIndicator size='small' color='white' />
       ) : (
-        <Text style={[styles.label, buttonTextStyle]}>{title}</Text>
+        <Fragment>
+          {children && children}
+          <Text style={[styles.label, buttonTextStyle]}>{title}</Text>
+        </Fragment>
       )}
     </Pressable>
   );

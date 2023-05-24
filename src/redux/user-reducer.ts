@@ -56,6 +56,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { setAdmin, setEnumerator, removeUser } = userSlice.actions;
+export const { setAdmin, setEnumerator, removeUser, clearRole, setRole } =
+  userSlice.actions;
 
 export default userSlice.reducer;

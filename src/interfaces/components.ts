@@ -44,6 +44,7 @@ export interface IButtonProps {
   buttonStyle?: ViewStyle | ViewStyle[];
   buttonTextStyle?: TextStyle | TextStyle[];
   isLoading?: boolean;
+  children?: ReactNode;
   disabled?: boolean;
 }
 
