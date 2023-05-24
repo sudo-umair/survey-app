@@ -2,5 +2,7 @@ export enum FONT_SIZES {
   SMALL = 12,
   MEDIUM = 14,
   LARGE = 16,
+  EXTRA_LARGE = 18,
+  EXTRA_EXTRA_LARGE = 20,
   TITLE = 30,
 }
