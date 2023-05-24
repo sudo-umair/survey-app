@@ -14,9 +14,10 @@ const Button: React.FC<IButtonProps> = ({
   disabled,
   children,
   dynamic = true,
+  haptics = true,
 }) => {
   const onPressHandler = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+    if (haptics) Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     onPress?.();
   };
   return (
