@@ -1,17 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React, { useState } from 'react';
 import type { IAuthLoginScreenProps } from '@interfaces/screens';
 import TextInput from '@components/ui/text-input';
 import { COLORS } from '@common/colors';
 import ScrollContainer from '@components/ui/scroll-container';
-import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
 import { AuthScreens } from '@common/screens';
 import { FONT_SIZES } from '@common/fonts';
 import { useAppDispatch } from '@redux/store';
-import { STACKS } from '@common/stacks';
 import { setRole } from '@redux/user-reducer';
+import Logo from '@assets/images/logo.png';
 
 interface IEnumeratorRecord {
   email: string;
@@ -56,6 +55,13 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
       <Text style={styles.title}>
         {role === 'admin' ? 'Admin' : 'Enumerator'} Login
       </Text>
+
+      <Image
+        source={Logo}
+        resizeMode='contain'
+        resizeMethod='auto'
+        style={styles.logo}
+      />
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -121,6 +127,13 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY,
     marginTop: 10,
     marginBottom: 20,
+  },
+  logo: {
+    width: '100%',
+    height: 250,
+    aspectRatio: 1,
+    alignSelf: 'center',
+    marginVertical: -30,
   },
   inputContainer: {
     marginVertical: 3,
