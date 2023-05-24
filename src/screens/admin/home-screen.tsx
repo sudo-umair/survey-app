@@ -9,7 +9,6 @@ import { AdminScreens } from '@common/screens';
 
 const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
   const goToUsersList = () => navigation.navigate(AdminScreens.UsersList);
-
   const goToSurveysList = () => navigation.navigate(AdminScreens.SurveysList);
 
   return (
@@ -18,9 +17,10 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
       <View style={styles.row}>
         <Button
           title={`Users\n${20}`}
-          onPress={goToUsersList}
           buttonStyle={styles.rowButton}
           buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
         />
         <Button
           title={`Surveys\n${30}`}
@@ -35,20 +35,28 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
+          haptics={false}
         />
         <Button
           title={`Component B: ${33}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
+          haptics={false}
         />
         <Button
           title={`Component C: ${33}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
+          haptics={false}
         />
       </View>
+      <Button
+        title='Manage Users'
+        onPress={goToUsersList}
+        buttonStyle={[styles.colButton, styles.bottomContainer]}
+      />
     </Container>
   );
 };
@@ -83,5 +91,12 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: FONT_SIZES.EXTRA_LARGE,
     textAlign: 'center',
+  },
+  bottomContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 50,
   },
 });
