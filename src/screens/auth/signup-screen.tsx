@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import type { IEnumeratorSignupScreenProps } from '@interfaces/screens';
+import type { IAuthSignupScreenProps } from '@interfaces/screens';
 import TextInput from '@components/ui/text-input';
 import { COLORS } from '@common/colors';
 import { IEnumerator } from '@interfaces/common';
@@ -8,15 +8,15 @@ import ScrollContainer from '@components/ui/scroll-container';
 import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
-import { EnumeratorScreens } from '@common/screens';
+import { AuthScreens, EnumeratorScreens } from '@common/screens';
 import { FONT_SIZES } from '@common/fonts';
 
-interface IEnumeratorRecord extends IEnumerator {
+interface IRecord extends IEnumerator {
   confirmPassword: string;
 }
 
-const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
-  const [record, setRecord] = useState<IEnumeratorRecord>({
+const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
+  const [record, setRecord] = useState<IRecord>({
     enumeratorId: '',
     firstName: '',
     lastName: '',
@@ -39,8 +39,13 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
   };
 
   const onSubmit = () => {
-    navigation.navigate(EnumeratorScreens.Login);
+    goToLoginScreen();
   };
+
+  const goToLoginScreen = () =>
+    navigation.navigate(AuthScreens.Login, {
+      role: 'enumerator',
+    });
 
   const checkInputs = () => {};
 
@@ -163,10 +168,7 @@ const SignupScreen = ({ navigation, route }: IEnumeratorSignupScreenProps) => {
         />
       </View>
       <Button onPress={onSubmit} title='Sign Up' />
-      <Text
-        onPress={() => navigation.navigate(EnumeratorScreens.Login)}
-        style={styles.link}
-      >
+      <Text onPress={goToLoginScreen} style={styles.link}>
         Already a user?
       </Text>
     </ScrollContainer>

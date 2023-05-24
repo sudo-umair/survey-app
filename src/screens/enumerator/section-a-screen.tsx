@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text } from 'react-native';
 import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
-import Acknowledgment from '@components/enumerator/section-a-screen/acknowledgment';
+import Acknowledgment from '@components/enumerator/acknowledgment';
 import Container from '@components/ui/container';
 import type { IQuestion } from '@interfaces/common';
 import { SECTION_A_QUESTIONS } from '@common/data';

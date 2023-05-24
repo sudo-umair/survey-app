@@ -4,7 +4,7 @@ import type { IEnumeratorHomeScreenProps } from '@interfaces/screens';
 import Container from '@components/ui/container';
 import { EnumeratorScreens } from '@common/screens';
 import { COLORS } from '@common/colors';
-import SurveyComponent from '@components/enumerator/home-screen/survey-component';
+import SurveyComponent from '@components/enumerator/survey-component';
 import Button from '@components/ui/button';
 import { SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';

@@ -1,6 +1,5 @@
 import type { KeyboardType } from 'react-native/types';
 export interface IEnumerator {
-  id: string;
   firstName: string;
   lastName: string;
   email: string;

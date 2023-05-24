@@ -12,9 +12,9 @@ const AppNavigator = () => {
 
   const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   dispatch(clearRole());
-  // }, []);
+  useEffect(() => {
+    dispatch(clearRole());
+  }, []);
 
   return (
     <NavigationContainer>
