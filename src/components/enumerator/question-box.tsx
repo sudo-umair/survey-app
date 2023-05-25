@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { Fragment, useMemo, useState } from 'react';
 import { IQuestionBoxProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
@@ -9,6 +9,7 @@ import RadioGroup from 'react-native-radio-buttons-group';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Button from '../ui/button';
 import { Picker } from '@react-native-picker/picker';
+import Checkbox from 'expo-checkbox';
 import { dateFormatter, timeFormatter } from '@utils/formatters';
 import * as Haptics from 'expo-haptics';
 
@@ -28,6 +29,31 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
 
   const [showDateTimePicker, setShowDateTimePicker] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
+
+  const onCheckBoxPress = (option: string) => {
+    Haptics.selectionAsync();
+    const newAnswer = item.answer ? item.answer.split(',') : [];
+    if (newAnswer.includes(option)) {
+      const index = newAnswer.indexOf(option);
+      if (index > -1) {
+        newAnswer.splice(index, 1);
+      }
+    } else {
+      newAnswer.push(option);
+    }
+    onChange(newAnswer.join(','), index);
+  };
+
+  // for questionType = radio-text
+  const onRadioButtonPress = (text: string) => {
+    setSelectedId(text);
+    if (text.toLowerCase() === 'Other (Specify)'.toLowerCase()) {
+      onChange('', index);
+    } else {
+      onChange(text, index);
+    }
+    Haptics.selectionAsync();
+  };
 
   return (
     <Fragment>
@@ -67,15 +93,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             <RadioGroup
               containerStyle={styles.radioGroupContainer}
               radioButtons={radioOptions}
-              onPress={(text) => {
-                setSelectedId(text);
-                if (text.toLowerCase() === 'Other (Specify)'.toLowerCase()) {
-                  onChange('', index);
-                } else {
-                  onChange(text, index);
-                }
-                Haptics.selectionAsync();
-              }}
+              onPress={(text) => onRadioButtonPress(text)}
               selectedId={selectedId === '' ? item.answer : selectedId}
               layout='column'
             />
@@ -98,9 +116,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
                 ? dateFormatter(item.answer)
                 : timeFormatter(item.answer)
             }
-            onPress={() => {
-              setShowDateTimePicker(true);
-            }}
+            onPress={() => setShowDateTimePicker(true)}
           />
         )}
         {item.questionType === 'picker' && (
@@ -122,6 +138,68 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
               />
             ))}
           </Picker>
+        )}
+        {item.questionType === 'checkbox' && (
+          <View style={styles.checkboxContainer}>
+            {item.options?.map((option, optionIndex) => (
+              <View style={styles.checkboxRow} key={optionIndex}>
+                <Checkbox
+                  style={styles.checkbox}
+                  key={optionIndex}
+                  value={item.answer?.includes(option) ?? false}
+                  color={COLORS.PRIMARY}
+                  onValueChange={() => onCheckBoxPress(option)}
+                />
+                <Text
+                  onPress={() => onCheckBoxPress(option)}
+                  style={styles.checkboxText}
+                >
+                  {option}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
+        {item.questionType === 'checkbox-text' && (
+          <View style={styles.checkboxContainer}>
+            <Fragment>
+              {item.options?.map((option, optionIndex) => (
+                <View style={styles.checkboxRow} key={optionIndex}>
+                  <Checkbox
+                    style={styles.checkbox}
+                    key={optionIndex}
+                    value={item.answer?.includes(option) ?? false}
+                    color={COLORS.PRIMARY}
+                    onValueChange={() => onCheckBoxPress(option)}
+                  />
+                  <Text
+                    onPress={() => onCheckBoxPress(option)}
+                    style={styles.checkboxText}
+                  >
+                    {option}
+                  </Text>
+                </View>
+              ))}
+              {item.answer.includes('Other (Specify)') && (
+                <TextInput
+                  value={item.answer
+                    .split(',')
+                    .filter((x) => item.options?.includes(x) === false)
+                    .join(',')}
+                  onChangeText={(text) => {
+                    const newAnswer = item.answer
+                      .split(',')
+                      .filter((x) => item.options?.includes(x));
+                    newAnswer.push(text);
+                    onChange(newAnswer.join(','), index);
+                  }}
+                  inputStyle={styles.inputStyle}
+                  keyboardType={item.keyboardType ?? 'default'}
+                  autoCapitalize='words'
+                />
+              )}
+            </Fragment>
+          </View>
         )}
       </Container>
       {showDateTimePicker && (
@@ -168,5 +246,19 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+  },
+  checkboxContainer: {
+    marginHorizontal: 5,
+  },
+  checkboxRow: {
+    flexDirection: 'row',
+  },
+  checkbox: {
+    marginVertical: 5,
+  },
+  checkboxText: {
+    fontSize: FONT_SIZES.MEDIUM,
+    marginVertical: 5,
+    marginLeft: 15,
   },
 });
