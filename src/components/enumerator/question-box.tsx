@@ -210,7 +210,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
           onChange={(event, selectedDate) => {
             setShowDateTimePicker(false);
             if (selectedDate) {
-              event.type === 'dismissed' && onChange('', index);
+              // event.type === 'dismissed' && onChange('', index);
               event.type === 'set' && onChange(selectedDate.toString(), index);
             }
           }}
