@@ -1,9 +1,8 @@
 import { IQuestion } from '@interfaces/common';
 
 export enum SURVEY_COMPONENTS {
-  A = 'A',
-  B = 'B',
-  C = 'C',
+  A = 'High Efficiency irrigation system',
+  B = 'Kitchen Gardening',
 }
 
 const districtsInSindh = [
@@ -225,7 +224,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   },
 ];
 
-export const SECTION_C_QUESTIONS: IQuestion[] = [
+export const SECTION_C1_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C1',
     question: 'Do you know about HEIS?',
@@ -364,7 +363,7 @@ export const SECTION_C_QUESTIONS: IQuestion[] = [
   },
 ];
 
-export const SECTION_D_QUESTIONS: IQuestion[] = [
+export const SECTION_D1_QUESTIONS: IQuestion[] = [
   {
     questionId: 'D1',
     question: 'The impact of HEIS on soil erosion',
@@ -431,5 +430,259 @@ export const SECTION_D_QUESTIONS: IQuestion[] = [
     ],
     answer: '',
     questionType: 'radio',
+  },
+];
+
+export const SECTION_C2_QUESTIONS: IQuestion[] = [
+  {
+    questionId: 'C1',
+    question: 'Why do you think to go for KG?',
+    options: [
+      'I like agriculture',
+      'Due to family circumstances',
+      'I was convinced by the family for KG',
+      'I was convinced by project staff',
+      'Other (specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'C2',
+    question: 'Did you receive support from SIAPEP project?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C3',
+    question: 'Have you received these items? (Multiple choice, if applicable)',
+    options: [
+      '1. Low-cost drip kit-one set',
+      '2. Seeds/seedlings/samplings for 6 seasons',
+      '3. Micro and macro fertilizers for seasons',
+      '4. Toolkit',
+      '5. Training of farmers for 3 seasons during one year time',
+      '6. Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'checkbox-text',
+  },
+  {
+    questionId: 'C4',
+    question: 'For how long did you manage the KG?',
+    options: [
+      'More than 1 year',
+      'One year',
+      'Six months',
+      'Three months',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'C5',
+    question: 'How did you manage water supply for KG?',
+    options: ['Own source', 'Shared source', 'Other (Specify)'],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'C6',
+    question: 'How was the quality of these items?',
+    options: ['Best', 'Very good', 'Good', 'Average', 'Below Average'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C7',
+    question: 'Are you a member of the watercourse association?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C8',
+    question: 'Land size on which intervention made',
+    options: ['20 X 20 ft.', 'Bigger than above size', 'Other (Specify)'],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'C9',
+    question: 'Do you own the land of KG?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C10',
+    question: 'Who cared for KG?',
+    options: [
+      'Myself',
+      'Husband',
+      'Father',
+      'Family members',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'C11',
+    question: 'Was the KG land shared with others?',
+    options: ['Yes', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C12',
+    question: 'Vegetables under kitchen Garden',
+    options: [
+      'Potato',
+      'Onion',
+      'Spinach',
+      'Coordinator',
+      'Cabbage',
+      'Chili',
+      'Okra',
+      'Turaee',
+      'Baby pumpkin',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'checkbox-text',
+  },
+  {
+    questionId: 'C13',
+    question: 'Fruits under kitchen Garden',
+    options: [
+      'Lyfango',
+      'Guava',
+      'Lemon',
+      'Melon',
+      'Watermelon',
+      'Kino',
+      'Banana',
+      'Jaman',
+      'Pomegranate',
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'checkbox-text',
+  },
+  {
+    questionId: 'C14',
+    question: 'Do you sell the products in the market?',
+    options: ['Yes', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C14a',
+    question: 'If yes, how much do you earn?',
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'C15',
+    question: 'Does this contribute to your income? ',
+    options: ['Yes', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C15a',
+    question: 'If yes, then how much?',
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'C16',
+    question: 'Has this improved the health of your family members?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C17',
+    question: 'The installation of KG kits was completed by the company?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'C17a',
+    question: 'Name of the company?',
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'C18',
+    question: 'Did you receive agronomical training?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+];
+
+export const SECTION_D2_QUESTIONS: IQuestion[] = [
+  {
+    questionId: 'D1',
+    question:
+      'Did this project contribute to the promotion of your leadership skills?',
+    options: [
+      'Strongly agree',
+      'Agree',
+      'Neutral',
+      'Disagree',
+      'Strongly disagree',
+    ],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'D2',
+    question:
+      'Did this project enhance your ability to solve financial problems?',
+    options: [
+      '1. Strongly agree',
+      '2. Agree',
+      '3. Neutral',
+      '4. Disagree',
+      '5. Strongly disagree',
+    ],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'D3',
+    question:
+      'Did this project play a role in the development of problem-solving skills?',
+    options: ['Yes', 'No', 'Somehow', "Don't know"],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'D4',
+    question: 'Are you planning to continue KG?',
+    options: ['Yes', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'D4a',
+    question: 'If No, why?',
+    answer: '',
+    questionType: 'text',
+  },
+  {
+    questionId: 'D5',
+    question:
+      'What are your major suggestions for the project to improve the quality of support for KG?',
+    options: [],
+    answer: '',
+    questionType: 'text',
   },
 ];

@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_D_QUESTIONS } from '@common/data';
+import { SECTION_C1_QUESTIONS, SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
-import { IEnumeratorSectionDScreenProps } from '@interfaces/screens';
+import { IEnumeratorSectionC1ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 
-const SectionDScreen = ({
+const SectionC1Screen = ({
   navigation,
   route,
-}: IEnumeratorSectionDScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D_QUESTIONS);
+}: IEnumeratorSectionC1ScreenProps) => {
+  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_C1_QUESTIONS);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -25,7 +25,7 @@ const SectionDScreen = ({
   };
 
   const onPress = () => {
-    navigation.navigate(EnumeratorScreens.ComponentA);
+    navigation.navigate(EnumeratorScreens.SectionD1);
   };
 
   return (
@@ -33,7 +33,12 @@ const SectionDScreen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>Section D: Project Impact</Text>
+      <Text style={styles.title}>
+        Section C1: Intervention-Related Questions
+      </Text>
+      <Text style={styles.subTitle}>
+        Survey Component: {SURVEY_COMPONENTS.A}
+      </Text>
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
@@ -48,7 +53,7 @@ const SectionDScreen = ({
   );
 };
 
-export default SectionDScreen;
+export default SectionC1Screen;
 
 const styles = StyleSheet.create({
   rootContentContainer: {
@@ -60,14 +65,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,
-    marginVertical: 10,
+    marginTop: 10,
   },
-  container: {
-    padding: 10,
-    borderColor: COLORS.PRIMARY,
-    borderWidth: 1,
-    borderRadius: 10,
-    marginVertical: 10,
+  subTitle: {
+    fontSize: FONT_SIZES.EXTRA_LARGE,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.PRIMARY,
+    marginBottom: 10,
   },
   button: {
     marginHorizontal: 10,

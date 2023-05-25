@@ -1,4 +1,4 @@
-import { IEnumerator } from './common';
+import { IKeyValuePair } from './common';
 
 export interface IUserState {
   user: {
@@ -34,4 +34,14 @@ export interface IEnumeratorState {
   password: string;
   enumeratorId: string;
   token: string;
+}
+
+export interface IAppState {
+  surveyComponents: string[];
+  sectionA: IKeyValuePair[];
+  sectionB: IKeyValuePair[];
+  sectionC1: IKeyValuePair[];
+  sectionD1: IKeyValuePair[];
+  sectionC2: IKeyValuePair[];
+  sectionD2: IKeyValuePair[];
 }

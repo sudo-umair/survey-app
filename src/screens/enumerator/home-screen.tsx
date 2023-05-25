@@ -8,9 +8,13 @@ import SurveyComponent from '@components/enumerator/survey-component';
 import Button from '@components/ui/button';
 import { SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
+import { useAppDispatch } from '@redux/store';
+import { setSurveyComponents } from '@redux/app-state-reducer';
 
 const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
   const [selectedComponents, setSelectedComponents] = useState<string[]>([]);
+
+  const dispatch = useAppDispatch();
 
   const onPress = (key: string) => {
     if (selectedComponents.includes(key)) {
@@ -22,6 +26,7 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
 
   const onProceed = () => {
     console.log('selectedComponents', selectedComponents.sort());
+    dispatch(setSurveyComponents(selectedComponents.sort()));
     navigation.navigate(EnumeratorScreens.SectionA);
   };
 
@@ -29,25 +34,22 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
     <Container containerStyle={styles.rootContainer}>
       <Text style={styles.title}>Select Components</Text>
       <SurveyComponent
-        title='A'
+        title={SURVEY_COMPONENTS.A}
         onPress={() => onPress(SURVEY_COMPONENTS.A)}
         isSelected={selectedComponents.includes(SURVEY_COMPONENTS.A)}
       />
       <SurveyComponent
-        title='B'
+        title={SURVEY_COMPONENTS.B}
         onPress={() => onPress(SURVEY_COMPONENTS.B)}
         isSelected={selectedComponents.includes(SURVEY_COMPONENTS.B)}
       />
-      <SurveyComponent
-        title='C'
-        onPress={() => onPress(SURVEY_COMPONENTS.C)}
-        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.C)}
-      />
+
       <Button
         title='Proceed'
         onPress={onProceed}
         buttonStyle={styles.button}
         buttonTextStyle={{ color: COLORS.WHITE }}
+        disabled={selectedComponents.length === 0}
       />
     </Container>
   );

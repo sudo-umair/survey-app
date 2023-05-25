@@ -22,6 +22,8 @@ export interface IQuestion {
     | 'text-area'
     | 'radio'
     | 'radio-text'
+    | 'checkbox'
+    | 'checkbox-text'
     | 'picker'
     | 'date'
     | 'time';
@@ -29,5 +31,9 @@ export interface IQuestion {
 }
 
 export interface IMonths {
+  [key: string]: string;
+}
+
+export interface IKeyValuePair {
   [key: string]: string;
 }

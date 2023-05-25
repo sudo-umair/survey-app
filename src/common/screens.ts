@@ -2,11 +2,10 @@ export enum EnumeratorScreens {
   Home = 'Home',
   SectionA = 'SectionA',
   SectionB = 'SectionB',
-  SectionC = 'SectionC',
-  SectionD = 'SectionD',
-  ComponentA = 'ComponentA',
-  ComponentB = 'ComponentB',
-  ComponentC = 'ComponentC',
+  SectionC1 = 'SectionC1',
+  SectionD1 = 'SectionD1',
+  SectionC2 = 'SectionC2',
+  SectionD2 = 'SectionD2',
 }
 
 export enum AdminScreens {

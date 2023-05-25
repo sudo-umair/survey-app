@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 15,
     borderRadius: 10,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    padding: 20,
     alignItems: 'center',
     flexDirection: 'row',
   },
@@ -52,9 +53,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     color: COLORS.WHITE,
+    textAlign: 'left',
+    width: '85%',
   },
-  selectedIcon: {
-    position: 'absolute',
-    right: 20,
-  },
+  selectedIcon: {},
 });

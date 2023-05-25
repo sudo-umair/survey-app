@@ -64,32 +64,26 @@ export type IEnumeratorSectionBScreenProps = NativeStackScreenProps<
   STACKS.ENUMERATOR
 >;
 
-export type IEnumeratorSectionCScreenProps = NativeStackScreenProps<
+export type IEnumeratorSectionC1ScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,
-  EnumeratorScreens.SectionC,
+  EnumeratorScreens.SectionC1,
   STACKS.ENUMERATOR
 >;
 
-export type IEnumeratorSectionDScreenProps = NativeStackScreenProps<
+export type IEnumeratorSectionD1ScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,
-  EnumeratorScreens.SectionD,
+  EnumeratorScreens.SectionD1,
   STACKS.ENUMERATOR
 >;
 
-export type IEnumeratorComponentAScreenProps = NativeStackScreenProps<
+export type IEnumeratorSectionC2ScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,
-  EnumeratorScreens.ComponentA,
+  EnumeratorScreens.SectionC2,
   STACKS.ENUMERATOR
 >;
 
-export type IEnumeratorComponentBScreenProps = NativeStackScreenProps<
+export type IEnumeratorSectionD2ScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,
-  EnumeratorScreens.ComponentB,
-  STACKS.ENUMERATOR
->;
-
-export type IEnumeratorComponentCScreenProps = NativeStackScreenProps<
-  IEnumeratorStackParamList,
-  EnumeratorScreens.ComponentC,
+  EnumeratorScreens.SectionD2,
   STACKS.ENUMERATOR
 >;

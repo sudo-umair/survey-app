@@ -3,18 +3,18 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_C_QUESTIONS } from '@common/data';
+import { SECTION_C2_QUESTIONS, SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
-import { IEnumeratorSectionCScreenProps } from '@interfaces/screens';
+import { IEnumeratorSectionC2ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 
-const SectionCScreen = ({
+const SectionC2Screen = ({
   navigation,
   route,
-}: IEnumeratorSectionCScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_C_QUESTIONS);
+}: IEnumeratorSectionC2ScreenProps) => {
+  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_C2_QUESTIONS);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -25,7 +25,7 @@ const SectionCScreen = ({
   };
 
   const onPress = () => {
-    navigation.navigate(EnumeratorScreens.SectionD);
+    navigation.navigate(EnumeratorScreens.SectionD2);
   };
 
   return (
@@ -34,7 +34,10 @@ const SectionCScreen = ({
       contentContainerStyle={styles.rootContentContainer}
     >
       <Text style={styles.title}>
-        Section C: Intervention-Related Questions
+        Section C2: Intervention-Related Questions
+      </Text>
+      <Text style={styles.subTitle}>
+        Survey Component: {SURVEY_COMPONENTS.B}
       </Text>
       <FlatList
         data={questions}
@@ -50,7 +53,7 @@ const SectionCScreen = ({
   );
 };
 
-export default SectionCScreen;
+export default SectionC2Screen;
 
 const styles = StyleSheet.create({
   rootContentContainer: {
@@ -62,14 +65,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,
-    marginVertical: 10,
+    marginTop: 10,
   },
-  container: {
-    padding: 10,
-    borderColor: COLORS.PRIMARY,
-    borderWidth: 1,
-    borderRadius: 10,
-    marginVertical: 10,
+  subTitle: {
+    fontSize: FONT_SIZES.EXTRA_LARGE,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.PRIMARY,
+    marginBottom: 10,
   },
   button: {
     marginHorizontal: 10,
