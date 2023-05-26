@@ -112,6 +112,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     answer: '',
     questionType: 'number',
     keyboardType: 'numeric',
+    maxLength: 11,
   },
   {
     questionId: 'B7',
@@ -587,7 +588,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C14a',
     question: 'If yes, how much do you earn?',
-    answer: '',
+    answer: 'None',
     keyboardType: 'numeric',
     questionType: 'text',
   },
@@ -601,7 +602,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C15a',
     question: 'If yes, then how much?',
-    answer: '',
+    answer: 'None',
     keyboardType: 'numeric',
     questionType: 'text',
   },
@@ -681,7 +682,7 @@ export const SECTION_D2_QUESTIONS: IQuestion[] = [
   {
     questionId: 'D4a',
     question: 'If No, why?',
-    answer: '',
+    answer: 'None',
     questionType: 'text',
   },
   {

@@ -14,7 +14,6 @@ import { COLORS } from '@common/colors';
 import { getData, removeData } from '@helpers/async-storage';
 import Button from '@components/ui/button';
 import { ISurveyPayload } from '@interfaces/common';
-import { SURVEY_COMPONENTS } from '@common/data';
 import SurveyItem from '@components/enumerator/survey-item';
 import { useNetInfo } from '@react-native-community/netinfo';
 
@@ -22,8 +21,8 @@ const SyncSurveysScreen = ({
   navigation,
   route,
 }: IEnumeratorSyncSurveysScreenProps) => {
-  const [loading, setLoading] = useState(false);
-  const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [refreshing, setRefreshing] = useState<boolean>(false);
   const [offlineSurveys, setOfflineSurveys] = useState<ISurveyPayload[]>([]);
 
   const { isInternetReachable } = useNetInfo();
@@ -37,13 +36,8 @@ const SyncSurveysScreen = ({
         setOfflineSurveys(response);
       }
       setLoading(false);
-      setRefreshing(false);
     }
     prepare();
-
-    return () => {
-      setOfflineSurveys([]);
-    };
   }, [refreshing]);
 
   const clearSurveys = async () => {
@@ -95,8 +89,8 @@ const SyncSurveysScreen = ({
         keyExtractor={(item, index) => index.toString()}
         style={styles.list}
         contentContainerStyle={styles.listContentContainer}
-        refreshing={refreshing}
-        onRefresh={() => setRefreshing(true)}
+        refreshing={loading}
+        onRefresh={() => setRefreshing((prev) => !prev)}
       />
       <View style={styles.buttonsContainer}>
         <Button
