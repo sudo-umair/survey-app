@@ -1,4 +1,4 @@
-import { IKeyValuePair, IQuestion } from './common';
+import { IQuestion } from './common';
 
 export interface IUserState {
   user: {
@@ -11,6 +11,7 @@ export interface IUserState {
     address?: string;
     enumeratorId?: string;
     token?: string;
+    isDisabled: boolean;
   };
   role: 'admin' | 'enumerator' | null;
   isLoggedIn?: boolean;
@@ -34,6 +35,7 @@ export interface IEnumeratorState {
   password: string;
   enumeratorId: string;
   token: string;
+  isDisabled: boolean;
 }
 
 export interface IAppState {

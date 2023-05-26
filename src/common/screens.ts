@@ -8,6 +8,7 @@ export enum EnumeratorScreens {
   SectionD2 = 'SectionD2',
   SurveyCompleted = 'SurveyCompleted',
   SyncSurveys = 'SyncSurveys',
+  DisabledAccount = 'DisabledAccount',
 }
 
 export enum AdminScreens {

@@ -28,4 +28,5 @@ export type IEnumeratorStackParamList = {
   [EnumeratorScreens.SectionD2]: undefined;
   [EnumeratorScreens.SurveyCompleted]: undefined;
   [EnumeratorScreens.SyncSurveys]: undefined;
+  [EnumeratorScreens.DisabledAccount]: undefined;
 };

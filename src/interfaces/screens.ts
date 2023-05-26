@@ -99,3 +99,9 @@ export type IEnumeratorSyncSurveysScreenProps = NativeStackScreenProps<
   EnumeratorScreens.SyncSurveys,
   STACKS.ENUMERATOR
 >;
+
+export type IEnumeratorDisabledAccountScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.DisabledAccount,
+  STACKS.ENUMERATOR
+>;

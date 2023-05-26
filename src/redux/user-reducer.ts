@@ -16,6 +16,7 @@ const initialState: IUserState = {
     address: '',
     enumeratorId: '',
     token: '',
+    isDisabled: false,
   },
   role: null,
   isLoggedIn: false,
@@ -42,6 +43,7 @@ const userSlice = createSlice({
       state.user.address = action.payload.address;
       state.user.age = action.payload.age;
       state.user.enumeratorId = action.payload.enumeratorId;
+      state.user.isDisabled = action.payload.isDisabled;
       state.isLoggedIn = true;
     },
     removeUser: () => {
