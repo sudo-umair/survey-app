@@ -229,14 +229,14 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C1',
     question: 'Do you know about HEIS?',
     options: ['Yes', 'No', 'Somehow'],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
     questionId: 'C2',
     question: 'Did you receive HEIS from SIAPEP project?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -250,7 +250,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C4',
     question: 'Did the canal irrigation system deteriorate?',
     options: ['Yes', 'No', 'Somewhat'],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -299,7 +299,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C10',
     question: 'Are you a member of the watercourse association?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -314,7 +314,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C12',
     question: 'Do you receive follow-up support services?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -322,13 +322,13 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     question:
       'Have you received any training of maintenance, operating and troubleshooting?',
     options: ['Yes', 'No'],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
     questionId: 'C14',
     question: 'Was the HEIS land shared with others?',
-    answer: '',
+    answer: 'Yes',
     options: ['Yes', 'No'],
     questionType: 'radio',
   },
@@ -456,7 +456,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C2',
     question: 'Did you receive support from SIAPEP project?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -504,7 +504,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C7',
     question: 'Are you a member of the watercourse association?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -518,7 +518,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C9',
     question: 'Do you own the land of KG?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -538,7 +538,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C11',
     question: 'Was the KG land shared with others?',
     options: ['Yes', 'No'],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -668,7 +668,7 @@ export const SECTION_D2_QUESTIONS: IQuestion[] = [
     question:
       'Did this project play a role in the development of problem-solving skills?',
     options: ['Yes', 'No', 'Somehow', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
@@ -688,7 +688,6 @@ export const SECTION_D2_QUESTIONS: IQuestion[] = [
     questionId: 'D5',
     question:
       'What are your major suggestions for the project to improve the quality of support for KG?',
-    options: [],
     answer: '',
     questionType: 'text',
   },
