@@ -26,3 +26,7 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
   }
   return true;
 };
+
+export const checkLoginInputs = (): boolean => {
+  return true;
+};

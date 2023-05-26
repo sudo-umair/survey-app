@@ -11,7 +11,7 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionAScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
-import { checkSurveyAnswers } from '@utils/functions';
+import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppSelector } from '@redux/store';
 
 const SectionAScreen = ({

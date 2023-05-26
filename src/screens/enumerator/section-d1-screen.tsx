@@ -10,7 +10,7 @@ import Button from '@components/ui/button';
 import { IEnumeratorSectionD1ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 import { useAppSelector } from '@redux/store';
-import { checkSurveyAnswers } from '@utils/functions';
+import { checkSurveyAnswers } from '@utils/input-checks';
 
 const SectionD1Screen = ({
   navigation,

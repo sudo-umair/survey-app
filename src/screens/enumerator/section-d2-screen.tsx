@@ -8,7 +8,7 @@ import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD2ScreenProps } from '@interfaces/screens';
-import { checkSurveyAnswers } from '@utils/functions';
+import { checkSurveyAnswers } from '@utils/input-checks';
 
 const SectionD2Screen = ({
   navigation,
