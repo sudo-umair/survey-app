@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import type { IEnumeratorHomeScreenProps } from '@interfaces/screens';
 import Container from '@components/ui/container';
 import { EnumeratorScreens } from '@common/screens';
@@ -10,6 +10,7 @@ import { SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import { useAppDispatch } from '@redux/store';
 import { setSurveyComponents } from '@redux/app-state-reducer';
+import { useFocusEffect } from '@react-navigation/native';
 
 const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
   const [selectedComponents, setSelectedComponents] = useState<string[]>([]);
@@ -32,6 +33,12 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
     dispatch(setSurveyComponents(selectedComponents.sort()));
     navigation.navigate(EnumeratorScreens.SectionA);
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      setSelectedComponents([]);
+    }, [])
+  );
 
   return (
     <Container containerStyle={styles.rootContainer}>

@@ -31,7 +31,6 @@ const SectionBScreen = ({
       // calculate female members on bases of total members minus male members
       if (index === 12) {
         // index belongs to male members
-        console.log('index 12');
         const totalMembers = Number(questions[11].answer);
         const maleMembers = Number(questions[12].answer);
         if (maleMembers <= totalMembers) {

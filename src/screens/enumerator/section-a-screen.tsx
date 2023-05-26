@@ -29,6 +29,13 @@ const SectionAScreen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
+
+      if (index === 0) {
+        if (newQuestions[0].answer !== 'Yes') {
+          // to prevent check inputs error if A2 is not visible
+          newQuestions[1].answer = 'None';
+        }
+      }
       return newQuestions;
     });
   };
@@ -56,8 +63,6 @@ const SectionAScreen = ({
         renderItem={({ item, index }) => {
           if (index === 1) {
             if (questions[0].answer !== 'Yes') {
-              // to prevent check inputs error if A2 is not visible
-              questions[1].answer = 'None';
               // to hide A2 if answer of A1 is not Yes
               return null;
             }

@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 
 export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
   const missingAnswers = questions.filter(
-    (q) => q.answer === '' || q.answer === 'Other (Specify)'
+    (q) => q.answer.trim() === '' || q.answer === 'Other (Specify)'
   );
   if (missingAnswers.length > 0) {
     const missingQuestions = missingAnswers.map((q) => q.questionId);
@@ -14,7 +14,7 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
       [
         {
           text: 'Ok',
-          onPress: () => console.log('Ok Pressed'),
+          onPress: () => {},
           style: 'default',
         },
       ],
@@ -22,6 +22,7 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
     );
 
     return false;
+    // return true;
   }
   return true;
 };

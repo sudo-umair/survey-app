@@ -25,6 +25,28 @@ const SectionC2Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
+
+      if (index === 13) {
+        if (newQuestions[13].answer !== 'Yes') {
+          // to prevent check inputs error if C14a is not visible
+          newQuestions[14].answer = 'None';
+        }
+      }
+
+      if (index === 15) {
+        if (newQuestions[15].answer !== 'Yes') {
+          // to prevent check inputs error if C15a is not visible
+          newQuestions[16].answer = 'None';
+        }
+      }
+
+      if (index === 18) {
+        if (newQuestions[18].answer !== 'Yes') {
+          // to prevent check inputs error if C17a is not visible
+          newQuestions[19].answer = 'None';
+        }
+      }
+
       return newQuestions;
     });
   };
@@ -52,8 +74,6 @@ const SectionC2Screen = ({
         renderItem={({ item, index }) => {
           if (index === 14) {
             if (questions[13].answer !== 'Yes') {
-              // to prevent check inputs error if C14a is not visible
-              questions[14].answer = 'None';
               // to hide C14a if answer of C14 is not Yes
               return null;
             }
@@ -61,8 +81,6 @@ const SectionC2Screen = ({
 
           if (index === 16) {
             if (questions[15].answer !== 'Yes') {
-              // to prevent check inputs error if C15a is not visible
-              questions[16].answer = 'None';
               // to hide C15a if answer of A1 is not Yes
               return null;
             }
@@ -70,8 +88,6 @@ const SectionC2Screen = ({
 
           if (index === 19) {
             if (questions[18].answer !== 'Yes') {
-              // to prevent check inputs error if C17a is not visible
-              questions[19].answer = 'None';
               // to hide C17a if answer of C17 is not Yes
               return null;
             }

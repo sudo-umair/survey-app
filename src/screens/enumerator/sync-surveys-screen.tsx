@@ -37,8 +37,13 @@ const SyncSurveysScreen = ({
         setOfflineSurveys(response);
       }
       setLoading(false);
+      setRefreshing(false);
     }
     prepare();
+
+    return () => {
+      setOfflineSurveys([]);
+    };
   }, [refreshing]);
 
   const clearSurveys = async () => {
@@ -98,17 +103,19 @@ const SyncSurveysScreen = ({
           buttonStyle={styles.button}
           onPress={clearSurveys}
           title='Clear Surveys'
+          disabled={offlineSurveys.length === 0}
         />
         <Button
           buttonStyle={styles.button}
           onPress={syncSurveys}
           title='Sync Surveys'
-          disabled={!isInternetReachable}
+          disabled={!isInternetReachable || offlineSurveys.length === 0}
         />
         <Button
           buttonStyle={styles.button}
           onPress={exportSurveys}
           title='Export Surveys'
+          disabled={offlineSurveys.length === 0}
         />
       </View>
     </Container>

@@ -129,10 +129,10 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B9',
     question: 'Age (years)',
-
     answer: '',
     questionType: 'number',
     keyboardType: 'numeric',
+    maxLength: 2,
   },
   {
     questionId: 'B10',
@@ -276,9 +276,10 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
   },
   {
     questionId: 'C7',
-    question: 'Land size on which the intervention made?',
+    question: 'Land size on which the intervention made? sq. mtr.',
     answer: '',
     questionType: 'text',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'C8',
@@ -334,7 +335,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C15',
     question: 'Does the HEIS contribute in your income? If yes, then how much?',
-    answer: '0',
+    answer: '',
     keyboardType: 'numeric',
     questionType: 'text',
   },
@@ -580,7 +581,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C14',
     question: 'Do you sell the products in the market?',
     options: ['Yes', 'No'],
-    answer: '',
+    answer: 'No',
     questionType: 'radio',
   },
   {
@@ -594,7 +595,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C15',
     question: 'Does this contribute to your income? ',
     options: ['Yes', 'No'],
-    answer: '',
+    answer: 'No',
     questionType: 'radio',
   },
   {
@@ -608,27 +609,27 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C16',
     question: 'Has this improved the health of your family members?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
     questionId: 'C17',
     question: 'The installation of KG kits was completed by the company?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'No',
     questionType: 'radio',
   },
   {
     questionId: 'C17a',
     question: 'Name of the company?',
-    answer: '',
+    answer: 'None',
     questionType: 'text',
   },
   {
     questionId: 'C18',
     question: 'Did you receive agronomical training?',
     options: ['Yes', 'No', "Don't know"],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
 ];
@@ -674,7 +675,7 @@ export const SECTION_D2_QUESTIONS: IQuestion[] = [
     questionId: 'D4',
     question: 'Are you planning to continue KG?',
     options: ['Yes', 'No'],
-    answer: '',
+    answer: 'Yes',
     questionType: 'radio',
   },
   {
