@@ -56,7 +56,7 @@ export const SECTION_A_QUESTIONS: IQuestion[] = [
   {
     questionId: 'A3',
     question:
-      'I have read the informed consent and Confidentiality Form to the respondent and he/she has indicated his/her understanding',
+      'I have read the informed consent and Confidentiality Form to the respondent and he/she has indicated his/her understanding.\nEnter Interviewer’s name here:',
     answer: '',
     questionType: 'text',
   },
@@ -183,14 +183,14 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   },
   {
     questionId: 'B14a',
-    question: 'Number of HH members currently earning: Male members',
+    question: 'Number of Male HH members currently earning?',
     answer: '',
     questionType: 'number',
     keyboardType: 'numeric',
   },
   {
     questionId: 'B14b',
-    question: 'Number of HH members currently earning: Female members',
+    question: 'Number of Female HH members currently earning?',
     answer: '',
     questionType: 'number',
     keyboardType: 'numeric',
@@ -303,9 +303,10 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
   },
   {
     questionId: 'C11',
-    question: 'Share of farmer in installation of HEIS',
+    question: 'Share of farmer in installation of HEIS (in %)',
     answer: '',
     questionType: 'text',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'C12',
@@ -324,14 +325,16 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
   },
   {
     questionId: 'C14',
-    question: 'Was the HEIS land shared with others',
+    question: 'Was the HEIS land shared with others?',
     answer: '',
-    questionType: 'text',
+    options: ['Yes', 'No'],
+    questionType: 'radio',
   },
   {
     questionId: 'C15',
     question: 'Does the HEIS contribute in your income? If yes, then how much?',
-    answer: '',
+    answer: '0',
+    keyboardType: 'numeric',
     questionType: 'text',
   },
   {
@@ -558,7 +561,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C13',
     question: 'Fruits under kitchen Garden',
     options: [
-      'Lyfango',
+      'Mango',
       'Guava',
       'Lemon',
       'Melon',
@@ -583,6 +586,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C14a',
     question: 'If yes, how much do you earn?',
     answer: '',
+    keyboardType: 'numeric',
     questionType: 'text',
   },
   {
@@ -596,6 +600,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C15a',
     question: 'If yes, then how much?',
     answer: '',
+    keyboardType: 'numeric',
     questionType: 'text',
   },
   {

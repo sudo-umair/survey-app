@@ -8,7 +8,7 @@ import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD2ScreenProps } from '@interfaces/screens';
-import { EnumeratorScreens } from '@common/screens';
+import { checkSurveyAnswers } from '@utils/functions';
 
 const SectionD2Screen = ({
   navigation,
@@ -25,8 +25,10 @@ const SectionD2Screen = ({
   };
 
   const onPress = () => {
-    // navigation.navigate(EnumeratorScreens.ComponentA);
-    alert('Completed');
+    if (checkSurveyAnswers(questions)) {
+      alert('Completed');
+      navigation.popToTop();
+    }
   };
 
   return (

@@ -11,12 +11,16 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionAScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
+import { checkSurveyAnswers } from '@utils/functions';
+import { useAppSelector } from '@redux/store';
 
 const SectionAScreen = ({
   navigation,
   route,
 }: IEnumeratorSectionAScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_A_QUESTIONS);
+
+  const { name } = useAppSelector((state) => state.user.user);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -27,18 +31,9 @@ const SectionAScreen = ({
   };
 
   const onPress = () => {
-    // if (!checkAnswers()) {
-    //   alert('Please answer all the questions');
-    //   return;
-    // }
-    navigation.navigate(EnumeratorScreens.SectionB);
-  };
-
-  const checkAnswers = () => {
-    if (questions.find((q) => q.answer === '')) {
-      return false;
+    if (checkSurveyAnswers(questions)) {
+      navigation.navigate(EnumeratorScreens.SectionB);
     }
-    return true;
   };
 
   return (
@@ -50,7 +45,7 @@ const SectionAScreen = ({
         Section A: Informed Consent Form and Identification
       </Text>
       <Container containerStyle={styles.container}>
-        <Acknowledgment name='Muhammad Umair' />
+        <Acknowledgment name={name || 'John Doe'} />
       </Container>
       <FlatList
         data={questions}

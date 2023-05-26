@@ -9,6 +9,7 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionC1ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
+import { checkSurveyAnswers } from '@utils/functions';
 
 const SectionC1Screen = ({
   navigation,
@@ -25,7 +26,9 @@ const SectionC1Screen = ({
   };
 
   const onPress = () => {
-    navigation.navigate(EnumeratorScreens.SectionD1);
+    if (checkSurveyAnswers(questions)) {
+      navigation.navigate(EnumeratorScreens.SectionD1);
+    }
   };
 
   return (

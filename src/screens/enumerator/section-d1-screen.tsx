@@ -10,6 +10,7 @@ import Button from '@components/ui/button';
 import { IEnumeratorSectionD1ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 import { useAppSelector } from '@redux/store';
+import { checkSurveyAnswers } from '@utils/functions';
 
 const SectionD1Screen = ({
   navigation,
@@ -28,10 +29,12 @@ const SectionD1Screen = ({
   };
 
   const onPress = () => {
-    if (surveyComponents.includes(SURVEY_COMPONENTS.B)) {
-      navigation.navigate(EnumeratorScreens.SectionC2);
-    } else {
-      alert('Completed');
+    if (checkSurveyAnswers(questions)) {
+      if (surveyComponents.includes(SURVEY_COMPONENTS.B)) {
+        navigation.navigate(EnumeratorScreens.SectionC2);
+      } else {
+        navigation.popToTop();
+      }
     }
   };
 
