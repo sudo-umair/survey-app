@@ -16,6 +16,7 @@ import Button from '@components/ui/button';
 import { ISurveyPayload } from '@interfaces/common';
 import SurveyItem from '@components/enumerator/survey-item';
 import { useNetInfo } from '@react-native-community/netinfo';
+import { showSuccessToast } from '@helpers/toast-message';
 
 const SyncSurveysScreen = ({
   navigation,
@@ -67,12 +68,15 @@ const SyncSurveysScreen = ({
       if (response) {
         setRefreshing((prev) => !prev);
       }
+      showSuccessToast('Surveys Cleared Successfully!');
     } catch (error) {
       console.warn(error);
     }
   };
 
-  const syncSurveys = async () => {};
+  const syncSurveys = async () => {
+    showSuccessToast('Syncing Surveys...');
+  };
 
   return (
     <Container containerStyle={styles.rootContentContainer}>

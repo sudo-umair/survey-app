@@ -12,6 +12,7 @@ import { SURVEY_COMPONENTS } from '@common/data';
 import { appendData, getData, storeData } from '@helpers/async-storage';
 import { ISubmittedBy, ISurveyPayload } from '@interfaces/common';
 import { IEnumeratorSurveyCompletedScreenProps } from '@interfaces/screens';
+import { showSuccessToast } from '@helpers/toast-message';
 
 const SurveyCompletedScreen = ({
   navigation,
@@ -87,6 +88,7 @@ const SurveyCompletedScreen = ({
     if (!isSurveyBEmpty) {
       await storePayloadInOfflineStorage(SurveyBPayload);
     }
+    showSuccessToast('Survey submitted successfully offline');
     goToHome();
   };
   return (

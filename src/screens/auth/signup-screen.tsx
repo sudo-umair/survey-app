@@ -11,6 +11,7 @@ import Button from '@components/ui/button';
 import { AuthScreens } from '@common/screens';
 import { FONT_SIZES } from '@common/fonts';
 import { checkSignupInputs } from '@utils/input-checks';
+import { showSuccessToast } from '@helpers/toast-message';
 
 const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
   const [record, setRecord] = useState<IEnumeratorSignupRecord>({
@@ -37,6 +38,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
 
   const onSubmit = () => {
     if (checkSignupInputs(record)) {
+      showSuccessToast('Signup successful');
       goToLoginScreen();
     }
   };
