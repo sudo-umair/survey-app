@@ -28,7 +28,7 @@ const EnumeratorStack = () => {
       }}
       id={STACKS.ENUMERATOR}
     >
-      {!isDisabled ? (
+      {isDisabled ? (
         <Stack.Screen
           options={{
             animation: 'fade_from_bottom',
