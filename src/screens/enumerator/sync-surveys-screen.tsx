@@ -34,6 +34,8 @@ const SyncSurveysScreen = ({
       if (response) {
         // console.log('length', response.length);
         setOfflineSurveys(response);
+      } else {
+        setOfflineSurveys([]);
       }
       setLoading(false);
     }
@@ -63,7 +65,7 @@ const SyncSurveysScreen = ({
     try {
       const response = await removeData('surveys');
       if (response) {
-        setRefreshing(true);
+        setRefreshing((prev) => !prev);
       }
     } catch (error) {
       console.warn(error);
