@@ -26,9 +26,9 @@ const Button: React.FC<IButtonProps> = ({
       onPress={onPressHandler}
       style={({ pressed }) => [
         styles.container,
-        buttonStyle,
         disabled && styles.disabled,
         pressed && dynamic && styles.pressed,
+        buttonStyle,
       ]}
     >
       {isLoading ? (
@@ -67,5 +67,6 @@ const styles = StyleSheet.create({
   label: {
     fontSize: FONT_SIZES.LARGE,
     color: COLORS.WHITE,
+    textAlign: 'center',
   },
 });

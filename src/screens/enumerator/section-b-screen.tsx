@@ -9,8 +9,9 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionBScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
-import { useAppSelector } from '@redux/store';
+import { useAppSelector, useAppDispatch } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
+import { submitSectionB } from '@redux/app-state-reducer';
 
 const SectionBScreen = ({
   navigation,
@@ -19,6 +20,8 @@ const SectionBScreen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
 
   const { surveyComponents } = useAppSelector((state) => state.appState);
+
+  const dispatch = useAppDispatch();
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -77,6 +80,7 @@ const SectionBScreen = ({
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
+      dispatch(submitSectionB(questions));
       if (surveyComponents.includes(SURVEY_COMPONENTS.A)) {
         navigation.navigate(EnumeratorScreens.SectionC1);
       } else if (surveyComponents.includes(SURVEY_COMPONENTS.B)) {

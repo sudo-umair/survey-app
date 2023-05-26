@@ -1,4 +1,4 @@
-import { IKeyValuePair } from './common';
+import { IKeyValuePair, IQuestion } from './common';
 
 export interface IUserState {
   user: {
@@ -38,10 +38,10 @@ export interface IEnumeratorState {
 
 export interface IAppState {
   surveyComponents: string[];
-  sectionA: IKeyValuePair[];
-  sectionB: IKeyValuePair[];
-  sectionC1: IKeyValuePair[];
-  sectionD1: IKeyValuePair[];
-  sectionC2: IKeyValuePair[];
-  sectionD2: IKeyValuePair[];
+  sectionA: IQuestion[];
+  sectionB: IQuestion[];
+  sectionC1: IQuestion[];
+  sectionD1: IQuestion[];
+  sectionC2: IQuestion[];
+  sectionD2: IQuestion[];
 }

@@ -12,6 +12,8 @@ import SectionC1Screen from '@screens/enumerator/section-c1-screen';
 import SectionD1Screen from '@screens/enumerator/section-d1-screen';
 import SectionC2Screen from '@screens/enumerator/section-c2-screen';
 import SectionD2Screen from '@screens/enumerator/section-d2-screen';
+import SyncSurveysScreen from '@screens/enumerator/sync-surveys-screen';
+import SurveyCompletedScreen from '@screens/enumerator/survey-completed-screen';
 
 const Stack = createNativeStackNavigator<IEnumeratorStackParamList>();
 
@@ -31,8 +33,13 @@ const EnumeratorStack = () => {
       <Stack.Screen name={Screens.SectionD1} component={SectionD1Screen} />
       <Stack.Screen name={Screens.SectionC2} component={SectionC2Screen} />
       <Stack.Screen name={Screens.SectionD2} component={SectionD2Screen} />
-
-      {/* Components */}
+      {/* Completed */}
+      <Stack.Screen
+        name={Screens.SurveyCompleted}
+        component={SurveyCompletedScreen}
+      />
+      {/* Sync */}
+      <Stack.Screen name={Screens.SyncSurveys} component={SyncSurveysScreen} />
     </Stack.Navigator>
   );
 };

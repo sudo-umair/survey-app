@@ -222,7 +222,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
   );
 };
 
-export default QuestionBox;
+export default React.memo(QuestionBox);
 
 const styles = StyleSheet.create({
   container: {

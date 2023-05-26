@@ -6,6 +6,8 @@ export enum EnumeratorScreens {
   SectionD1 = 'SectionD1',
   SectionC2 = 'SectionC2',
   SectionD2 = 'SectionD2',
+  SurveyCompleted = 'SurveyCompleted',
+  SyncSurveys = 'SyncSurveys',
 }
 
 export enum AdminScreens {

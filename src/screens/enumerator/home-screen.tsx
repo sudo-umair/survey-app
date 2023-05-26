@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import type { IEnumeratorHomeScreenProps } from '@interfaces/screens';
 import Container from '@components/ui/container';
@@ -24,6 +24,9 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
     }
   };
 
+  const goToSyncSurveys = () =>
+    navigation.navigate(EnumeratorScreens.SyncSurveys);
+
   const onProceed = () => {
     console.log('selectedComponents', selectedComponents.sort());
     dispatch(setSurveyComponents(selectedComponents.sort()));
@@ -44,13 +47,14 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
         isSelected={selectedComponents.includes(SURVEY_COMPONENTS.B)}
       />
 
-      <Button
-        title='Proceed'
-        onPress={onProceed}
-        buttonStyle={styles.button}
-        buttonTextStyle={{ color: COLORS.WHITE }}
-        disabled={selectedComponents.length === 0}
-      />
+      <View style={styles.buttonContainer}>
+        <Button title='Sync Surveys' onPress={goToSyncSurveys} />
+        <Button
+          title='Proceed'
+          onPress={onProceed}
+          disabled={selectedComponents.length === 0}
+        />
+      </View>
     </Container>
   );
 };
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  button: {
+  buttonContainer: {
     position: 'absolute',
     bottom: 10,
     left: 0,

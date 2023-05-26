@@ -307,6 +307,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     answer: '',
     questionType: 'text',
     keyboardType: 'numeric',
+    maxLength: 3,
   },
   {
     questionId: 'C12',

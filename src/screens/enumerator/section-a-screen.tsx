@@ -12,7 +12,8 @@ import Button from '@components/ui/button';
 import { IEnumeratorSectionAScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
-import { useAppSelector } from '@redux/store';
+import { useAppSelector, useAppDispatch } from '@redux/store';
+import { submitSectionA } from '@redux/app-state-reducer';
 
 const SectionAScreen = ({
   navigation,
@@ -21,6 +22,8 @@ const SectionAScreen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_A_QUESTIONS);
 
   const { name } = useAppSelector((state) => state.user.user);
+
+  const dispatch = useAppDispatch();
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -32,6 +35,7 @@ const SectionAScreen = ({
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
+      dispatch(submitSectionA(questions));
       navigation.navigate(EnumeratorScreens.SectionB);
     }
   };

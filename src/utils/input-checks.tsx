@@ -22,7 +22,6 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
     );
 
     return false;
-    // return true;
   }
   return true;
 };

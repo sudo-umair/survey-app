@@ -87,3 +87,15 @@ export type IEnumeratorSectionD2ScreenProps = NativeStackScreenProps<
   EnumeratorScreens.SectionD2,
   STACKS.ENUMERATOR
 >;
+
+export type IEnumeratorSurveyCompletedScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SurveyCompleted,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSyncSurveysScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SyncSurveys,
+  STACKS.ENUMERATOR
+>;

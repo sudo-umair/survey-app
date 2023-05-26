@@ -1,0 +1,151 @@
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import React, { Fragment, useEffect, useState } from 'react';
+import Container from '@components/ui/container';
+import { IEnumeratorSyncSurveysScreenProps } from '@interfaces/screens';
+import { FONT_SIZES } from '@common/fonts';
+import { COLORS } from '@common/colors';
+import { getData, removeData } from '@helpers/async-storage';
+import Button from '@components/ui/button';
+import { ISurveyPayload } from '@interfaces/common';
+import { SURVEY_COMPONENTS } from '@common/data';
+import SurveyItem from '@components/enumerator/survey-item';
+import { useNetInfo } from '@react-native-community/netinfo';
+
+const SyncSurveysScreen = ({
+  navigation,
+  route,
+}: IEnumeratorSyncSurveysScreenProps) => {
+  const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [offlineSurveys, setOfflineSurveys] = useState<ISurveyPayload[]>([]);
+
+  const { isInternetReachable } = useNetInfo();
+
+  useEffect(() => {
+    async function prepare() {
+      setLoading(true);
+      const response = await getData<ISurveyPayload[]>('surveys');
+      if (response) {
+        // console.log('length', response.length);
+        setOfflineSurveys(response);
+      }
+      setLoading(false);
+    }
+    prepare();
+  }, [refreshing]);
+
+  const clearSurveys = async () => {
+    Alert.alert(
+      'Clear Surveys',
+      'Are you sure you want to clear all surveys from offline storage?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => {},
+          style: 'cancel',
+        },
+        {
+          text: 'Clear',
+          onPress: () => clearSurveyStorage(),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
+  const clearSurveyStorage = async () => {
+    try {
+      const response = await removeData('surveys');
+      if (response) {
+        setRefreshing(true);
+      }
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  const syncSurveys = async () => {};
+
+  const exportSurveys = async () => {};
+
+  return (
+    <Container containerStyle={styles.rootContentContainer}>
+      <Text style={styles.title}>Sync Surveys</Text>
+      <FlatList
+        data={offlineSurveys}
+        directionalLockEnabled
+        renderItem={({ item }) => {
+          return <SurveyItem survey={item} />;
+        }}
+        ListEmptyComponent={() => (
+          <Text style={styles.label}>No Surveys found in Offline Storage!</Text>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        style={styles.list}
+        contentContainerStyle={styles.listContentContainer}
+        refreshing={refreshing}
+        onRefresh={() => setRefreshing(true)}
+      />
+      <View style={styles.buttonsContainer}>
+        <Button
+          buttonStyle={styles.button}
+          onPress={clearSurveys}
+          title='Clear Surveys'
+        />
+        <Button
+          buttonStyle={styles.button}
+          onPress={syncSurveys}
+          title='Sync Surveys'
+          disabled={!isInternetReachable}
+        />
+        <Button
+          buttonStyle={styles.button}
+          onPress={exportSurveys}
+          title='Export Surveys'
+        />
+      </View>
+    </Container>
+  );
+};
+
+export default SyncSurveysScreen;
+
+const styles = StyleSheet.create({
+  rootContentContainer: {
+    padding: 10,
+  },
+  title: {
+    fontSize: FONT_SIZES.TITLE,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.PRIMARY,
+    marginTop: 10,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  list: {
+    marginBottom: 10,
+  },
+  listContentContainer: {
+    paddingVertical: 10,
+  },
+  label: {
+    marginTop: 50,
+    fontSize: FONT_SIZES.LARGE,
+    textAlign: 'center',
+  },
+  button: {
+    flex: 1,
+    marginHorizontal: 5,
+  },
+});

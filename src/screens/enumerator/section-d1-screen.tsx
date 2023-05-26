@@ -9,8 +9,9 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD1ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
-import { useAppSelector } from '@redux/store';
+import { useAppDispatch, useAppSelector } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
+import { submitSectionD1 } from '@redux/app-state-reducer';
 
 const SectionD1Screen = ({
   navigation,
@@ -19,6 +20,8 @@ const SectionD1Screen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D1_QUESTIONS);
 
   const { surveyComponents } = useAppSelector((state) => state.appState);
+
+  const dispatch = useAppDispatch();
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -30,10 +33,11 @@ const SectionD1Screen = ({
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
+      dispatch(submitSectionD1(questions));
       if (surveyComponents.includes(SURVEY_COMPONENTS.B)) {
         navigation.navigate(EnumeratorScreens.SectionC2);
       } else {
-        navigation.popToTop();
+        navigation.navigate(EnumeratorScreens.SurveyCompleted);
       }
     }
   };
@@ -56,7 +60,11 @@ const SectionD1Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
+      <Button
+        title='Submit Survey'
+        buttonStyle={styles.button}
+        onPress={onPress}
+      />
     </ScrollContainer>
   );
 };

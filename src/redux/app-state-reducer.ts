@@ -21,22 +21,22 @@ const appSlice = createSlice({
     ) => {
       state.surveyComponents = action.payload;
     },
-    setSectionA: (state, action: PayloadAction<IAppState['sectionA']>) => {
+    submitSectionA: (state, action: PayloadAction<IAppState['sectionA']>) => {
       state.sectionA = action.payload;
     },
-    setSectionB: (state, action: PayloadAction<IAppState['sectionB']>) => {
+    submitSectionB: (state, action: PayloadAction<IAppState['sectionB']>) => {
       state.sectionB = action.payload;
     },
-    setSectionC1: (state, action: PayloadAction<IAppState['sectionC1']>) => {
+    submitSectionC1: (state, action: PayloadAction<IAppState['sectionC1']>) => {
       state.sectionC1 = action.payload;
     },
-    setSectionD1: (state, action: PayloadAction<IAppState['sectionD1']>) => {
+    submitSectionD1: (state, action: PayloadAction<IAppState['sectionD1']>) => {
       state.sectionD1 = action.payload;
     },
-    setSectionC2: (state, action: PayloadAction<IAppState['sectionC2']>) => {
+    submitSectionC2: (state, action: PayloadAction<IAppState['sectionC2']>) => {
       state.sectionC2 = action.payload;
     },
-    setSectionD2: (state, action: PayloadAction<IAppState['sectionD2']>) => {
+    submitSectionD2: (state, action: PayloadAction<IAppState['sectionD2']>) => {
       state.sectionD2 = action.payload;
     },
     clearData: () => {
@@ -47,12 +47,12 @@ const appSlice = createSlice({
 
 export const {
   clearData,
-  setSectionA,
-  setSectionB,
-  setSectionC1,
-  setSectionC2,
-  setSectionD1,
-  setSectionD2,
+  submitSectionA,
+  submitSectionB,
+  submitSectionC1,
+  submitSectionC2,
+  submitSectionD1,
+  submitSectionD2,
   setSurveyComponents,
 } = appSlice.actions;
 

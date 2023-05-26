@@ -9,12 +9,17 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD2ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
+import { useAppDispatch, useAppSelector } from '@redux/store';
+import { submitSectionD2 } from '@redux/app-state-reducer';
+import { EnumeratorScreens } from '@common/screens';
 
 const SectionD2Screen = ({
   navigation,
   route,
 }: IEnumeratorSectionD2ScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D2_QUESTIONS);
+
+  const dispatch = useAppDispatch();
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -26,8 +31,8 @@ const SectionD2Screen = ({
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
-      alert('Completed');
-      navigation.popToTop();
+      dispatch(submitSectionD2(questions));
+      navigation.navigate(EnumeratorScreens.SurveyCompleted);
     }
   };
 
@@ -59,7 +64,11 @@ const SectionD2Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
+      <Button
+        title='Submit Survey'
+        buttonStyle={styles.button}
+        onPress={onPress}
+      />
     </ScrollContainer>
   );
 };

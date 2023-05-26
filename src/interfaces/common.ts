@@ -1,4 +1,6 @@
+import { SURVEY_COMPONENTS } from '@common/data';
 import type { KeyboardType } from 'react-native/types';
+import { IUserState } from './redux';
 export interface IEnumerator {
   firstName: string;
   lastName: string;
@@ -37,4 +39,16 @@ export interface IMonths {
 
 export interface IKeyValuePair {
   [key: string]: string;
+}
+
+export type ISubmittedBy = Omit<IUserState['user'], 'token'>;
+
+export interface ISurveyPayload {
+  surveyId: SURVEY_COMPONENTS;
+  sectionA: IQuestion[];
+  sectionB: IQuestion[];
+  sectionC: IQuestion[];
+  sectionD: IQuestion[];
+  submittedBy: ISubmittedBy;
+  submittedAt: string;
 }
