@@ -28,6 +28,7 @@ export interface IQuestion {
     | 'date'
     | 'time';
   keyboardType?: KeyboardType;
+  maxLength?: number;
 }
 
 export interface IMonths {

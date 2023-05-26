@@ -21,6 +21,13 @@ const SectionC1Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
+
+      if (index === 10) {
+        // index belongs to share of farmer in installation of HEIS
+        if (Number(newQuestions[10].answer) > 100) {
+          newQuestions[10].answer = '100';
+        }
+      }
       return newQuestions;
     });
   };

@@ -74,6 +74,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             keyboardType={item.keyboardType ?? 'default'}
             multiline={item.questionType === 'text-area'}
             numberOfLines={item.questionType === 'text-area' ? 2 : 1}
+            maxLength={item.maxLength ?? 100}
           />
         )}
         {item.questionType === 'radio' && (
