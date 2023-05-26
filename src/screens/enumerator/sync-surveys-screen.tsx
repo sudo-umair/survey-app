@@ -74,8 +74,6 @@ const SyncSurveysScreen = ({
 
   const syncSurveys = async () => {};
 
-  const exportSurveys = async () => {};
-
   return (
     <Container containerStyle={styles.rootContentContainer}>
       <Text style={styles.title}>Sync Surveys</Text>
@@ -107,12 +105,6 @@ const SyncSurveysScreen = ({
           title='Sync Surveys'
           disabled={!isInternetReachable || offlineSurveys.length === 0}
         />
-        <Button
-          buttonStyle={styles.button}
-          onPress={exportSurveys}
-          title='Export Surveys'
-          disabled={offlineSurveys.length === 0}
-        />
       </View>
     </Container>
   );
@@ -131,11 +123,6 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY,
     marginTop: 10,
   },
-  buttonsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
   list: {
     marginBottom: 10,
   },
@@ -146,6 +133,10 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontSize: FONT_SIZES.LARGE,
     textAlign: 'center',
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   button: {
     flex: 1,
