@@ -52,3 +52,12 @@ export interface ISurveyPayload {
   submittedBy: ISubmittedBy;
   submittedAt: string;
 }
+
+export interface IEnumeratorLoginRecord {
+  email: string;
+  password: string;
+}
+
+export interface IEnumeratorSignupRecord extends IEnumerator {
+  confirmPassword: string;
+}

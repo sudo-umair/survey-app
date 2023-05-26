@@ -5,6 +5,7 @@ import { store, persistor } from '@redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 import { COLORS } from '@common/colors';
 
 export default function App() {
@@ -16,6 +17,12 @@ export default function App() {
         </PersistGate>
       </Provider>
       <StatusBar backgroundColor={COLORS.PRIMARY} style='light' />
+      <Toast
+        position='bottom'
+        visibilityTime={2000}
+        keyboardOffset={10}
+        bottomOffset={10}
+      />
     </SafeAreaView>
   );
 }

@@ -11,14 +11,12 @@ import { FONT_SIZES } from '@common/fonts';
 import { useAppDispatch } from '@redux/store';
 import { setRole } from '@redux/user-reducer';
 import Logo from '@assets/images/logo.png';
-
-interface IEnumeratorRecord {
-  email: string;
-  password: string;
-}
+import { showSuccessToast, showErrorToast } from '@helpers/toast-message';
+import { IEnumeratorLoginRecord } from '@interfaces/common';
+import { checkLoginInputs } from '@utils/input-checks';
 
 const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
-  const [record, setRecord] = useState<IEnumeratorRecord>({
+  const [record, setRecord] = useState<IEnumeratorLoginRecord>({
     email: '',
     password: '',
   });
@@ -41,10 +39,11 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
   };
 
   const onSubmit = () => {
-    dispatch(setRole(role));
+    if (checkLoginInputs(record)) {
+      showSuccessToast('Logged in successfully');
+      dispatch(setRole(role));
+    }
   };
-
-  const checkInputs = () => {};
 
   return (
     <ScrollContainer
@@ -55,7 +54,6 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
       <Text style={styles.title}>
         {role === 'admin' ? 'Admin' : 'Enumerator'} Login
       </Text>
-
       <Image
         source={Logo}
         resizeMode='contain'
@@ -68,6 +66,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
           value={record.email}
           onChangeText={(text) => onChangeText(text, 'email')}
           keyboardType='email-address'
+          autoFocus
         />
       </View>
       <View style={styles.inputContainer}>

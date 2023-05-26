@@ -3,20 +3,17 @@ import React, { useState } from 'react';
 import type { IAuthSignupScreenProps } from '@interfaces/screens';
 import TextInput from '@components/ui/text-input';
 import { COLORS } from '@common/colors';
-import { IEnumerator } from '@interfaces/common';
+import { IEnumeratorSignupRecord } from '@interfaces/common';
 import ScrollContainer from '@components/ui/scroll-container';
 import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
-import { AuthScreens, EnumeratorScreens } from '@common/screens';
+import { AuthScreens } from '@common/screens';
 import { FONT_SIZES } from '@common/fonts';
-
-interface IRecord extends IEnumerator {
-  confirmPassword: string;
-}
+import { checkSignupInputs } from '@utils/input-checks';
 
 const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
-  const [record, setRecord] = useState<IRecord>({
+  const [record, setRecord] = useState<IEnumeratorSignupRecord>({
     enumeratorId: '',
     firstName: '',
     lastName: '',
@@ -39,15 +36,15 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
   };
 
   const onSubmit = () => {
-    goToLoginScreen();
+    if (checkSignupInputs(record)) {
+      goToLoginScreen();
+    }
   };
 
   const goToLoginScreen = () =>
     navigation.navigate(AuthScreens.Login, {
       role: 'enumerator',
     });
-
-  const checkInputs = () => {};
 
   return (
     <ScrollContainer
@@ -63,7 +60,6 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
           onChangeText={(text) => onChangeText(text, 'enumeratorId')}
           autoCapitalize='words'
           autoFocus
-          keyboardType='number-pad'
         />
       </View>
       <View style={styles.inputContainer}>
@@ -83,11 +79,48 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
         />
       </View>
       <View style={styles.inputContainer}>
+        <Text style={styles.label}>Age</Text>
+        <TextInput
+          value={record.age}
+          onChangeText={(text) => onChangeText(text, 'age')}
+          keyboardType='number-pad'
+          maxLength={2}
+        />
+      </View>
+      <View style={styles.inputContainer}>
         <Text style={styles.label}>Email</Text>
         <TextInput
           value={record.email}
           onChangeText={(text) => onChangeText(text, 'email')}
           keyboardType='email-address'
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>CNIC</Text>
+        <TextInput
+          value={record.cnic}
+          placeholder='XXXXX-XXXXXXX-X'
+          onChangeText={(text) => onChangeText(text, 'cnic')}
+          keyboardType='number-pad'
+          maxLength={15}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Mobile</Text>
+        <TextInput
+          value={record.mobile}
+          onChangeText={(text) => onChangeText(text, 'mobile')}
+          keyboardType='number-pad'
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Address</Text>
+        <TextInput
+          value={record.address}
+          onChangeText={(text) => onChangeText(text, 'address')}
+          autoCapitalize='words'
+          multiline
+          numberOfLines={2}
         />
       </View>
       <View style={styles.inputContainer}>
@@ -130,42 +163,6 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
             />
           )}
         </View>
-      </View>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Mobile</Text>
-        <TextInput
-          value={record.mobile}
-          onChangeText={(text) => onChangeText(text, 'mobile')}
-          keyboardType='number-pad'
-        />
-      </View>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>CNIC</Text>
-        <TextInput
-          value={record.cnic}
-          placeholder='XXXXX-XXXXXXX-X'
-          onChangeText={(text) => onChangeText(text, 'cnic')}
-          keyboardType='number-pad'
-          maxLength={15}
-        />
-      </View>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Age</Text>
-        <TextInput
-          value={record.age}
-          onChangeText={(text) => onChangeText(text, 'age')}
-          keyboardType='number-pad'
-        />
-      </View>
-      <View style={styles.inputContainer}>
-        <Text style={styles.label}>Address</Text>
-        <TextInput
-          value={record.address}
-          onChangeText={(text) => onChangeText(text, 'address')}
-          autoCapitalize='words'
-          multiline
-          numberOfLines={2}
-        />
       </View>
       <Button onPress={onSubmit} title='Sign Up' />
       <Text onPress={goToLoginScreen} style={styles.link}>
