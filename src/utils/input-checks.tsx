@@ -4,11 +4,7 @@ import {
   IQuestion,
 } from '@interfaces/common';
 import { Alert } from 'react-native';
-import {
-  showSuccessToast,
-  showErrorToast,
-  showInfoToast,
-} from '@helpers/toast-message';
+import { showErrorToast } from '@helpers/toast-message';
 
 export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
   const missingAnswers = questions.filter(
