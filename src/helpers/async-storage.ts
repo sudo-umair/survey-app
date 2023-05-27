@@ -35,8 +35,7 @@ export const removeData = async (key: string): Promise<boolean> => {
 
 export const appendData = async <T>(key: string, value: T) => {
   try {
-    const previousValue = await getData<T[]>(key);
-    const previousData = previousValue || [];
+    const previousData = await getData<T[]>(key) ?? [];
     const newData = previousData.concat(value);
     const response = await storeData(key, newData);
     return response;
