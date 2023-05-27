@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import type { IEnumeratorHomeScreenProps } from '@interfaces/screens';
 import Container from '@components/ui/container';
@@ -11,6 +11,7 @@ import { FONT_SIZES } from '@common/fonts';
 import { useAppDispatch } from '@redux/store';
 import { setSurveyComponents } from '@redux/app-state-reducer';
 import { useFocusEffect } from '@react-navigation/native';
+import { removeUser } from '@redux/user-reducer';
 
 const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
   const [selectedComponents, setSelectedComponents] = useState<string[]>([]);
@@ -34,6 +35,24 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
     navigation.navigate(EnumeratorScreens.SectionA);
   };
 
+  const onLogout = () => {
+    Alert.alert('Logout', 'Are you sure you want to logout?', [
+      {
+        text: 'No',
+        style: 'cancel',
+      },
+      {
+        text: 'Yes',
+        onPress: logout,
+        style: 'destructive',
+      },
+    ]);
+  };
+
+  const logout = () => {
+    dispatch(removeUser());
+  };
+
   useFocusEffect(
     useCallback(() => {
       setSelectedComponents([]);
@@ -53,14 +72,24 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
         onPress={() => onPress(SURVEY_COMPONENTS.B)}
         isSelected={selectedComponents.includes(SURVEY_COMPONENTS.B)}
       />
-
       <View style={styles.buttonContainer}>
-        <Button title='Sync Surveys' onPress={goToSyncSurveys} />
         <Button
           title='Proceed'
           onPress={onProceed}
           disabled={selectedComponents.length === 0}
         />
+        <View style={styles.buttonsRow}>
+          <Button
+            buttonStyle={styles.button}
+            title='Logout'
+            onPress={onLogout}
+          />
+          <Button
+            buttonStyle={styles.button}
+            title='Sync Surveys'
+            onPress={goToSyncSurveys}
+          />
+        </View>
       </View>
     </Container>
   );
@@ -85,5 +114,14 @@ const styles = StyleSheet.create({
     bottom: 10,
     left: 0,
     right: 0,
+  },
+  buttonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 10,
+  },
+  button: {
+    flex: 1,
+    marginHorizontal: 15,
   },
 });

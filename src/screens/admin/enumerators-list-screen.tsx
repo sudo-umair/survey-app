@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const UsersListScreen = () => {
+const EnumeratorsListScreen = () => {
   return (
     <View>
       <Text>UsersList</Text>
@@ -9,6 +9,6 @@ const UsersListScreen = () => {
   );
 };
 
-export default UsersListScreen;
+export default EnumeratorsListScreen;
 
 const styles = StyleSheet.create({});

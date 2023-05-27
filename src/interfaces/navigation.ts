@@ -13,7 +13,7 @@ export type IAuthStackParamList = {
 // AdminStackParamList
 export type IAdminStackParamList = {
   [AdminScreens.Home]: undefined;
-  [AdminScreens.UsersList]: undefined;
+  [AdminScreens.EnumeratorsList]: undefined;
   [AdminScreens.SurveysList]: undefined;
 };
 

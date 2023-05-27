@@ -58,6 +58,15 @@ export const checkLoginInputs = (record: IEnumeratorLoginRecord): boolean => {
     showErrorToast('Please enter your password');
     return false;
   }
+  if (record.password.includes(' ')) {
+    showErrorToast('Password cannot contain spaces');
+    return false;
+  }
+  if (record.password.length < 6) {
+    showErrorToast('Password must be at least 6 characters long');
+    return false;
+  }
+
   return true;
 };
 
@@ -136,8 +145,12 @@ export const checkSignupInputs = (record: IEnumeratorSignupRecord): boolean => {
     showErrorToast('Please enter your password');
     return false;
   }
-  if (record.password.trim().length < 8) {
-    showErrorToast('Password must be at least 8 characters long');
+  if (record.password.includes(' ')) {
+    showErrorToast('Password cannot contain spaces');
+    return false;
+  }
+  if (record.password.trim().length < 6) {
+    showErrorToast('Password must be at least 6 characters long');
     return false;
   }
   if (record.password !== record.confirmPassword) {

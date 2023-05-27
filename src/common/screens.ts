@@ -13,7 +13,7 @@ export enum EnumeratorScreens {
 
 export enum AdminScreens {
   Home = 'Home',
-  UsersList = 'UsersList',
+  EnumeratorsList = 'EnumeratorsList',
   SurveysList = 'SurveysList',
 }
 
