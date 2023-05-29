@@ -224,14 +224,14 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C1',
     question: 'Do you know about HEIS?',
     options: ['Yes', 'No', 'Somehow'],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
     questionId: 'C2',
     question: 'Did you receive HEIS from SIAPEP project?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -245,7 +245,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C4',
     question: 'Did the canal irrigation system deteriorate?',
     options: ['Yes', 'No', 'Somewhat'],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -294,7 +294,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C10',
     question: 'Are you a member of the watercourse association?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -309,7 +309,7 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     questionId: 'C12',
     question: 'Do you receive follow-up support services?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -317,13 +317,13 @@ export const SECTION_C1_QUESTIONS: IQuestion[] = [
     question:
       'Have you received any training of maintenance, operating and troubleshooting?',
     options: ['Yes', 'No'],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
     questionId: 'C14',
     question: 'Was the HEIS land shared with others?',
-    answer: 'Yes',
+    answer: '',
     options: ['Yes', 'No'],
     questionType: 'radio',
   },
@@ -451,7 +451,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C2',
     question: 'Did you receive support from SIAPEP project?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -499,7 +499,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C7',
     question: 'Are you a member of the watercourse association?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -513,7 +513,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C9',
     question: 'Do you own the land of KG?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -533,7 +533,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C11',
     question: 'Was the KG land shared with others?',
     options: ['Yes', 'No'],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -576,7 +576,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C14',
     question: 'Do you sell the products in the market?',
     options: ['Yes', 'No'],
-    answer: 'No',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -590,7 +590,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C15',
     question: 'Does this contribute to your income? ',
     options: ['Yes', 'No'],
-    answer: 'No',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -604,14 +604,14 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C16',
     question: 'Has this improved the health of your family members?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
     questionId: 'C17',
     question: 'The installation of KG kits was completed by the company?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'No',
+    answer: '',
     questionType: 'radio',
   },
   {
@@ -624,7 +624,7 @@ export const SECTION_C2_QUESTIONS: IQuestion[] = [
     questionId: 'C18',
     question: 'Did you receive agronomical training?',
     options: ['Yes', 'No', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
 ];
@@ -663,7 +663,7 @@ export const SECTION_D2_QUESTIONS: IQuestion[] = [
     question:
       'Did this project play a role in the development of problem-solving skills?',
     options: ['Yes', 'No', 'Somehow', "Don't know"],
-    answer: 'Yes',
+    answer: '',
     questionType: 'radio',
   },
   {
