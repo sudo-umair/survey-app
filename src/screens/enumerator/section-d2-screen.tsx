@@ -29,6 +29,8 @@ const SectionD2Screen = ({
         if (newQuestions[3].answer === 'Yes') {
           // to prevent check inputs error if D4a is not visible
           newQuestions[4].answer = 'None';
+        } else {
+          newQuestions[4].answer = '';
         }
       }
       return newQuestions;

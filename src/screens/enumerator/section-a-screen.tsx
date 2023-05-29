@@ -34,8 +34,11 @@ const SectionAScreen = ({
         if (newQuestions[0].answer !== 'Yes') {
           // to prevent check inputs error if A2 is not visible
           newQuestions[1].answer = 'None';
+        } else {
+          newQuestions[1].answer = '';
         }
       }
+
       return newQuestions;
     });
   };

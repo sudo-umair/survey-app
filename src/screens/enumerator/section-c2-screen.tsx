@@ -30,6 +30,8 @@ const SectionC2Screen = ({
         if (newQuestions[13].answer !== 'Yes') {
           // to prevent check inputs error if C14a is not visible
           newQuestions[14].answer = 'None';
+        } else {
+          newQuestions[14].answer = '';
         }
       }
 
@@ -37,6 +39,8 @@ const SectionC2Screen = ({
         if (newQuestions[15].answer !== 'Yes') {
           // to prevent check inputs error if C15a is not visible
           newQuestions[16].answer = 'None';
+        } else {
+          newQuestions[16].answer = '';
         }
       }
 
@@ -44,6 +48,8 @@ const SectionC2Screen = ({
         if (newQuestions[18].answer !== 'Yes') {
           // to prevent check inputs error if C17a is not visible
           newQuestions[19].answer = 'None';
+        } else {
+          newQuestions[19].answer = '';
         }
       }
 
