@@ -12,6 +12,8 @@ export interface IUserState {
     enumeratorId?: string;
     token?: string;
     isDisabled: boolean;
+    createdAt: string;
+    updatedAt: string;
   };
   role: 'admin' | 'enumerator' | null;
   isLoggedIn?: boolean;
