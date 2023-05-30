@@ -26,9 +26,9 @@ const Button: React.FC<IButtonProps> = ({
       onPress={onPressHandler}
       style={({ pressed }) => [
         styles.container,
+        buttonStyle,
         disabled && styles.disabled,
         pressed && dynamic && styles.pressed,
-        buttonStyle,
       ]}
     >
       {isLoading ? (

@@ -14,8 +14,8 @@ import { COLORS } from '@common/colors';
 import { getData, removeData } from '@helpers/async-storage';
 import Button from '@components/ui/button';
 import { ISurveyPayload } from '@interfaces/common';
-import SurveyItem from '@components/enumerator/survey-item';
 import { useNetInfo } from '@react-native-community/netinfo';
+import SyncSurveyItem from '../../components/enumerator/sync-survey-item';
 import { showSuccessToast } from '@helpers/toast-message';
 
 const SyncSurveysScreen = ({
@@ -75,6 +75,7 @@ const SyncSurveysScreen = ({
   };
 
   const syncSurveys = async () => {
+    // api call to sync surveys
     showSuccessToast('Syncing Surveys...');
   };
 
@@ -85,7 +86,7 @@ const SyncSurveysScreen = ({
         data={offlineSurveys}
         directionalLockEnabled
         renderItem={({ item }) => {
-          return <SurveyItem survey={item} />;
+          return <SyncSurveyItem survey={item} />;
         }}
         ListEmptyComponent={() => (
           <Text style={styles.label}>No Surveys found in Offline Storage!</Text>

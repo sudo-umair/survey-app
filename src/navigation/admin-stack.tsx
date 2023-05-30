@@ -6,7 +6,7 @@ import { STACKS } from '@common/stacks';
 
 // screens
 import HomeScreen from '@screens/admin/home-screen';
-import EnumeratorsListScreen from '@screens/admin/enumerators-list-screen';
+import ManageEnumeratorsScreen from '@screens/admin/manage-enumerators-screen';
 import SurveysListScreen from '@screens/admin/surveys-list-screen';
 
 const Stack = createNativeStackNavigator<IAdminStackParamList>();
@@ -21,8 +21,8 @@ const AdminStack = () => {
     >
       <Stack.Screen name={Screens.Home} component={HomeScreen} />
       <Stack.Screen
-        name={Screens.EnumeratorsList}
-        component={EnumeratorsListScreen}
+        name={Screens.ManageEnumerators}
+        component={ManageEnumeratorsScreen}
       />
       <Stack.Screen name={Screens.SurveysList} component={SurveysListScreen} />
     </Stack.Navigator>

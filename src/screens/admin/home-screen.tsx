@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
   const dispatch = useAppDispatch();
 
   const goToEnumeratorsList = () =>
-    navigation.navigate(AdminScreens.EnumeratorsList);
+    navigation.navigate(AdminScreens.ManageEnumerators);
   const goToSurveysList = () => navigation.navigate(AdminScreens.SurveysList);
 
   const onLogout = () => {

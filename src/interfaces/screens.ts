@@ -33,9 +33,9 @@ export type IAdminHomeScreenProps = NativeStackScreenProps<
   STACKS.ADMIN
 >;
 
-export type IAdminUsersListScreenProps = NativeStackScreenProps<
+export type IAdminManageEnumeratorsScreenProps = NativeStackScreenProps<
   IAdminStackParamList,
-  AdminScreens.UsersList,
+  AdminScreens.ManageEnumerators,
   STACKS.ADMIN
 >;
 

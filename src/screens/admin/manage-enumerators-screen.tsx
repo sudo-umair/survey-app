@@ -1,22 +1,29 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { ISurveyPayload } from '@interfaces/common';
 import Container from '@components/ui/container';
-import SurveyItem from '@components/admin/survey-item';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
+import { IAdminManageEnumeratorsScreenProps } from '@interfaces/screens';
+import { TestEnumerators } from '@common/test-data';
+import ManageEnumeratorItem from '@components/admin/manage-enumerator-item';
+import { IUserState } from '@interfaces/redux';
 
-const SurveysListScreen = () => {
+const ManageEnumeratorsScreen = ({
+  navigation,
+  route,
+}: IAdminManageEnumeratorsScreenProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [searchText, setSearchText] = useState<string>('');
-  const [surveysList, setSurveysList] = useState<ISurveyPayload[]>([]);
+  const [enumeratorsList, setEnumeratorsList] = useState<IUserState['user'][]>(
+    []
+  );
 
   useEffect(() => {
     async function prepare() {
       setLoading(true);
       //api call to get enumerators
-      setSurveysList([]);
+      setEnumeratorsList(TestEnumerators);
       setLoading(false);
     }
     prepare();
@@ -24,15 +31,15 @@ const SurveysListScreen = () => {
 
   return (
     <Container containerStyle={styles.rootContainer}>
-      <Text style={styles.title}>Surveys</Text>
+      <Text style={styles.title}>Manage Enumerators</Text>
       <FlatList
-        data={surveysList}
+        data={enumeratorsList}
         directionalLockEnabled
         renderItem={({ item }) => {
-          return <SurveyItem survey={item} />;
+          return <ManageEnumeratorItem enumerator={item} />;
         }}
         ListEmptyComponent={() => (
-          <Text style={styles.label}>No Surveys found!</Text>
+          <Text style={styles.label}>No Enumerators Registered Yet!</Text>
         )}
         keyExtractor={(item, index) => index.toString()}
         style={styles.list}
@@ -44,7 +51,7 @@ const SurveysListScreen = () => {
   );
 };
 
-export default SurveysListScreen;
+export default ManageEnumeratorsScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {

@@ -5,7 +5,8 @@ import type {
   ScrollViewProps,
   TextInputProps,
 } from 'react-native/types';
-import { IQuestion, ISurveyPayload } from './common';
+import { IEnumerator, IQuestion, ISurveyPayload } from './common';
+import { IUserState } from './redux';
 
 // UI Components
 export interface IContainerProps {
@@ -67,6 +68,14 @@ export interface IQuestionBoxProps {
   item: IQuestion;
   index: number;
   onChange: (value: string, index: number) => void;
+}
+
+export interface ISyncSurveyItemProps {
+  survey: ISurveyPayload;
+}
+
+export interface IManageEnumeratorItemProps {
+  enumerator: IUserState['user'];
 }
 
 export interface ISurveyItemProps {

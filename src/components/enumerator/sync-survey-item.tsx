@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import type { ISurveyItemProps } from '@interfaces/components';
+import type { ISyncSurveyItemProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import { FONT_SIZES } from '@common/fonts';
 import { dateFormatter, timeFormatter } from '@utils/formatters';
 
-const SurveyItem: React.FC<ISurveyItemProps> = ({ survey }) => {
+const SyncSurveyItem: React.FC<ISyncSurveyItemProps> = ({ survey }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Survey: {survey.surveyId}</Text>
@@ -26,7 +26,7 @@ const SurveyItem: React.FC<ISurveyItemProps> = ({ survey }) => {
   );
 };
 
-export default React.memo(SurveyItem);
+export default React.memo(SyncSurveyItem);
 
 const styles = StyleSheet.create({
   container: {
