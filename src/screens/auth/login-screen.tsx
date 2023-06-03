@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
     setLoading(true);
     try {
       const response = await adminLogin(record);
-      console.log('response', response.data);
+      // console.log('response', response.data);
       showSuccessToast(response.data.message);
       if (response.status === 200) {
         dispatch(setAdmin(response.data.admin));
@@ -66,7 +66,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
     setLoading(true);
     try {
       const response = await enumeratorLogin(record);
-      console.log('response', response.data);
+      // console.log('response', response.data);
       showSuccessToast(response.data.message);
       if (response.status === 200) {
         dispatch(setEnumerator(response.data.enumerator));
