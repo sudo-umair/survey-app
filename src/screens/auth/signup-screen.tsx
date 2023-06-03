@@ -28,7 +28,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
     age: '',
     address: '',
   });
-
+  const [loading, setLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const onChangeText = (text: string, key: keyof typeof record) => {
@@ -40,6 +40,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
 
   const onSubmit = async () => {
     if (checkSignupInputs(record)) {
+      setLoading(true);
       try {
         const response = await enumeratorSignup(record);
         // console.log(response.data);
@@ -53,6 +54,8 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
         const errorResponse = handleAxiosError(error);
         console.error(errorResponse);
         showErrorToast(errorResponse.message);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -181,7 +184,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
           )}
         </View>
       </View>
-      <Button onPress={onSubmit} title='Sign Up' />
+      <Button isLoading={loading} onPress={onSubmit} title='Sign Up' />
       <Text onPress={goToLoginScreen} style={styles.link}>
         Already a user?
       </Text>

@@ -25,7 +25,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
     email: '',
     password: '',
   });
-
+  const [loading, setLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const role = route.params?.role;
@@ -44,6 +44,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
   };
 
   const handleAdminLogin = async () => {
+    setLoading(true);
     try {
       const response = await adminLogin(record);
       console.log('response', response.data);
@@ -56,10 +57,13 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
       const errorResponse = handleAxiosError(error);
       console.error(errorResponse);
       showErrorToast(errorResponse.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleEnumeratorLogin = async () => {
+    setLoading(true);
     try {
       const response = await enumeratorLogin(record);
       console.log('response', response.data);
@@ -72,6 +76,8 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
       const errorResponse = handleAxiosError(error);
       console.error(errorResponse);
       showErrorToast(errorResponse.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -142,7 +148,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
           )}
         </View>
       </View>
-      <Button onPress={onSubmit} title='Log In' />
+      <Button isLoading={loading} onPress={onSubmit} title='Log In' />
       {role === 'enumerator' && (
         <Text onPress={goToSignUpScreen} style={styles.link}>
           Not a user?
