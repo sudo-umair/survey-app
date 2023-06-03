@@ -1,5 +1,5 @@
 import {
-  IEnumeratorLoginRecord,
+  ILoginRecord,
   IEnumeratorSignupRecord,
   IQuestion,
 } from '@interfaces/common';
@@ -26,13 +26,13 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
       { cancelable: false }
     );
 
-    return false;
-    // return true;
+    // return false;
+    return true;
   }
   return true;
 };
 
-export const checkLoginInputs = (record: IEnumeratorLoginRecord): boolean => {
+export const checkLoginInputs = (record: ILoginRecord): boolean => {
   if (record.email.trim() === '') {
     showErrorToast('Please enter your email');
     return false;

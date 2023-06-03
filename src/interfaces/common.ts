@@ -41,7 +41,15 @@ export interface IKeyValuePair {
   [key: string]: string;
 }
 
-export type ISubmittedBy = Omit<IUserState['user'], 'token'>;
+export interface ISubmittedBy {
+  name: string;
+  age?: string;
+  email: string;
+  cnic?: string;
+  mobile?: string;
+  address?: string;
+  enumeratorId?: string;
+}
 
 export interface ISurveyPayload {
   surveyId: SURVEY_COMPONENTS;

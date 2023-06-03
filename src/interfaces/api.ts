@@ -1,4 +1,4 @@
-import type { IEnumerator, ILoginRecord } from './common';
+import type { IEnumerator, ILoginRecord, ISurveyPayload } from './common';
 import { IEnumeratorState, IAdminState } from './redux';
 
 interface IAxiosResponse<T> {
@@ -27,4 +27,23 @@ export type IAdminLoginRequest = ILoginRecord;
 export type IAdminLoginResponse = IAxiosResponse<{
   message: string;
   admin: IAdminState;
+}>;
+
+// survey
+export type ISurveyCreateRequest = ISurveyPayload & {
+  token: string;
+};
+export type ISurveyCreateResponse = IAxiosResponse<{
+  message: string;
+  survey: ISurveyPayload;
+}>;
+
+export interface ISurveySyncRequest {
+  email: string;
+  token: string;
+  surveys: ISurveyPayload[];
+}
+export type ISurveySyncResponse = IAxiosResponse<{
+  message: string;
+  surveys: ISurveyPayload[];
 }>;

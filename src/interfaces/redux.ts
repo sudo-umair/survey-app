@@ -4,14 +4,14 @@ export interface IUserState {
   user: {
     id: string;
     name: string;
-    age: string;
+    age?: string;
     email: string;
     cnic?: string;
     mobile?: string;
     address?: string;
     enumeratorId?: string;
-    token?: string;
-    isDisabled: boolean;
+    token: string;
+    isDisabled?: boolean;
     createdAt: string;
     updatedAt: string;
   };

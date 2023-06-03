@@ -1,12 +1,5 @@
-import {
-  ActivityIndicator,
-  Alert,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React, { Fragment, useEffect, useState } from 'react';
+import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import Container from '@components/ui/container';
 import { IEnumeratorSyncSurveysScreenProps } from '@interfaces/screens';
 import { FONT_SIZES } from '@common/fonts';
@@ -16,24 +9,32 @@ import Button from '@components/ui/button';
 import { ISurveyPayload } from '@interfaces/common';
 import { useNetInfo } from '@react-native-community/netinfo';
 import SyncSurveyItem from '../../components/enumerator/sync-survey-item';
-import { showSuccessToast } from '@helpers/toast-message';
+import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
+import { syncSurveys } from '@api/survey';
+import { useAppSelector } from '@redux/store';
+import { handleAxiosError } from '@helpers/api';
 
 const SyncSurveysScreen = ({
   navigation,
   route,
 }: IEnumeratorSyncSurveysScreenProps) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [loading2, setLoading2] = useState<boolean>(false);
+  const [loading3, setLoading3] = useState<boolean>(false);
+
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [offlineSurveys, setOfflineSurveys] = useState<ISurveyPayload[]>([]);
 
   const { isInternetReachable } = useNetInfo();
+
+  const user = useAppSelector((state) => state.user.user);
 
   useEffect(() => {
     async function prepare() {
       setLoading(true);
       const response = await getData<ISurveyPayload[]>('surveys');
       if (response) {
-        // console.log('length', response.length);
+        console.log('length', response.length);
         setOfflineSurveys(response);
       } else {
         setOfflineSurveys([]);
@@ -63,6 +64,7 @@ const SyncSurveysScreen = ({
   };
 
   const clearSurveyStorage = async () => {
+    setLoading2(true);
     try {
       const response = await removeData('surveys');
       if (response) {
@@ -71,12 +73,31 @@ const SyncSurveysScreen = ({
       showSuccessToast('Surveys Cleared Successfully!');
     } catch (error) {
       console.warn(error);
+    } finally {
+      setLoading2(false);
     }
   };
 
-  const syncSurveys = async () => {
-    // api call to sync surveys
-    showSuccessToast('Syncing Surveys...');
+  const syncSurveysToServer = async () => {
+    setLoading3(true);
+    try {
+      const response = await syncSurveys({
+        email: user.email,
+        token: user.token,
+        surveys: offlineSurveys,
+      });
+      if (response.status === 201) {
+        showSuccessToast(response.data.message);
+        clearSurveyStorage();
+        navigation.goBack();
+      }
+    } catch (error) {
+      const errorResponse = handleAxiosError(error);
+      console.error(errorResponse);
+      showErrorToast(errorResponse.message);
+    } finally {
+      setLoading3(false);
+    }
   };
 
   return (
@@ -103,12 +124,14 @@ const SyncSurveysScreen = ({
           onPress={clearSurveys}
           title='Clear Surveys'
           disabled={offlineSurveys.length === 0}
+          isLoading={loading2}
         />
         <Button
           buttonStyle={styles.button}
-          onPress={syncSurveys}
+          onPress={syncSurveysToServer}
           title='Sync Surveys'
           disabled={!isInternetReachable || offlineSurveys.length === 0}
+          isLoading={loading3}
         />
       </View>
     </Container>

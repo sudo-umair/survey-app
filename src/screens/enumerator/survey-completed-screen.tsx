@@ -1,5 +1,5 @@
 import { AppState, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Container from '@components/ui/container';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
@@ -9,16 +9,20 @@ import { useAppSelector } from '@redux/store';
 import Button from '@components/ui/button';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { SURVEY_COMPONENTS } from '@common/data';
-import { appendData, getData, storeData } from '@helpers/async-storage';
+import { appendData } from '@helpers/async-storage';
 import { ISubmittedBy, ISurveyPayload } from '@interfaces/common';
 import { IEnumeratorSurveyCompletedScreenProps } from '@interfaces/screens';
-import { showSuccessToast } from '@helpers/toast-message';
+import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
+import { createSurvey } from '@api/survey';
+import { handleAxiosError } from '@helpers/api';
 
 const SurveyCompletedScreen = ({
   navigation,
   route,
 }: IEnumeratorSurveyCompletedScreenProps) => {
   const animationRef = useRef<Lottie>(null);
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   const rootState = useAppSelector((state) => state);
   const {
@@ -28,16 +32,14 @@ const SurveyCompletedScreen = ({
 
   const { isInternetReachable } = useNetInfo();
 
-  useEffect(() => {
-    async function prepare() {
-      const response = await getData('surveys');
-      console.log(response);
-    }
-    prepare();
-  }, []);
-
   const SubmittedBy: ISubmittedBy = {
-    ...user,
+    name: user.name,
+    age: user.age,
+    email: user.email,
+    cnic: user.cnic,
+    mobile: user.mobile,
+    address: user.address,
+    enumeratorId: user.enumeratorId,
   };
 
   const isSurveyAEmpty = useMemo(() => {
@@ -70,26 +72,67 @@ const SurveyCompletedScreen = ({
 
   const goToHome = () => navigation.popToTop();
 
-  const submitOnline = () => {};
+  const submitSurveyToServer = async (
+    payload: ISurveyPayload
+  ): Promise<boolean> => {
+    setLoading(true);
+    try {
+      const response = await createSurvey({
+        ...payload,
+        token: user.token,
+      });
+      // console.log(response.data);
+      if (response.status === 201) return true;
+      return false;
+    } catch (error) {
+      const errorResponse = handleAxiosError(error);
+      showErrorToast(errorResponse.message);
+      console.warn(errorResponse);
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const submitOnline = async () => {
+    let isSubmitted = false;
+    if (!isSurveyAEmpty) {
+      isSubmitted = await submitSurveyToServer(SurveyAPayload);
+    }
+    if (!isSurveyBEmpty) {
+      isSubmitted = await submitSurveyToServer(SurveyBPayload);
+    }
+    if (isSubmitted) {
+      showSuccessToast('Survey submitted online successfully');
+      goToHome();
+    }
+  };
 
   const storePayloadInOfflineStorage = async (payload: ISurveyPayload) => {
+    setLoading(true);
     try {
-      const response = await appendData<ISurveyPayload>('surveys', payload);
-      console.log(response);
+      return await appendData<ISurveyPayload>('surveys', payload);
     } catch (error) {
       console.warn(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const submitOffline = async () => {
+    let isSubmitted = false;
     if (!isSurveyAEmpty) {
-      await storePayloadInOfflineStorage(SurveyAPayload);
+      isSubmitted =
+        (await storePayloadInOfflineStorage(SurveyAPayload)) || false;
     }
     if (!isSurveyBEmpty) {
-      await storePayloadInOfflineStorage(SurveyBPayload);
+      isSubmitted =
+        (await storePayloadInOfflineStorage(SurveyBPayload)) || false;
     }
-    showSuccessToast('Survey submitted successfully offline');
-    goToHome();
+    if (isSubmitted) {
+      showSuccessToast('Survey submitted offline successfully');
+      goToHome();
+    }
   };
   return (
     <Container containerStyle={styles.rootContentContainer}>
