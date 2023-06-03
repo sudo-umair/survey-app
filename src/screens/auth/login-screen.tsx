@@ -14,6 +14,9 @@ import Logo from '@assets/images/logo.png';
 import { showSuccessToast, showErrorToast } from '@helpers/toast-message';
 import { IEnumeratorLoginRecord } from '@interfaces/common';
 import { checkLoginInputs } from '@utils/input-checks';
+import { enumeratorLogin } from '@api/enumerator';
+import { setEnumerator } from '@redux/user-reducer';
+import { handleAxiosError } from '@helpers/api';
 
 const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
   const [record, setRecord] = useState<IEnumeratorLoginRecord>({
@@ -38,10 +41,25 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
     navigation.navigate(AuthScreens.SignUp);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (checkLoginInputs(record)) {
-      showSuccessToast('Logged in successfully');
-      dispatch(setRole(role));
+      try {
+        const response =
+          role === 'admin'
+            ? await enumeratorLogin(record)
+            : await enumeratorLogin(record);
+        console.log('response', response.data.enumerator);
+        showSuccessToast(response.data.message);
+        if (response.status === 200) {
+          role === 'enumerator' &&
+            dispatch(setEnumerator(response.data.enumerator));
+        }
+        dispatch(setRole(role));
+      } catch (error) {
+        const errorResponse = handleAxiosError(error);
+        console.error(errorResponse);
+        showErrorToast(errorResponse.message);
+      }
     }
   };
 

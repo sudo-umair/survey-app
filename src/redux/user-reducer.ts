@@ -17,6 +17,8 @@ const initialState: IUserState = {
     enumeratorId: '',
     token: '',
     isDisabled: false,
+    createdAt: '',
+    updatedAt: '',
   },
   role: null,
   isLoggedIn: false,
