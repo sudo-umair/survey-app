@@ -1,6 +1,5 @@
-import type { IEnumerator, IEnumeratorLoginRecord } from './common';
-import { IEnumeratorState } from './redux';
-// enumerator
+import type { IEnumerator, ILoginRecord } from './common';
+import { IEnumeratorState, IAdminState } from './redux';
 
 interface IAxiosResponse<T> {
   data: T;
@@ -11,13 +10,21 @@ interface IAxiosResponse<T> {
   request?: any;
 }
 
+// enumerator
 export type IEnumeratorSignupRequest = IEnumerator;
 export type IEnumeratorSignupResponse = IAxiosResponse<{
   message: string;
 }>;
 
-export type IEnumeratorLoginRequest = IEnumeratorLoginRecord;
+export type IEnumeratorLoginRequest = ILoginRecord;
 export type IEnumeratorLoginResponse = IAxiosResponse<{
   message: string;
   enumerator: IEnumeratorState;
+}>;
+
+// admin
+export type IAdminLoginRequest = ILoginRecord;
+export type IAdminLoginResponse = IAxiosResponse<{
+  message: string;
+  admin: IAdminState;
 }>;

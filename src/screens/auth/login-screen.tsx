@@ -12,14 +12,16 @@ import { useAppDispatch } from '@redux/store';
 import { setRole } from '@redux/user-reducer';
 import Logo from '@assets/images/logo.png';
 import { showSuccessToast, showErrorToast } from '@helpers/toast-message';
-import { IEnumeratorLoginRecord } from '@interfaces/common';
+import { ILoginRecord } from '@interfaces/common';
 import { checkLoginInputs } from '@utils/input-checks';
 import { enumeratorLogin } from '@api/enumerator';
 import { setEnumerator } from '@redux/user-reducer';
 import { handleAxiosError } from '@helpers/api';
+import { adminLogin } from '@api/admin';
+import { setAdmin } from '@redux/user-reducer';
 
 const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
-  const [record, setRecord] = useState<IEnumeratorLoginRecord>({
+  const [record, setRecord] = useState<ILoginRecord>({
     email: '',
     password: '',
   });
@@ -41,24 +43,44 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
     navigation.navigate(AuthScreens.SignUp);
   };
 
+  const handleAdminLogin = async () => {
+    try {
+      const response = await adminLogin(record);
+      console.log('response', response.data);
+      showSuccessToast(response.data.message);
+      if (response.status === 200) {
+        dispatch(setAdmin(response.data.admin));
+      }
+      dispatch(setRole(role));
+    } catch (error) {
+      const errorResponse = handleAxiosError(error);
+      console.error(errorResponse);
+      showErrorToast(errorResponse.message);
+    }
+  };
+
+  const handleEnumeratorLogin = async () => {
+    try {
+      const response = await enumeratorLogin(record);
+      console.log('response', response.data);
+      showSuccessToast(response.data.message);
+      if (response.status === 200) {
+        dispatch(setEnumerator(response.data.enumerator));
+      }
+      dispatch(setRole(role));
+    } catch (error) {
+      const errorResponse = handleAxiosError(error);
+      console.error(errorResponse);
+      showErrorToast(errorResponse.message);
+    }
+  };
+
   const onSubmit = async () => {
     if (checkLoginInputs(record)) {
-      try {
-        const response =
-          role === 'admin'
-            ? await enumeratorLogin(record)
-            : await enumeratorLogin(record);
-        // console.log('response', response.data);
-        showSuccessToast(response.data.message);
-        if (response.status === 200) {
-          role === 'enumerator' &&
-            dispatch(setEnumerator(response.data.enumerator));
-        }
-        dispatch(setRole(role));
-      } catch (error) {
-        const errorResponse = handleAxiosError(error);
-        console.error(errorResponse);
-        showErrorToast(errorResponse.message);
+      if (role === 'admin') {
+        handleAdminLogin();
+      } else {
+        handleEnumeratorLogin();
       }
     }
   };

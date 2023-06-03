@@ -53,7 +53,7 @@ export interface ISurveyPayload {
   submittedAt: string;
 }
 
-export interface IEnumeratorLoginRecord {
+export interface ILoginRecord {
   email: string;
   password: string;
 }
