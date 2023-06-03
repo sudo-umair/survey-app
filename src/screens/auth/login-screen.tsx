@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
           role === 'admin'
             ? await enumeratorLogin(record)
             : await enumeratorLogin(record);
-        console.log('response', response.data.enumerator);
+        // console.log('response', response.data);
         showSuccessToast(response.data.message);
         if (response.status === 200) {
           role === 'enumerator' &&

@@ -42,7 +42,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
     if (checkSignupInputs(record)) {
       try {
         const response = await enumeratorSignup(record);
-        console.log(response.data.message);
+        // console.log(response.data);
         showSuccessToast(response.data.message);
         if (response.status === 201) {
           navigation.navigate(AuthScreens.Login, {
