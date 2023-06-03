@@ -26,8 +26,8 @@ export const checkSurveyAnswers = (questions: IQuestion[]): boolean => {
       { cancelable: false }
     );
 
-    // return false;
-    return true;
+    return false;
+    // return true;
   }
   return true;
 };
