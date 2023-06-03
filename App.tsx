@@ -7,8 +7,20 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { COLORS } from '@common/colors';
+import { useNetInfo } from '@react-native-community/netinfo';
+import { useEffect } from 'react';
+import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
 
 export default function App() {
+  const { isInternetReachable } = useNetInfo();
+
+  useEffect(() => {
+    if (isInternetReachable !== null) {
+      if (isInternetReachable) showSuccessToast('Internet is connected');
+      else if (!isInternetReachable) showErrorToast('Internet is disconnected');
+    }
+  }, [isInternetReachable]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
