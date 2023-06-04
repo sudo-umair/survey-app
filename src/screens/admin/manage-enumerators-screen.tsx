@@ -50,7 +50,7 @@ const ManageEnumeratorsScreen = ({
         token: user.token,
         enumeratorEmail,
       });
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status === 200) {
         setRefreshing((prev) => !prev);
         showSuccessToast(response.data.message);

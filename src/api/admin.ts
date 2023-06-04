@@ -10,6 +10,8 @@ import type {
   IAdminGetStatsResponse,
   IAdminResumeSessionRequest,
   IAdminResumeSessionResponse,
+  IAdminGetSurveysRequest,
+  IAdminGetSurveysResponse,
 } from '@interfaces/api';
 
 export const adminLogin = async (
@@ -47,5 +49,12 @@ export const adminGetStats = async (
   payload: IAdminGetStatsRequest
 ): Promise<IAdminGetStatsResponse> => {
   const response = await axiosClient.post('/admin/stats', payload);
+  return response;
+};
+
+export const adminGetSurveys = async (
+  payload: IAdminGetSurveysRequest
+): Promise<IAdminGetSurveysResponse> => {
+  const response = await axiosClient.post('/admin/surveys', payload);
   return response;
 };

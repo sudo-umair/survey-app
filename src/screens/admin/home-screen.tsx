@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
           email: user.email,
           token: user.token,
         });
-        console.log(response.data);
+        // console.log(response.data);
         setStats(response.data.stats);
       } catch (error) {
         const errorResponse = handleAxiosError(error);

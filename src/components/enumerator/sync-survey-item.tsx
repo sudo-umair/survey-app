@@ -9,15 +9,11 @@ const SyncSurveyItem: React.FC<ISyncSurveyItemProps> = ({ survey }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Survey: {survey.surveyId}</Text>
+      <Text style={styles.label}>Name: {survey.submittedBy.name}</Text>
       <Text style={styles.label}>
-        Name: {survey.submittedBy.name || 'John Doe'}
+        Enumerator ID: {survey.submittedBy.enumeratorId}
       </Text>
-      <Text style={styles.label}>
-        Enumerator ID: {survey.submittedBy.enumeratorId || 'EN-01'}
-      </Text>
-      <Text style={styles.label}>
-        Email: {survey.submittedBy.email || 'johndoe@gmail.com'}
-      </Text>
+      <Text style={styles.label}>Email: {survey.submittedBy.email}</Text>
       <Text style={styles.label}>
         Submitted At: {timeFormatter(survey.submittedAt)},{' '}
         {dateFormatter(survey.submittedAt)}

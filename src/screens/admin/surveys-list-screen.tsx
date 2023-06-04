@@ -5,19 +5,37 @@ import Container from '@components/ui/container';
 import SurveyItem from '@components/admin/survey-item';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
+import { adminGetSurveys } from '@api/admin';
+import { useAppSelector } from '@redux/store';
+import { handleAxiosError } from '@helpers/api';
+import { showErrorToast } from '@helpers/toast-message';
 
 const SurveysListScreen = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
-  const [searchText, setSearchText] = useState<string>('');
   const [surveysList, setSurveysList] = useState<ISurveyPayload[]>([]);
+
+  const user = useAppSelector((state) => state.user.user);
 
   useEffect(() => {
     async function prepare() {
       setLoading(true);
-      //api call to get enumerators
-      setSurveysList([]);
-      setLoading(false);
+      try {
+        const response = await adminGetSurveys({
+          email: user.email,
+          token: user.token,
+        });
+        if (response.status === 200) {
+          console.log(response.data.surveys);
+          setSurveysList(response.data.surveys.reverse());
+        }
+      } catch (error) {
+        const errorResponse = handleAxiosError(error);
+        console.error(errorResponse);
+        showErrorToast(errorResponse.message);
+      } finally {
+        setLoading(false);
+      }
     }
     prepare();
   }, [refreshing]);

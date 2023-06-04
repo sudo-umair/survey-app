@@ -76,6 +76,15 @@ export type IAdminGetStatsResponse = AxiosResponse<{
   stats: ISurveyStats;
 }>;
 
+export type IAdminGetSurveysRequest = {
+  email: string;
+  token: string;
+};
+export type IAdminGetSurveysResponse = AxiosResponse<{
+  message: string;
+  surveys: ISurveyPayload[];
+}>;
+
 // survey
 export type ISurveyCreateRequest = ISurveyPayload & {
   token: string;
