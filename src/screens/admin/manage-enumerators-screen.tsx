@@ -4,9 +4,12 @@ import Container from '@components/ui/container';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
 import { IAdminManageEnumeratorsScreenProps } from '@interfaces/screens';
-import { TestEnumerators } from '@common/test-data';
 import ManageEnumeratorItem from '@components/admin/manage-enumerator-item';
-import { IUserState } from '@interfaces/redux';
+import { IEnumeratorState } from '@interfaces/redux';
+import { adminListEnumerator, adminToggleEnumerator } from '@api/admin';
+import { useAppSelector } from '@redux/store';
+import { handleAxiosError } from '@helpers/api';
+import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
 
 const ManageEnumeratorsScreen = ({
   navigation,
@@ -14,20 +17,50 @@ const ManageEnumeratorsScreen = ({
 }: IAdminManageEnumeratorsScreenProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
-  const [searchText, setSearchText] = useState<string>('');
-  const [enumeratorsList, setEnumeratorsList] = useState<IUserState['user'][]>(
+  const [enumeratorsList, setEnumeratorsList] = useState<IEnumeratorState[]>(
     []
   );
+
+  const user = useAppSelector((state) => state.user.user);
 
   useEffect(() => {
     async function prepare() {
       setLoading(true);
-      //api call to get enumerators
-      setEnumeratorsList(TestEnumerators);
-      setLoading(false);
+      try {
+        const response = await adminListEnumerator({
+          email: user.email,
+          token: user.token,
+        });
+        setEnumeratorsList(response.data.enumerators);
+      } catch (error) {
+        const errorResponse = handleAxiosError(error);
+        console.error(errorResponse);
+        showErrorToast(errorResponse.message);
+      } finally {
+        setLoading(false);
+      }
     }
     prepare();
   }, [refreshing]);
+
+  const toggleEnumerator = async (enumeratorEmail: string) => {
+    try {
+      const response = await adminToggleEnumerator({
+        email: user.email,
+        token: user.token,
+        enumeratorEmail,
+      });
+      console.log(response.data);
+      if (response.status === 200) {
+        setRefreshing((prev) => !prev);
+        showSuccessToast(response.data.message);
+      }
+    } catch (error) {
+      const errorResponse = handleAxiosError(error);
+      console.error(errorResponse);
+      showErrorToast(errorResponse.message);
+    }
+  };
 
   return (
     <Container containerStyle={styles.rootContainer}>
@@ -36,7 +69,12 @@ const ManageEnumeratorsScreen = ({
         data={enumeratorsList}
         directionalLockEnabled
         renderItem={({ item }) => {
-          return <ManageEnumeratorItem enumerator={item} />;
+          return (
+            <ManageEnumeratorItem
+              enumerator={item}
+              toggleEnumerator={toggleEnumerator}
+            />
+          );
         }}
         ListEmptyComponent={() => (
           <Text style={styles.label}>No Enumerators Registered Yet!</Text>

@@ -1,15 +1,11 @@
-import type { IEnumerator, ILoginRecord, ISurveyPayload } from './common';
+import type {
+  IEnumerator,
+  ILoginRecord,
+  ISurveyPayload,
+  ISurveyStats,
+} from './common';
 import { IEnumeratorState, IAdminState } from './redux';
 import { AxiosResponse } from 'axios';
-
-// interface IAxiosResponse<T> {
-//   data: T;
-//   status: number;
-//   statusText: string;
-//   headers: any;
-//   config: any;
-//   request?: any;
-// }
 
 // enumerator
 export type IEnumeratorSignupRequest = IEnumerator;
@@ -32,6 +28,34 @@ export type IAdminLoginRequest = ILoginRecord;
 export type IAdminLoginResponse = AxiosResponse<{
   message: string;
   admin: IAdminState;
+}>;
+
+export type IAdminListEnumeratorRequest = {
+  email: string;
+  token: string;
+};
+export type IAdminListEnumeratorResponse = AxiosResponse<{
+  message: string;
+  enumerators: IEnumeratorState[];
+}>;
+
+export type IAdminToggleEnumeratorRequest = {
+  email: string;
+  token: string;
+  enumeratorEmail: string;
+};
+export type IAdminToggleEnumeratorResponse = AxiosResponse<{
+  message: string;
+  enumerator: IEnumeratorState;
+}>;
+
+export type IAdminGetStatsRequest = {
+  email: string;
+  token: string;
+};
+export type IAdminGetStatsResponse = AxiosResponse<{
+  message: string;
+  stats: ISurveyStats;
 }>;
 
 // survey

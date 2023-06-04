@@ -17,6 +17,7 @@ const Button: React.FC<IButtonProps> = ({
   haptics = true,
 }) => {
   const onPressHandler = () => {
+    if (isLoading || disabled) return;
     if (haptics) Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     onPress?.();
   };

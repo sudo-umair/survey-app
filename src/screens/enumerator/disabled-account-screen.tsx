@@ -6,12 +6,22 @@ import DeniedAnimation from '@assets/animations/denied.json';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
 import { IEnumeratorDisabledAccountScreenProps } from '@interfaces/screens';
+import Button from '@components/ui/button';
+import { useAppDispatch } from '@redux/store';
+import { removeUser } from '@redux/user-reducer';
 
 const DisabledAccountScreen = ({
   navigation,
   route,
 }: IEnumeratorDisabledAccountScreenProps) => {
   const animationRef = useRef<Lottie>(null);
+
+  const dispatch = useAppDispatch();
+
+  const onLogout = () => {
+    dispatch(removeUser());
+  };
+
   return (
     <Container containerStyle={styles.rootContainer}>
       <Text style={styles.title}>Account Disabled</Text>
@@ -26,6 +36,7 @@ const DisabledAccountScreen = ({
       <Text style={styles.subtitle}>
         Your account has been disabled by an admin!
       </Text>
+      <Button buttonStyle={styles.button} onPress={onLogout} title='Logout' />
     </Container>
   );
 };
@@ -58,5 +69,11 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     alignSelf: 'center',
     backgroundColor: COLORS.BACKGROUND,
+  },
+  button: {
+    position: 'absolute',
+    bottom: 10,
+    left: 0,
+    right: 0,
   },
 });

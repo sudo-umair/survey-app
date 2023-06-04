@@ -6,7 +6,7 @@ import type {
   TextInputProps,
 } from 'react-native/types';
 import { IEnumerator, IQuestion, ISurveyPayload } from './common';
-import { IUserState } from './redux';
+import { IEnumeratorState, IUserState } from './redux';
 
 // UI Components
 export interface IContainerProps {
@@ -75,7 +75,8 @@ export interface ISyncSurveyItemProps {
 }
 
 export interface IManageEnumeratorItemProps {
-  enumerator: IUserState['user'];
+  enumerator: IEnumeratorState;
+  toggleEnumerator: (email: string) => void;
 }
 
 export interface ISurveyItemProps {

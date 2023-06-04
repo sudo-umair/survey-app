@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { IManageEnumeratorItemProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import { FONT_SIZES } from '@common/fonts';
@@ -8,7 +8,16 @@ import Button from '@components/ui/button';
 
 const ManageEnumeratorItem: React.FC<IManageEnumeratorItemProps> = ({
   enumerator,
+  toggleEnumerator,
 }) => {
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handlePress = () => {
+    setLoading(true);
+    toggleEnumerator(enumerator.email);
+    setLoading(false);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Name: {enumerator.name}</Text>
@@ -28,12 +37,14 @@ const ManageEnumeratorItem: React.FC<IManageEnumeratorItemProps> = ({
         Date Joined: {dateFormatter(new Date().toISOString())}
       </Text>
       <Button
+        title={enumerator.isDisabled ? 'Enable' : 'Disable'}
+        onPress={handlePress}
+        isLoading={loading}
+        dynamic={true}
         buttonStyle={[
           styles.button,
           enumerator.isDisabled ? styles.enableButton : styles.disableButton,
         ]}
-        dynamic={true}
-        title={enumerator.isDisabled ? 'Enable' : 'Disable'}
       />
     </View>
   );

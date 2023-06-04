@@ -69,3 +69,10 @@ export interface ILoginRecord {
 export interface IEnumeratorSignupRecord extends IEnumerator {
   confirmPassword: string;
 }
+
+export interface ISurveyStats {
+  totalSurveys: number;
+  totalEnumerators: number;
+  totalComponentASurveys: number;
+  totalComponentBSurveys: number;
+}
