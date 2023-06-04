@@ -8,12 +8,15 @@ import { COLORS } from '@common/colors';
 import { adminGetSurveys } from '@api/admin';
 import { useAppSelector } from '@redux/store';
 import { handleAxiosError } from '@helpers/api';
-import { showErrorToast } from '@helpers/toast-message';
+import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
+import Button from '@components/ui/button';
+import { exportToXlsx } from '@helpers/xlsx';
 
 const SurveysListScreen = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [surveysList, setSurveysList] = useState<ISurveyPayload[]>([]);
+  const [converting, setConverting] = useState<boolean>(false);
 
   const user = useAppSelector((state) => state.user.user);
 
@@ -26,7 +29,6 @@ const SurveysListScreen = () => {
           token: user.token,
         });
         if (response.status === 200) {
-          console.log(response.data.surveys);
           setSurveysList(response.data.surveys.reverse());
         }
       } catch (error) {
@@ -40,9 +42,29 @@ const SurveysListScreen = () => {
     prepare();
   }, [refreshing]);
 
+  const saveSurveysToXLSX = async () => {
+    setConverting(true);
+    try {
+      const response = await exportToXlsx(surveysList);
+      if (response) {
+        showSuccessToast('Saved to Documents folder');
+      }
+    } catch (error) {
+      showErrorToast('Error converting to XLSX');
+    } finally {
+      setConverting(false);
+    }
+  };
+
   return (
     <Container containerStyle={styles.rootContainer}>
       <Text style={styles.title}>Surveys</Text>
+      <Button
+        disabled={surveysList.length === 0}
+        onPress={saveSurveysToXLSX}
+        title='Save'
+        isLoading={converting}
+      />
       <FlatList
         data={surveysList}
         directionalLockEnabled
@@ -74,7 +96,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: COLORS.PRIMARY,
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   list: {
     // marginBottom: 10,

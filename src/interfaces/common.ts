@@ -61,6 +61,22 @@ export interface ISurveyPayload {
   submittedAt: string;
 }
 
+export interface ISurveyDataInXlsx {
+  surveyId: SURVEY_COMPONENTS;
+  sectionName: 'Section A' | 'Section B' | 'Section C' | 'Section D';
+  question: string;
+  options: string;
+  answer: string;
+  submittedAt: string;
+  submittedByName: string;
+  submittedByAge: string;
+  submittedByEmail: string;
+  submittedByCnic: string;
+  submittedByMobile: string;
+  submittedByAddress: string;
+  submittedByEnumeratorId: string;
+}
+
 export interface ILoginRecord {
   email: string;
   password: string;
