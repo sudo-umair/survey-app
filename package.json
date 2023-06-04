@@ -20,7 +20,9 @@
     "axios": "^1.4.0",
     "expo": "~48.0.15",
     "expo-checkbox": "~2.3.1",
+    "expo-file-system": "~15.2.2",
     "expo-haptics": "~12.2.1",
+    "expo-sharing": "~11.2.2",
     "expo-status-bar": "~1.4.4",
     "lottie-react-native": "5.1.4",
     "react": "18.2.0",
@@ -31,9 +33,7 @@
     "react-native-toast-message": "^2.1.6",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
-    "xlsx": "^0.18.5",
-    "expo-file-system": "~15.2.2",
-    "expo-sharing": "~11.2.2"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

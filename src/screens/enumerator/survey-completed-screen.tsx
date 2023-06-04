@@ -1,11 +1,11 @@
-import { AppState, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { StyleSheet, Text } from 'react-native';
+import React, { useMemo, useRef, useState } from 'react';
 import Container from '@components/ui/container';
 import { FONT_SIZES } from '@common/fonts';
 import { COLORS } from '@common/colors';
 import Lottie from 'lottie-react-native';
 import CompletedAnimation from '@assets/animations/completed.json';
-import { useAppSelector } from '@redux/store';
+import { useAppSelector, useAppDispatch } from '@redux/store';
 import Button from '@components/ui/button';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { SURVEY_COMPONENTS } from '@common/data';
@@ -15,6 +15,7 @@ import { IEnumeratorSurveyCompletedScreenProps } from '@interfaces/screens';
 import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
 import { createSurvey } from '@api/survey';
 import { handleAxiosError } from '@helpers/api';
+import { clearData } from '@redux/app-state-reducer';
 
 const SurveyCompletedScreen = ({
   navigation,
@@ -23,6 +24,8 @@ const SurveyCompletedScreen = ({
   const animationRef = useRef<Lottie>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
+
+  const dispatch = useAppDispatch();
 
   const rootState = useAppSelector((state) => state);
   const {
@@ -71,6 +74,7 @@ const SurveyCompletedScreen = ({
   };
 
   const goToHome = () => navigation.popToTop();
+  const clearState = () => dispatch(clearData());
 
   const submitSurveyToServer = async (
     payload: ISurveyPayload
@@ -104,6 +108,7 @@ const SurveyCompletedScreen = ({
     }
     if (isSubmitted) {
       showSuccessToast('Survey submitted online successfully');
+      clearState();
       goToHome();
     }
   };
@@ -131,6 +136,7 @@ const SurveyCompletedScreen = ({
     }
     if (isSubmitted) {
       showSuccessToast('Survey submitted offline successfully');
+      clearState();
       goToHome();
     }
   };
@@ -149,6 +155,7 @@ const SurveyCompletedScreen = ({
         buttonStyle={styles.button}
         title={isInternetReachable ? 'Submit Online' : 'Submit Offline'}
         onPress={isInternetReachable ? submitOnline : submitOffline}
+        isLoading={loading}
       />
     </Container>
   );

@@ -16,7 +16,7 @@ const AppNavigator = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const userState = useAppSelector((state) => state.user);
-  const { role, user } = userState;
+  const { role, user, isLoggedIn } = userState;
 
   const dispatch = useAppDispatch();
 
@@ -52,7 +52,7 @@ const AppNavigator = () => {
         setLoading(false);
       }
     }
-    prepare();
+    if (isLoggedIn) prepare();
   }, []);
 
   if (loading) return <LoadingScreen />;
