@@ -62,7 +62,7 @@ const SurveysListScreen = () => {
       <Button
         disabled={surveysList.length === 0}
         onPress={saveSurveysToXLSX}
-        title='Save'
+        title='Export to XLSX'
         isLoading={converting}
       />
       <FlatList
