@@ -23,9 +23,27 @@ export type IEnumeratorLoginResponse = AxiosResponse<{
   enumerator: IEnumeratorState;
 }>;
 
+export type IEnumeratorResumeSessionRequest = {
+  email: string;
+  token: string;
+};
+export type IEnumeratorResumeSessionResponse = AxiosResponse<{
+  message: string;
+  enumerator: IEnumeratorState;
+}>;
+
 // admin
 export type IAdminLoginRequest = ILoginRecord;
 export type IAdminLoginResponse = AxiosResponse<{
+  message: string;
+  admin: IAdminState;
+}>;
+
+export type IAdminResumeSessionRequest = {
+  email: string;
+  token: string;
+};
+export type IAdminResumeSessionResponse = AxiosResponse<{
   message: string;
   admin: IAdminState;
 }>;

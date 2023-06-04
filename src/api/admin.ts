@@ -8,12 +8,21 @@ import type {
   IAdminToggleEnumeratorResponse,
   IAdminGetStatsRequest,
   IAdminGetStatsResponse,
+  IAdminResumeSessionRequest,
+  IAdminResumeSessionResponse,
 } from '@interfaces/api';
 
 export const adminLogin = async (
   payload: IAdminLoginRequest
 ): Promise<IAdminLoginResponse> => {
   const response = await axiosClient.post('/admin/sign-in', payload);
+  return response;
+};
+
+export const adminResumeSession = async (
+  payload: IAdminResumeSessionRequest
+): Promise<IAdminResumeSessionResponse> => {
+  const response = await axiosClient.post('/admin/resume-session', payload);
   return response;
 };
 

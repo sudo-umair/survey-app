@@ -4,6 +4,8 @@ import type {
   IEnumeratorSignupResponse,
   IEnumeratorLoginRequest,
   IEnumeratorLoginResponse,
+  IEnumeratorResumeSessionRequest,
+  IEnumeratorResumeSessionResponse,
 } from '@interfaces/api';
 
 export const enumeratorSignup = async (
@@ -17,5 +19,15 @@ export const enumeratorLogin = async (
   payload: IEnumeratorLoginRequest
 ): Promise<IEnumeratorLoginResponse> => {
   const response = await axiosClient.post('/enumerator/sign-in', payload);
+  return response;
+};
+
+export const enumeratorResumeSession = async (
+  payload: IEnumeratorResumeSessionRequest
+): Promise<IEnumeratorResumeSessionResponse> => {
+  const response = await axiosClient.post(
+    '/enumerator/resume-session',
+    payload
+  );
   return response;
 };
