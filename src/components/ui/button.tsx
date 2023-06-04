@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.SECONDARY,
+    minHeight: 45,
   },
   disabled: {
     backgroundColor: COLORS.TERTIARY,
