@@ -6,7 +6,6 @@ import Container from '../ui/container';
 import { FONT_SIZES } from '@common/fonts';
 import TextInput from '../ui/text-input';
 import RadioGroup from 'react-native-radio-buttons-group';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Button from '../ui/button';
 import { Picker } from '@react-native-picker/picker';
 import Checkbox from 'expo-checkbox';
