@@ -43,8 +43,6 @@ const ViewSurveyScreen = ({
     }, [section])
   );
 
-  console.log(questions);
-
   const title = () => {
     switch (section) {
       case 'sectionA':
