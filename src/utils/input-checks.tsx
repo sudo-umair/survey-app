@@ -37,7 +37,6 @@ export const checkLoginInputs = (record: ILoginRecord): boolean => {
     showErrorToast('Please enter your email');
     return false;
   }
-
   if (record.email.includes(' ')) {
     showErrorToast('Email cannot contain spaces');
     return false;
@@ -62,7 +61,6 @@ export const checkLoginInputs = (record: ILoginRecord): boolean => {
     showErrorToast('Password must be at least 6 characters long');
     return false;
   }
-
   return true;
 };
 
@@ -119,18 +117,34 @@ export const checkSignupInputs = (record: IEnumeratorSignupRecord): boolean => {
     showErrorToast('CNIC cannot contain spaces');
     return false;
   }
-  // to check if cnic contains 2 dashes
-  const cnicParts = record.cnic.split('-');
-  if (cnicParts.length !== 3) {
-    showErrorToast('CNIC must be in the format xxxxx-xxxxxxx-x');
-    return false;
-  }
   if (record.cnic.length !== 15) {
     showErrorToast('CNIC must be 15 characters long (including dashes)');
     return false;
   }
+  // check if cnic is in the format xxxxx-xxxxxxx-x
+  if (!record.cnic.match(/^\d{5}-\d{7}-\d{1}$/)) {
+    showErrorToast('CNIC must be in the format xxxxx-xxxxxxx-x');
+    return false;
+  }
+
   if (record.mobile.trim() === '') {
     showErrorToast('Please enter your mobile number');
+    return false;
+  }
+  if (record.mobile.includes(' ')) {
+    showErrorToast('Mobile number cannot contain spaces');
+    return false;
+  }
+  if (record.mobile.length !== 11) {
+    showErrorToast('Mobile number must be 11 characters long');
+    return false;
+  }
+  if (isNaN(Number(record.mobile))) {
+    showErrorToast('Mobile number must be a number');
+    return false;
+  }
+  if (!record.mobile.startsWith('03')) {
+    showErrorToast('Mobile number must start with 03');
     return false;
   }
   if (record.address.trim() === '') {
@@ -149,10 +163,21 @@ export const checkSignupInputs = (record: IEnumeratorSignupRecord): boolean => {
     showErrorToast('Password must be at least 6 characters long');
     return false;
   }
+  if (record.confirmPassword.trim() === '') {
+    showErrorToast('Please confirm your password');
+    return false;
+  }
+  if (record.confirmPassword.includes(' ')) {
+    showErrorToast('Confirm Password cannot contain spaces');
+    return false;
+  }
+  if (record.confirmPassword.trim().length < 6) {
+    showErrorToast('Confirm Password must be at least 6 characters long');
+    return false;
+  }
   if (record.password !== record.confirmPassword) {
     showErrorToast('Passwords do not match');
     return false;
   }
-
   return true;
 };
