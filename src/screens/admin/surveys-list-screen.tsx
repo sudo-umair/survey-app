@@ -62,6 +62,7 @@ const SurveysListScreen = () => {
       <Button
         disabled={surveysList.length === 0}
         onPress={saveSurveysToXLSX}
+        buttonStyle={{ marginHorizontal: 5 }}
         title='Export to XLSX'
         isLoading={converting}
       />
