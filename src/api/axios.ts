@@ -1,12 +1,8 @@
 import axios from 'axios';
 import { API_URL } from '@common/constants';
 
-const getBaseUrl = () => {
-  return API_URL.prod ?? API_URL.dev;
-};
-
 const axiosClient = axios.create({
-  baseURL: getBaseUrl(),
+  baseURL: API_URL.prod,
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',

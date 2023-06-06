@@ -1,7 +1,7 @@
 import { IMonths } from '@interfaces/common';
 
 export const API_URL = {
-  prod: process.env.REACT_APP_API_URL,
+  prod: 'https://sieap-survey-app-server.herokuapp.com/api',
   dev: 'http://192.168.100.111:3000/api',
 };
 
