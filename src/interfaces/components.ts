@@ -4,8 +4,9 @@ import type {
   TextStyle,
   ScrollViewProps,
   TextInputProps,
+  ScrollView,
 } from 'react-native/types';
-import { IEnumerator, IQuestion, ISurveyPayload } from './common';
+import { IQuestion, ISurveyPayload } from './common';
 import { IEnumeratorState, IUserState } from './redux';
 
 // UI Components
@@ -19,6 +20,7 @@ export interface IScrollContainerProps {
   containerStyle?: ScrollViewProps['style'] | ScrollViewProps['style'][];
   contentContainerStyle?: ScrollViewProps['contentContainerStyle'];
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
+  innerRef: React.RefObject<ScrollView>;
 }
 
 export interface ITextInputProps {
@@ -68,6 +70,11 @@ export interface IQuestionBoxProps {
   item: IQuestion;
   index: number;
   onChange: (value: string, index: number) => void;
+}
+
+export interface IViewSurveyItemProps {
+  item: IQuestion;
+  index: number;
 }
 
 export interface ISyncSurveyItemProps {

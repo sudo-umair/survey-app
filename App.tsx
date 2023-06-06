@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import AppNavigator from '@navigation/app-navigator';
 import { store, persistor } from '@redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-// import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { COLORS } from '@common/colors';
 import { useNetInfo } from '@react-native-community/netinfo';

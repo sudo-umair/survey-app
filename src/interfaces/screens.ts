@@ -45,6 +45,12 @@ export type IAdminSurveysListScreenProps = NativeStackScreenProps<
   STACKS.ADMIN
 >;
 
+export type IAdminViewSurveyScreenProps = NativeStackScreenProps<
+  IAdminStackParamList,
+  AdminScreens.ViewSurvey,
+  STACKS.ADMIN
+>;
+
 // Enumerator Screens
 export type IEnumeratorHomeScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,

@@ -1,13 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { ISurveyItemProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import { FONT_SIZES } from '@common/fonts';
 import { dateFormatter, timeFormatter } from '@utils/formatters';
+import { useNavigation } from '@react-navigation/native';
+import { IAdminSurveysListScreenProps } from '@interfaces/screens';
+import { AdminScreens } from '@common/screens';
 
 const SurveyItem: React.FC<ISurveyItemProps> = ({ survey }) => {
+  const navigation =
+    useNavigation<IAdminSurveysListScreenProps['navigation']>();
+
+  const onPress = () => {
+    navigation.navigate(AdminScreens.ViewSurvey, {
+      survey,
+      section: 'sectionA',
+    });
+  };
+
   return (
-    <View style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <Text style={styles.title}>Survey: {survey.surveyId}</Text>
       <Text style={styles.label}>District: {survey.sectionB[0].answer}</Text>
       <Text style={styles.label}>
@@ -23,7 +36,7 @@ const SurveyItem: React.FC<ISurveyItemProps> = ({ survey }) => {
         Submitted At: {timeFormatter(survey.submittedAt)},{' '}
         {dateFormatter(survey.submittedAt)}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 

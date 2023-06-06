@@ -72,7 +72,9 @@ const SurveysListScreen = () => {
           return <SurveyItem survey={item} />;
         }}
         ListEmptyComponent={() => (
-          <Text style={styles.label}>No Surveys found!</Text>
+          <Text style={styles.label}>
+            {loading ? 'Loading...' : 'No surveys'}
+          </Text>
         )}
         keyExtractor={(item, index) => index.toString()}
         style={styles.list}
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   label: {
-    marginTop: 50,
+    marginTop: 60,
     fontSize: FONT_SIZES.LARGE,
     textAlign: 'center',
   },

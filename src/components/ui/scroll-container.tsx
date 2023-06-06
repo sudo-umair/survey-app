@@ -8,12 +8,14 @@ const ScrollContainer: React.FC<IScrollContainerProps> = ({
   containerStyle,
   contentContainerStyle,
   keyboardShouldPersistTaps,
+  innerRef,
 }) => {
   return (
     <ScrollView
       keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? 'never'}
       contentContainerStyle={(styles.contentContainer, contentContainerStyle)}
       style={[styles.container, containerStyle]}
+      ref={innerRef}
     >
       {children}
     </ScrollView>

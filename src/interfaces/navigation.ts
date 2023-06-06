@@ -1,5 +1,6 @@
 // Type definitions for navigation
 import { EnumeratorScreens, AuthScreens, AdminScreens } from '@common/screens';
+import { ISurveyPayload } from './common';
 
 // AuthStackParamList
 export type IAuthStackParamList = {
@@ -15,6 +16,10 @@ export type IAdminStackParamList = {
   [AdminScreens.Home]: undefined;
   [AdminScreens.ManageEnumerators]: undefined;
   [AdminScreens.SurveysList]: undefined;
+  [AdminScreens.ViewSurvey]: {
+    survey: ISurveyPayload;
+    section: 'sectionA' | 'sectionB' | 'sectionC' | 'sectionD';
+  };
 };
 
 // EnumeratorStackParamList

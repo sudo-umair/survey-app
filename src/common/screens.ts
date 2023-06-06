@@ -15,6 +15,7 @@ export enum AdminScreens {
   Home = 'Home',
   ManageEnumerators = 'ManageEnumerators',
   SurveysList = 'SurveysList',
+  ViewSurvey = 'ViewSurvey',
 }
 
 export enum AuthScreens {

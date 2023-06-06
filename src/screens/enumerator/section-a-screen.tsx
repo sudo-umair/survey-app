@@ -5,7 +5,7 @@ import { COLORS } from '@common/colors';
 import Acknowledgment from '@components/enumerator/acknowledgment';
 import Container from '@components/ui/container';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_A_QUESTIONS } from '@common/data';
+import { SECTION_A_QUESTIONS, SECTION_TITLES } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
@@ -55,9 +55,7 @@ const SectionAScreen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>
-        Section A: Informed Consent Form and Identification
-      </Text>
+      <Text style={styles.title}>Section A: {SECTION_TITLES.sectionA}</Text>
       <Container containerStyle={styles.container}>
         <Acknowledgment name={name || 'John Doe'} />
       </Container>

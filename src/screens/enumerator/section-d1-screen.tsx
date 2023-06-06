@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_D1_QUESTIONS, SURVEY_COMPONENTS } from '@common/data';
+import {
+  SECTION_D1_QUESTIONS,
+  SECTION_TITLES,
+  SURVEY_COMPONENTS,
+} from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
@@ -47,7 +51,7 @@ const SectionD1Screen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>Section D1: Project Impact</Text>
+      <Text style={styles.title}>Section D1: {SECTION_TITLES.sectionD}</Text>
       <Text style={styles.subTitle}>
         Survey Component: {SURVEY_COMPONENTS.A}
       </Text>

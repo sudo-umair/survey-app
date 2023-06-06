@@ -5,6 +5,13 @@ export enum SURVEY_COMPONENTS {
   B = 'Kitchen Gardening',
 }
 
+export enum SECTION_TITLES {
+  sectionA = 'Informed Consent Form and Identification',
+  sectionB = 'Area and Respondent',
+  sectionC = 'Intervention-Related Questions',
+  sectionD = 'Project Impact',
+}
+
 const districtsInSindh = [
   'Karachi',
   'Jamshoro',
