@@ -128,7 +128,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
             style={styles.inputStyle}
             dropdownIconColor={COLORS.PRIMARY}
             dropdownIconRippleColor={COLORS.PRIMARY}
-            itemStyle={{ color: COLORS.PRIMARY, borderWidth: 2 }}
+            itemStyle={{ color: COLORS.PRIMARY }}
           >
             {item.options?.map((option) => (
               <Picker.Item
