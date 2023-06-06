@@ -39,6 +39,7 @@ export interface ITextInputProps {
   secureTextEntry?: TextInputProps['secureTextEntry'];
   autoComplete?: TextInputProps['autoComplete'];
   onChangeText: (text: string) => void;
+  showSoftInputOnFocus?: TextInputProps['showSoftInputOnFocus'];
 }
 
 export interface IButtonProps {

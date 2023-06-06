@@ -78,7 +78,7 @@ const ManageEnumeratorsScreen = ({
         }}
         ListEmptyComponent={() => (
           <Text style={styles.label}>
-            {loading ? 'Loading' : 'No Enumerators Registered Yet!'}
+            {loading ? 'Loading...' : 'No Enumerators Registered Yet!'}
           </Text>
         )}
         keyExtractor={(item, index) => index.toString()}

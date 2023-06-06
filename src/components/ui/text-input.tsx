@@ -20,6 +20,7 @@ const TextInput: React.FC<ITextInputProps> = ({
   placeholder,
   autoComplete,
   secureTextEntry,
+  showSoftInputOnFocus,
 }) => {
   return (
     <Input
@@ -39,6 +40,7 @@ const TextInput: React.FC<ITextInputProps> = ({
       keyboardAppearance={keyboardAppearance ?? 'default'}
       secureTextEntry={secureTextEntry ?? false}
       autoComplete={autoComplete ?? 'off'}
+      showSoftInputOnFocus={showSoftInputOnFocus ?? true}
     />
   );
 };

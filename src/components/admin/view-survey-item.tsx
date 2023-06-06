@@ -40,6 +40,7 @@ const ViewSurveyItem: React.FC<IViewSurveyItemProps> = ({ index, item }) => {
           multiline={item.questionType === 'text-area'}
           numberOfLines={item.questionType === 'text-area' ? 2 : 1}
           maxLength={item.maxLength ?? 100}
+          showSoftInputOnFocus={false}
         />
       )}
       {item.questionType === 'radio' && (
@@ -69,6 +70,7 @@ const ViewSurveyItem: React.FC<IViewSurveyItemProps> = ({ index, item }) => {
               inputStyle={styles.inputStyle}
               keyboardType={item.keyboardType ?? 'default'}
               autoCapitalize='words'
+              showSoftInputOnFocus={false}
             />
           )}
         </Fragment>
@@ -139,6 +141,7 @@ const ViewSurveyItem: React.FC<IViewSurveyItemProps> = ({ index, item }) => {
                   .join(',')}
                 onChangeText={(text) => {}}
                 inputStyle={styles.inputStyle}
+                showSoftInputOnFocus={false}
               />
             )}
           </Fragment>
