@@ -7,6 +7,10 @@ import type {
 import { IEnumeratorState, IAdminState } from './redux';
 import { AxiosResponse } from 'axios';
 
+export type IAxiosErrorResponse = {
+  message: string;
+};
+
 // enumerator
 export type IEnumeratorSignupRequest = IEnumerator;
 export type IEnumeratorSignupResponse = AxiosResponse<

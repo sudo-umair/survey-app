@@ -1,4 +1,7 @@
-export const handleAxiosError = (error: any) => {
+import { IAxiosErrorResponse } from '@interfaces/api';
+import { AxiosError } from 'axios';
+
+export const handleAxiosError = (error: AxiosError<IAxiosErrorResponse>) => {
   if (error.response) {
     const { status, data } = error.response;
     return {
