@@ -53,7 +53,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
         dispatch(setAdmin(response.data.admin));
       }
       dispatch(setRole(role));
-    } catch (error) {
+    } catch (error: any) {
       const errorResponse = handleAxiosError(error);
       console.error(errorResponse);
       showErrorToast(errorResponse.message);
@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation, route }: IAuthLoginScreenProps) => {
         dispatch(setEnumerator(response.data.enumerator));
       }
       dispatch(setRole(role));
-    } catch (error) {
+    } catch (error: any) {
       const errorResponse = handleAxiosError(error);
       console.error(errorResponse);
       showErrorToast(errorResponse.message);

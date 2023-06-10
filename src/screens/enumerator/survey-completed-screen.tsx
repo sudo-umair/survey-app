@@ -88,7 +88,7 @@ const SurveyCompletedScreen = ({
       // console.log(response.data);
       if (response.status === 201) return true;
       return false;
-    } catch (error) {
+    } catch (error: any) {
       const errorResponse = handleAxiosError(error);
       showErrorToast(errorResponse.message);
       console.warn(errorResponse);

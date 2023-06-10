@@ -12,7 +12,7 @@ import { SURVEY_COMPONENTS } from '@common/data';
 import { ISurveyStats } from '@interfaces/common';
 import { adminGetStats } from '@api/admin';
 import { handleAxiosError } from '@helpers/api';
-import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
+import { showErrorToast } from '@helpers/toast-message';
 
 const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
   const [stats, setStats] = useState<ISurveyStats>({
@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
         });
         // console.log(response.data);
         setStats(response.data.stats);
-      } catch (error) {
+      } catch (error: any) {
         const errorResponse = handleAxiosError(error);
         console.error(errorResponse);
         showErrorToast(errorResponse.message);

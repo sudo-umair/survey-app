@@ -32,7 +32,7 @@ const ManageEnumeratorsScreen = ({
           token: user.token,
         });
         setEnumeratorsList(response.data.enumerators);
-      } catch (error) {
+      } catch (error: any) {
         const errorResponse = handleAxiosError(error);
         console.error(errorResponse);
         showErrorToast(errorResponse.message);
@@ -55,7 +55,7 @@ const ManageEnumeratorsScreen = ({
         setRefreshing((prev) => !prev);
         showSuccessToast(response.data.message);
       }
-    } catch (error) {
+    } catch (error: any) {
       const errorResponse = handleAxiosError(error);
       console.error(errorResponse);
       showErrorToast(errorResponse.message);

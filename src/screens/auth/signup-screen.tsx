@@ -50,7 +50,7 @@ const SignupScreen = ({ navigation, route }: IAuthSignupScreenProps) => {
             role: 'enumerator',
           });
         }
-      } catch (error) {
+      } catch (error: any) {
         const errorResponse = handleAxiosError(error);
         console.error(errorResponse);
         showErrorToast(errorResponse.message);

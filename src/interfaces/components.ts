@@ -20,7 +20,7 @@ export interface IScrollContainerProps {
   containerStyle?: ScrollViewProps['style'] | ScrollViewProps['style'][];
   contentContainerStyle?: ScrollViewProps['contentContainerStyle'];
   keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
-  innerRef: React.RefObject<ScrollView>;
+  innerRef?: React.RefObject<ScrollView>;
 }
 
 export interface ITextInputProps {
