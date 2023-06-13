@@ -107,6 +107,7 @@ export const exportToXlsx = async (data: ISurveyPayload[]) => {
       bookType: 'xlsx',
     });
     const documentsDirectory = `${FileSystem.documentDirectory}SIEAP/`;
+
     await FileSystem.makeDirectoryAsync(documentsDirectory, {
       intermediates: true,
     });
@@ -117,7 +118,7 @@ export const exportToXlsx = async (data: ISurveyPayload[]) => {
     Sharing.shareAsync(path, {
       mimeType:
         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      dialogTitle: 'MyWater',
+      dialogTitle: 'SurveyApp Data',
       UTI: 'com.microsoft.excel.xlsx',
     });
     return true;
