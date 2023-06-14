@@ -39,7 +39,6 @@ const ViewSurveyScreen = ({
   useFocusEffect(
     useCallback(() => {
       setQuestions(data(section));
-      scrollViewRef.current?.scrollTo({ y: 0, animated: true });
     }, [section])
   );
 
@@ -73,12 +72,12 @@ const ViewSurveyScreen = ({
 
   const onPress = () => {
     if (section !== 'sectionD') {
-      navigation.navigate(AdminScreens.ViewSurvey, {
+      navigation.push(AdminScreens.ViewSurvey, {
         survey,
         section: nextSection(section),
       });
     } else {
-      navigation.goBack();
+      navigation.navigate(AdminScreens.SurveysList);
     }
   };
 
