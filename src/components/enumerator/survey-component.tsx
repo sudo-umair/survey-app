@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.SECONDARY,
   },
   text: {
-    fontSize: FONT_SIZES.EXTRA_EXTRA_LARGE,
+    fontSize: FONT_SIZES.LARGE,
     color: COLORS.WHITE,
     textAlign: 'left',
     width: '85%',

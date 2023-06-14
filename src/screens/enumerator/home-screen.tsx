@@ -139,8 +139,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.PRIMARY,
-    marginTop: 10,
-    marginBottom: 20,
+    marginVertical: 10,
   },
   buttonContainer: {
     marginVertical: 15,
