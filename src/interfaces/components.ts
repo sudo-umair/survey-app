@@ -7,7 +7,7 @@ import type {
   ScrollView,
 } from 'react-native/types';
 import { IQuestion, ISurveyPayload } from './common';
-import { IEnumeratorState, IUserState } from './redux';
+import { IEnumeratorState } from './redux';
 
 // UI Components
 export interface IContainerProps {

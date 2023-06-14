@@ -1,6 +1,5 @@
 import { SURVEY_COMPONENTS } from '@common/data';
 import type { KeyboardType } from 'react-native/types';
-import { IUserState } from './redux';
 export interface IEnumerator {
   firstName: string;
   lastName: string;
@@ -89,6 +88,11 @@ export interface IEnumeratorSignupRecord extends IEnumerator {
 export interface ISurveyStats {
   totalSurveys: number;
   totalEnumerators: number;
-  totalComponentASurveys: number;
-  totalComponentBSurveys: number;
+  surveys1: number;
+  surveys2: number;
+  surveys3: number;
+  surveys4: number;
+  surveys5: number;
+  surveys6: number;
+  surveys7: number;
 }

@@ -1,8 +1,8 @@
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import type { IAdminHomeScreenProps } from '@interfaces/screens';
-import Container from '@components/ui/container';
 import { COLORS } from '@common/colors';
+import ScrollContainer from '@components/ui/scroll-container';
 import Button from '@components/ui/button';
 import { FONT_SIZES } from '@common/fonts';
 import { AdminScreens } from '@common/screens';
@@ -16,10 +16,15 @@ import { showErrorToast } from '@helpers/toast-message';
 
 const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
   const [stats, setStats] = useState<ISurveyStats>({
-    totalComponentASurveys: 0,
-    totalComponentBSurveys: 0,
     totalSurveys: 0,
     totalEnumerators: 0,
+    surveys1: 0,
+    surveys2: 0,
+    surveys3: 0,
+    surveys4: 0,
+    surveys5: 0,
+    surveys6: 0,
+    surveys7: 0,
   });
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -70,7 +75,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
   };
 
   return (
-    <Container containerStyle={styles.rootContainer}>
+    <ScrollContainer containerStyle={styles.rootContainer}>
       <Text style={styles.title}>Stats</Text>
       <View style={styles.row}>
         <Button
@@ -91,7 +96,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
       </View>
       <View>
         <Button
-          title={`${SURVEY_COMPONENTS.S1}\n${stats.totalComponentASurveys}`}
+          title={`${SURVEY_COMPONENTS.S1}\n${stats.surveys1}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
@@ -99,7 +104,47 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
           isLoading={loading}
         />
         <Button
-          title={`${SURVEY_COMPONENTS.S2}\n${stats.totalComponentBSurveys}`}
+          title={`${SURVEY_COMPONENTS.S2}\n${stats.surveys2}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
+          isLoading={loading}
+        />
+        <Button
+          title={`${SURVEY_COMPONENTS.S3}\n${stats.surveys3}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
+          isLoading={loading}
+        />
+        <Button
+          title={`${SURVEY_COMPONENTS.S4}\n${stats.surveys4}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
+          isLoading={loading}
+        />
+        <Button
+          title={`${SURVEY_COMPONENTS.S5}\n${stats.surveys5}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
+          isLoading={loading}
+        />
+        <Button
+          title={`${SURVEY_COMPONENTS.S6}\n${stats.surveys6}`}
+          buttonStyle={styles.colButton}
+          buttonTextStyle={styles.buttonText}
+          dynamic={false}
+          haptics={false}
+          isLoading={loading}
+        />
+        <Button
+          title={`${SURVEY_COMPONENTS.S7}\n${stats.surveys7}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
@@ -108,10 +153,14 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title='Manage Enumerators' onPress={goToEnumeratorsList} />
-        <Button title='Logout' onPress={onLogout} />
+        <Button
+          buttonStyle={styles.button}
+          title='Manage Enumerators'
+          onPress={goToEnumeratorsList}
+        />
+        <Button buttonStyle={styles.button} title='Logout' onPress={onLogout} />
       </View>
-    </Container>
+    </ScrollContainer>
   );
 };
 
@@ -149,9 +198,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonContainer: {
-    position: 'absolute',
-    bottom: 10,
-    left: 0,
-    right: 0,
+    marginVertical: 15,
+  },
+  button: {
+    marginHorizontal: 5,
   },
 });
