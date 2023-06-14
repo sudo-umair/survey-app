@@ -27,14 +27,8 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
       'Recommended use of inputs',
       'Increase production',
       'Capacity-building',
-      'Other',
+      'Other (Specify)',
     ],
-  },
-  {
-    questionId: 'C3a',
-    question: 'If other, please specify',
-    answer: '',
-    questionType: 'text',
   },
   {
     questionId: 'C4',
@@ -81,7 +75,7 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
       'Did the FFS/Demo Plot facilitate the development of local capacities and leadership?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No'],
+    options: ['Yes', 'No', "Don't Know"],
   },
   {
     questionId: 'E3',
@@ -89,7 +83,7 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
       'Is there any further need for additional FFS/Demo Plot trainings?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
+    options: ['Yes', 'No'],
   },
   {
     questionId: 'E4',
@@ -119,7 +113,7 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
       'Did the FFS incorporate gender-sensitive and inclusive approaches?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No'],
+    options: ['Yes', 'No', "Don't Know"],
   },
   {
     questionId: 'E8',
@@ -166,7 +160,7 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
       'Have you provided any guidance to other farmers or your family members on FFS/Demo Plot?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No'],
+    options: ['Yes', 'No', "Don't Know"],
   },
 ];
 
@@ -217,7 +211,7 @@ export const SECTION_D6_QUESTIONS: IQuestion[] = [
       'Have there been any positive social impacts resulting from the FFS/Demo Plot?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
+    options: ['Substantial', 'Moderate', 'Poor'],
   },
   {
     questionId: 'G7',
@@ -225,7 +219,23 @@ export const SECTION_D6_QUESTIONS: IQuestion[] = [
       'Have there been any positive environmental impacts resulting from the FFS/Demo Plot?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
+    options: ['Substantial', 'Moderate', 'Poor'],
+  },
+  {
+    questionId: 'G8',
+    question:
+      'How has the FFS/Demo Plot contributed to the overall development of the farming community?',
+    answer: '',
+    questionType: 'radio',
+    options: ['Substantial', 'Moderate', 'Poor'],
+  },
+  {
+    questionId: 'G9',
+    question:
+      'How much your production has increased after using the skills obtained from FFS/Demo Plot?',
+    answer: '',
+    questionType: 'radio',
+    options: ['10%', '15%', '20%', '25%'],
   },
   {
     questionId: 'H1',

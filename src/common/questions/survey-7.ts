@@ -14,20 +14,13 @@ export const SECTION_C7_QUESTIONS: IQuestion[] = [
     question:
       'Was the rehabilitation of damaged watercourses carried out according to the specified design and plans?',
     answer: '',
-    questionType: 'text',
+    questionType: 'radio',
+    options: ['Yes', 'No', 'Partially'],
   },
   {
     questionId: 'C3',
     question:
       'Have you observed any improvements in agricultural productivity since the rehabilitation of damaged watercourse lining?',
-    answer: '',
-    questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
-  },
-  {
-    questionId: 'C4',
-    question:
-      'How would you rate the effectiveness of the rehabilitation of damaged watercourses in improving agricultural practices and productivity?',
     answer: '',
     questionType: 'radio',
     options: ['Substantial', 'Moderate', 'Poor'],
@@ -69,7 +62,7 @@ export const SECTION_C7_QUESTIONS: IQuestion[] = [
     question: 'Was this area affected by the flood in 2022?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
+    options: ['Yes', 'No', 'Partially'],
   },
   {
     questionId: 'E3',
@@ -88,7 +81,7 @@ export const SECTION_C7_QUESTIONS: IQuestion[] = [
       'Do you think rehabilitation of damaged watercourses was a need of farmers?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
+    options: ['Yes', 'No'],
   },
   {
     questionId: 'F1',
@@ -123,7 +116,7 @@ export const SECTION_D7_QUESTIONS: IQuestion[] = [
       'Did the rehabilitation activities contribute to improving water flow, erosion control, or water management in the area?',
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
+    options: ['Substantial', 'Moderate', 'Poor'],
   },
   {
     questionId: 'G3',
@@ -133,48 +126,25 @@ export const SECTION_D7_QUESTIONS: IQuestion[] = [
     questionType: 'radio',
     options: ['Substantial', 'Moderate', 'Poor'],
   },
-  {
-    questionId: 'G4',
-    question:
-      'What measurable changes have occurred due to the rehabilitation of damaged watercourse in terms of increased yield?',
-    answer: '',
-    questionType: 'text',
-  },
-  {
-    questionId: 'G5',
-    question:
-      'What measurable changes have occurred due to the rehabilitation of damaged watercourse in terms of increased income?',
-    answer: '',
-    questionType: 'text',
-  },
-  {
-    questionId: 'G6',
-    question:
-      'Have there been any positive social impacts resulting from the rehabilitation of damaged watercourse?',
-    answer: '',
-    questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
-  },
-  {
-    questionId: 'G7',
-    question:
-      'Have there been any positive environmental impacts resulting from the rehabilitation of damaged watercourse?',
-    answer: '',
-    questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
-  },
-  {
-    questionId: 'H1',
-    question:
-      'Did the rehabilitation of damaged watercourse align with other agricultural development programs or policies in the area?',
-    answer: '',
-    questionType: 'radio',
-    options: ['Yes', 'No', "Don't Know"],
-  },
+  // {
+  //   questionId: 'H1',
+  //   question:
+  //     'Did the rehabilitation of damaged watercourse align with other agricultural development programs or policies in the area?',
+  //   answer: '',
+  //   questionType: 'radio',
+  //   options: ['Yes', 'No', "Don't Know"],
+  // },
   {
     questionId: 'H2',
     question:
       'Are there any challenges or issues in the rehabilitation of damaged watercourse? If yes, please specify.',
+    answer: '',
+    questionType: 'radio',
+    options: ['Yes', 'No'],
+  },
+  {
+    questionId: 'H2a',
+    question: 'If yes, please specify.',
     answer: '',
     questionType: 'text',
   },
