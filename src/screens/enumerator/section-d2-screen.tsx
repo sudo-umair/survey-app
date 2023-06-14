@@ -3,11 +3,7 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import {
-  SECTION_D2_QUESTIONS,
-  SECTION_TITLES,
-  SURVEY_COMPONENTS,
-} from '@common/data';
+import { SECTION_TITLES, SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
@@ -16,6 +12,7 @@ import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { submitSectionD2 } from '@redux/app-state-reducer';
 import { EnumeratorScreens } from '@common/screens';
+import { SECTION_D2_QUESTIONS } from '@common/questions/survey-2';
 
 const SectionD2Screen = ({
   navigation,
@@ -29,14 +26,14 @@ const SectionD2Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-      if (index === 3) {
-        if (newQuestions[3].answer === 'Yes') {
-          // to prevent check inputs error if D4a is not visible
-          newQuestions[4].answer = 'None';
-        } else {
-          newQuestions[4].answer = '';
-        }
-      }
+      // if (index === 3) {
+      //   if (newQuestions[3].answer === 'Yes') {
+      //     // to prevent check inputs error if D4a is not visible
+      //     newQuestions[4].answer = 'None';
+      //   } else {
+      //     newQuestions[4].answer = '';
+      //   }
+      // }
       return newQuestions;
     });
   };
@@ -55,18 +52,18 @@ const SectionD2Screen = ({
     >
       <Text style={styles.title}>Section D2: {SECTION_TITLES.sectionD}</Text>
       <Text style={styles.subTitle}>
-        Survey Component: {SURVEY_COMPONENTS.B}
+        Survey Component: {SURVEY_COMPONENTS.S2}
       </Text>
 
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          if (index === 4) {
-            if (questions[3].answer === 'Yes') {
-              // to hide D4a if answer of D4 is Yes
-              return null;
-            }
-          }
+          // if (index === 4) {
+          //   if (questions[3].answer === 'Yes') {
+          //     // to hide D4a if answer of D4 is Yes
+          //     return null;
+          //   }
+          // }
 
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}

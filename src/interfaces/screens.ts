@@ -94,6 +94,66 @@ export type IEnumeratorSectionD2ScreenProps = NativeStackScreenProps<
   STACKS.ENUMERATOR
 >;
 
+export type IEnumeratorSectionC3ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC3,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionD3ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD3,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionC4ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC4,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionD4ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD4,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionC5ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC5,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionD5ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD5,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionC6ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC6,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionD6ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD6,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionC7ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionC7,
+  STACKS.ENUMERATOR
+>;
+
+export type IEnumeratorSectionD7ScreenProps = NativeStackScreenProps<
+  IEnumeratorStackParamList,
+  EnumeratorScreens.SectionD7,
+  STACKS.ENUMERATOR
+>;
+
 export type IEnumeratorSurveyCompletedScreenProps = NativeStackScreenProps<
   IEnumeratorStackParamList,
   EnumeratorScreens.SurveyCompleted,

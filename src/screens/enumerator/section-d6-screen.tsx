@@ -7,20 +7,18 @@ import { SECTION_TITLES, SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
-import { IEnumeratorSectionD1ScreenProps } from '@interfaces/screens';
-import { EnumeratorScreens } from '@common/screens';
-import { useAppDispatch, useAppSelector } from '@redux/store';
+import { IEnumeratorSectionD6ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
-import { submitSectionD1 } from '@redux/app-state-reducer';
-import { SECTION_D1_QUESTIONS } from '@common/questions/survey-1';
+import { useAppDispatch, useAppSelector } from '@redux/store';
+import { submitSectionD6 } from '@redux/app-state-reducer';
+import { EnumeratorScreens } from '@common/screens';
+import { SECTION_D6_QUESTIONS } from '@common/questions/survey-6';
 
-const SectionD1Screen = ({
+const SectionD6Screen = ({
   navigation,
   route,
-}: IEnumeratorSectionD1ScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D1_QUESTIONS);
-
-  const { surveyComponents } = useAppSelector((state) => state.appState);
+}: IEnumeratorSectionD6ScreenProps) => {
+  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D6_QUESTIONS);
 
   const dispatch = useAppDispatch();
 
@@ -28,18 +26,22 @@ const SectionD1Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
+      // if (index === 3) {
+      //   if (newQuestions[3].answer === 'Yes') {
+      //     // to prevent check inputs error if D4a is not visible
+      //     newQuestions[4].answer = 'None';
+      //   } else {
+      //     newQuestions[4].answer = '';
+      //   }
+      // }
       return newQuestions;
     });
   };
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
-      dispatch(submitSectionD1(questions));
-      if (surveyComponents.includes(SURVEY_COMPONENTS.S2)) {
-        navigation.navigate(EnumeratorScreens.SectionC2);
-      } else {
-        navigation.navigate(EnumeratorScreens.SurveyCompleted);
-      }
+      dispatch(submitSectionD6(questions));
+      navigation.navigate(EnumeratorScreens.SurveyCompleted);
     }
   };
 
@@ -48,13 +50,21 @@ const SectionD1Screen = ({
       keyboardShouldPersistTaps='handled'
       contentContainerStyle={styles.rootContentContainer}
     >
-      <Text style={styles.title}>Section D1: {SECTION_TITLES.sectionD}</Text>
+      <Text style={styles.title}>Section D6: {SECTION_TITLES.sectionD}</Text>
       <Text style={styles.subTitle}>
-        Survey Component: {SURVEY_COMPONENTS.S1}
+        Survey Component: {SURVEY_COMPONENTS.S6}
       </Text>
+
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
+          // if (index === 4) {
+          //   if (questions[3].answer === 'Yes') {
+          //     // to hide D4a if answer of D4 is Yes
+          //     return null;
+          //   }
+          // }
+
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
         keyExtractor={(item) => item.questionId}
@@ -70,7 +80,7 @@ const SectionD1Screen = ({
   );
 };
 
-export default SectionD1Screen;
+export default SectionD6Screen;
 
 const styles = StyleSheet.create({
   rootContentContainer: {
@@ -90,6 +100,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: COLORS.PRIMARY,
     marginBottom: 10,
+  },
+  container: {
+    padding: 10,
+    borderColor: COLORS.PRIMARY,
+    borderWidth: 1,
+    borderRadius: 10,
+    marginVertical: 10,
   },
   button: {
     marginHorizontal: 10,

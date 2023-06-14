@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import React from 'react';
 import { IAcknowledgmentProps } from '@interfaces/components';
 import { FONT_SIZES } from '@common/fonts';
 
+// survey 4 c4 e3
+// survey 5 h2
+// survey 6 e5
 const Acknowledgment: React.FC<IAcknowledgmentProps> = ({ name }) => {
   return (
     <Text style={styles.text}>

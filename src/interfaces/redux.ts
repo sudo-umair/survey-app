@@ -48,4 +48,14 @@ export interface IAppState {
   sectionD1: IQuestion[];
   sectionC2: IQuestion[];
   sectionD2: IQuestion[];
+  sectionC3: IQuestion[];
+  sectionD3: IQuestion[];
+  sectionC4: IQuestion[];
+  sectionD4: IQuestion[];
+  sectionC5: IQuestion[];
+  sectionD5: IQuestion[];
+  sectionC6: IQuestion[];
+  sectionD6: IQuestion[];
+  sectionC7: IQuestion[];
+  sectionD7: IQuestion[];
 }
