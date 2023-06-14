@@ -9,16 +9,24 @@ import Button from '@components/ui/button';
 import { SURVEY_COMPONENTS } from '@common/data';
 import { FONT_SIZES } from '@common/fonts';
 import { useAppDispatch } from '@redux/store';
-import { setSurveyComponents } from '@redux/app-state-reducer';
+import { clearData, setSurveyComponents } from '@redux/app-state-reducer';
 import { useFocusEffect } from '@react-navigation/native';
 import { removeUser } from '@redux/user-reducer';
 
 const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
-  const [selectedComponents, setSelectedComponents] = useState<string[]>([]);
+  const [selectedComponents, setSelectedComponents] = useState<
+    SURVEY_COMPONENTS[]
+  >([]);
 
   const dispatch = useAppDispatch();
 
-  const onPress = (key: string) => {
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(clearData());
+    }, [])
+  );
+
+  const onPress = (key: SURVEY_COMPONENTS) => {
     if (selectedComponents.includes(key)) {
       setSelectedComponents(selectedComponents.filter((item) => item !== key));
     } else {
@@ -30,8 +38,8 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
     navigation.navigate(EnumeratorScreens.SyncSurveys);
 
   const onProceed = () => {
-    console.log('selectedComponents', selectedComponents.sort());
-    dispatch(setSurveyComponents(selectedComponents.sort()));
+    console.log('selectedComponents', selectedComponents);
+    dispatch(setSurveyComponents(selectedComponents));
     navigation.navigate(EnumeratorScreens.SectionA);
   };
 

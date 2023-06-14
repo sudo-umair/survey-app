@@ -11,8 +11,8 @@ import { IEnumeratorSectionD6ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { submitSectionD6 } from '@redux/app-state-reducer';
-import { EnumeratorScreens } from '@common/screens';
 import { SECTION_D6_QUESTIONS } from '@common/questions/survey-6';
+import { handleSurveyNavigation } from '@helpers/navigation';
 
 const SectionD6Screen = ({
   navigation,
@@ -21,6 +21,8 @@ const SectionD6Screen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D6_QUESTIONS);
 
   const dispatch = useAppDispatch();
+
+  const { surveyComponents } = useAppSelector((state) => state.appState);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -41,7 +43,7 @@ const SectionD6Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD6(questions));
-      navigation.navigate(EnumeratorScreens.SurveyCompleted);
+      handleSurveyNavigation(navigation, surveyComponents);
     }
   };
 
@@ -71,11 +73,7 @@ const SectionD6Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button
-        title='Submit Survey'
-        buttonStyle={styles.button}
-        onPress={onPress}
-      />
+      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
   );
 };

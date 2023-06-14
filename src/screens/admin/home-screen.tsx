@@ -91,7 +91,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
       </View>
       <View>
         <Button
-          title={`${SURVEY_COMPONENTS.A}\n${stats.totalComponentASurveys}`}
+          title={`${SURVEY_COMPONENTS.S1}\n${stats.totalComponentASurveys}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}
@@ -99,7 +99,7 @@ const HomeScreen = ({ navigation, route }: IAdminHomeScreenProps) => {
           isLoading={loading}
         />
         <Button
-          title={`${SURVEY_COMPONENTS.B}\n${stats.totalComponentBSurveys}`}
+          title={`${SURVEY_COMPONENTS.S2}\n${stats.totalComponentBSurveys}`}
           buttonStyle={styles.colButton}
           buttonTextStyle={styles.buttonText}
           dynamic={false}

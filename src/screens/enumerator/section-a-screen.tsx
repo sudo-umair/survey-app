@@ -58,7 +58,7 @@ const SectionAScreen = ({
     >
       <Text style={styles.title}>Section A: {SECTION_TITLES.sectionA}</Text>
       <Container containerStyle={styles.container}>
-        <Acknowledgment name={name || 'John Doe'} />
+        <Acknowledgment name={name} />
       </Container>
       <FlatList
         data={questions}

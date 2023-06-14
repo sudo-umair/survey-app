@@ -45,16 +45,36 @@ const SurveyCompletedScreen = ({
     enumeratorId: user.enumeratorId,
   };
 
-  const isSurveyAEmpty = useMemo(() => {
+  const isSurvey1Empty = useMemo(() => {
     return appState.sectionC1.length === 0 && appState.sectionD1.length === 0;
   }, [appState.sectionC1, appState.sectionD1]);
 
-  const isSurveyBEmpty = useMemo(() => {
+  const isSurvey2Empty = useMemo(() => {
     return appState.sectionC2.length === 0 && appState.sectionD2.length === 0;
   }, [appState.sectionC2, appState.sectionD2]);
 
-  const SurveyAPayload: ISurveyPayload = {
-    surveyId: SURVEY_COMPONENTS.A,
+  const isSurvey3Empty = useMemo(() => {
+    return appState.sectionC3.length === 0 && appState.sectionD3.length === 0;
+  }, [appState.sectionC3, appState.sectionD3]);
+
+  const isSurvey4Empty = useMemo(() => {
+    return appState.sectionC4.length === 0 && appState.sectionD4.length === 0;
+  }, [appState.sectionC4, appState.sectionD4]);
+
+  const isSurvey5Empty = useMemo(() => {
+    return appState.sectionC5.length === 0 && appState.sectionD5.length === 0;
+  }, [appState.sectionC5, appState.sectionD5]);
+
+  const isSurvey6Empty = useMemo(() => {
+    return appState.sectionC6.length === 0 && appState.sectionD6.length === 0;
+  }, [appState.sectionC6, appState.sectionD6]);
+
+  const isSurvey7Empty = useMemo(() => {
+    return appState.sectionC7.length === 0 && appState.sectionD7.length === 0;
+  }, [appState.sectionC7, appState.sectionD7]);
+
+  const Survey1Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S1,
     sectionA: appState.sectionA,
     sectionB: appState.sectionB,
     sectionC: appState.sectionC1,
@@ -63,12 +83,62 @@ const SurveyCompletedScreen = ({
     submittedBy: SubmittedBy,
   };
 
-  const SurveyBPayload: ISurveyPayload = {
-    surveyId: SURVEY_COMPONENTS.B,
+  const Survey2Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S2,
     sectionA: appState.sectionA,
     sectionB: appState.sectionB,
     sectionC: appState.sectionC2,
     sectionD: appState.sectionD2,
+    submittedAt: new Date().toISOString(),
+    submittedBy: SubmittedBy,
+  };
+
+  const Survey3Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S3,
+    sectionA: appState.sectionA,
+    sectionB: appState.sectionB,
+    sectionC: appState.sectionC3,
+    sectionD: appState.sectionD3,
+    submittedAt: new Date().toISOString(),
+    submittedBy: SubmittedBy,
+  };
+
+  const Survey4Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S4,
+    sectionA: appState.sectionA,
+    sectionB: appState.sectionB,
+    sectionC: appState.sectionC4,
+    sectionD: appState.sectionD4,
+    submittedAt: new Date().toISOString(),
+    submittedBy: SubmittedBy,
+  };
+
+  const Survey5Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S5,
+    sectionA: appState.sectionA,
+    sectionB: appState.sectionB,
+    sectionC: appState.sectionC5,
+    sectionD: appState.sectionD5,
+    submittedAt: new Date().toISOString(),
+    submittedBy: SubmittedBy,
+  };
+
+  const Survey6Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S6,
+    sectionA: appState.sectionA,
+    sectionB: appState.sectionB,
+    sectionC: appState.sectionC6,
+    sectionD: appState.sectionD6,
+    submittedAt: new Date().toISOString(),
+    submittedBy: SubmittedBy,
+  };
+
+  const Survey7Payload: ISurveyPayload = {
+    surveyId: SURVEY_COMPONENTS.S7,
+    sectionA: appState.sectionA,
+    sectionB: appState.sectionB,
+    sectionC: appState.sectionC7,
+    sectionD: appState.sectionD7,
     submittedAt: new Date().toISOString(),
     submittedBy: SubmittedBy,
   };
@@ -100,11 +170,26 @@ const SurveyCompletedScreen = ({
 
   const submitOnline = async () => {
     let isSubmitted = false;
-    if (!isSurveyAEmpty) {
-      isSubmitted = await submitSurveyToServer(SurveyAPayload);
+    if (!isSurvey1Empty) {
+      isSubmitted = await submitSurveyToServer(Survey1Payload);
     }
-    if (!isSurveyBEmpty) {
-      isSubmitted = await submitSurveyToServer(SurveyBPayload);
+    if (!isSurvey2Empty) {
+      isSubmitted = await submitSurveyToServer(Survey2Payload);
+    }
+    if (!isSurvey3Empty) {
+      isSubmitted = await submitSurveyToServer(Survey3Payload);
+    }
+    if (!isSurvey4Empty) {
+      isSubmitted = await submitSurveyToServer(Survey4Payload);
+    }
+    if (!isSurvey5Empty) {
+      isSubmitted = await submitSurveyToServer(Survey5Payload);
+    }
+    if (!isSurvey6Empty) {
+      isSubmitted = await submitSurveyToServer(Survey6Payload);
+    }
+    if (!isSurvey7Empty) {
+      isSubmitted = await submitSurveyToServer(Survey7Payload);
     }
     if (isSubmitted) {
       showSuccessToast('Survey submitted online successfully');
@@ -126,13 +211,33 @@ const SurveyCompletedScreen = ({
 
   const submitOffline = async () => {
     let isSubmitted = false;
-    if (!isSurveyAEmpty) {
+    if (!isSurvey1Empty) {
       isSubmitted =
-        (await storePayloadInOfflineStorage(SurveyAPayload)) || false;
+        (await storePayloadInOfflineStorage(Survey1Payload)) || false;
     }
-    if (!isSurveyBEmpty) {
+    if (!isSurvey2Empty) {
       isSubmitted =
-        (await storePayloadInOfflineStorage(SurveyBPayload)) || false;
+        (await storePayloadInOfflineStorage(Survey2Payload)) || false;
+    }
+    if (!isSurvey3Empty) {
+      isSubmitted =
+        (await storePayloadInOfflineStorage(Survey3Payload)) || false;
+    }
+    if (!isSurvey4Empty) {
+      isSubmitted =
+        (await storePayloadInOfflineStorage(Survey4Payload)) || false;
+    }
+    if (!isSurvey5Empty) {
+      isSubmitted =
+        (await storePayloadInOfflineStorage(Survey5Payload)) || false;
+    }
+    if (!isSurvey6Empty) {
+      isSubmitted =
+        (await storePayloadInOfflineStorage(Survey6Payload)) || false;
+    }
+    if (!isSurvey7Empty) {
+      isSubmitted =
+        (await storePayloadInOfflineStorage(Survey7Payload)) || false;
     }
     if (isSubmitted) {
       showSuccessToast('Survey submitted offline successfully');

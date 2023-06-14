@@ -34,7 +34,8 @@ const ManageEnumeratorItem: React.FC<IManageEnumeratorItemProps> = ({
         Phone: {enumerator.mobile || '0300-1234567'}
       </Text>
       <Text style={styles.label}>
-        Date Joined: {dateFormatter(new Date().toISOString())}
+        Date Joined:{' '}
+        {dateFormatter(new Date(enumerator.createdAt).toISOString())}
       </Text>
       <Button
         title={enumerator.isDisabled ? 'Enable' : 'Disable'}

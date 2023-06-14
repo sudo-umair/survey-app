@@ -11,14 +11,16 @@ import { IEnumeratorSectionD5ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { submitSectionD5 } from '@redux/app-state-reducer';
-import { EnumeratorScreens } from '@common/screens';
 import { SECTION_D5_QUESTIONS } from '@common/questions/survey-5';
+import { handleSurveyNavigation } from '@helpers/navigation';
 
 const SectionD5Screen = ({
   navigation,
   route,
 }: IEnumeratorSectionD5ScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D5_QUESTIONS);
+
+  const { surveyComponents } = useAppSelector((state) => state.appState);
 
   const dispatch = useAppDispatch();
 
@@ -41,7 +43,7 @@ const SectionD5Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD5(questions));
-      navigation.navigate(EnumeratorScreens.SurveyCompleted);
+      handleSurveyNavigation(navigation, surveyComponents);
     }
   };
 
@@ -71,11 +73,7 @@ const SectionD5Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button
-        title='Submit Survey'
-        buttonStyle={styles.button}
-        onPress={onPress}
-      />
+      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
   );
 };

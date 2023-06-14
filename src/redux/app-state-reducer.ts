@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { IAppState } from '@interfaces/redux';
+import { SURVEY_COMPONENTS } from '@common/data';
+import { IQuestion, ISurveyPayload } from '@interfaces/common';
 
 const initialState: IAppState = {
   surveyComponents: [],
@@ -27,59 +29,66 @@ const appSlice = createSlice({
   reducers: {
     setSurveyComponents: (
       state,
-      action: PayloadAction<IAppState['surveyComponents']>
+      action: PayloadAction<SURVEY_COMPONENTS[]>
     ) => {
       state.surveyComponents = action.payload;
     },
-    submitSectionA: (state, action: PayloadAction<IAppState['sectionA']>) => {
+    filterSurveyComponents: (
+      state,
+      action: PayloadAction<SURVEY_COMPONENTS>
+    ) => {
+      state.surveyComponents = state.surveyComponents.filter(
+        (item) => item !== action.payload
+      );
+    },
+    submitSectionA: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionA = action.payload;
     },
-    submitSectionB: (state, action: PayloadAction<IAppState['sectionB']>) => {
+    submitSectionB: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionB = action.payload;
     },
-    submitSectionC1: (state, action: PayloadAction<IAppState['sectionC1']>) => {
+    submitSectionC1: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC1 = action.payload;
     },
-    submitSectionD1: (state, action: PayloadAction<IAppState['sectionD1']>) => {
+    submitSectionD1: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD1 = action.payload;
     },
-    submitSectionC2: (state, action: PayloadAction<IAppState['sectionC2']>) => {
+    submitSectionC2: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC2 = action.payload;
     },
-    submitSectionD2: (state, action: PayloadAction<IAppState['sectionD2']>) => {
+    submitSectionD2: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD2 = action.payload;
     },
-    submitSectionC3: (state, action: PayloadAction<IAppState['sectionC3']>) => {
+    submitSectionC3: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC3 = action.payload;
     },
-    submitSectionD3: (state, action: PayloadAction<IAppState['sectionD3']>) => {
+    submitSectionD3: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD3 = action.payload;
     },
-    submitSectionC4: (state, action: PayloadAction<IAppState['sectionC4']>) => {
+    submitSectionC4: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC4 = action.payload;
     },
-    submitSectionD4: (state, action: PayloadAction<IAppState['sectionD4']>) => {
+    submitSectionD4: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD4 = action.payload;
     },
-    submitSectionC5: (state, action: PayloadAction<IAppState['sectionC5']>) => {
+    submitSectionC5: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC5 = action.payload;
     },
-    submitSectionD5: (state, action: PayloadAction<IAppState['sectionD5']>) => {
+    submitSectionD5: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD5 = action.payload;
     },
-    submitSectionC6: (state, action: PayloadAction<IAppState['sectionC6']>) => {
+    submitSectionC6: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC6 = action.payload;
     },
-    submitSectionD6: (state, action: PayloadAction<IAppState['sectionD6']>) => {
+    submitSectionD6: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD6 = action.payload;
     },
-    submitSectionC7: (state, action: PayloadAction<IAppState['sectionC7']>) => {
+    submitSectionC7: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionC7 = action.payload;
     },
-    submitSectionD7: (state, action: PayloadAction<IAppState['sectionD7']>) => {
+    submitSectionD7: (state, action: PayloadAction<IQuestion[]>) => {
       state.sectionD7 = action.payload;
     },
-
     clearData: () => {
       return initialState;
     },
@@ -105,6 +114,7 @@ export const {
   submitSectionC7,
   submitSectionD7,
   setSurveyComponents,
+  filterSurveyComponents,
 } = appSlice.actions;
 
 export default appSlice.reducer;

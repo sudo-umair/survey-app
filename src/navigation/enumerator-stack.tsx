@@ -12,6 +12,16 @@ import SectionC1Screen from '@screens/enumerator/section-c1-screen';
 import SectionD1Screen from '@screens/enumerator/section-d1-screen';
 import SectionC2Screen from '@screens/enumerator/section-c2-screen';
 import SectionD2Screen from '@screens/enumerator/section-d2-screen';
+import SectionC3Screen from '@screens/enumerator/section-c3-screen';
+import SectionD3Screen from '@screens/enumerator/section-d3-screen';
+import SectionC4Screen from '@screens/enumerator/section-c4-screen';
+import SectionD4Screen from '@screens/enumerator/section-d4-screen';
+import SectionC5Screen from '@screens/enumerator/section-c5-screen';
+import SectionD5Screen from '@screens/enumerator/section-d5-screen';
+import SectionC6Screen from '@screens/enumerator/section-c6-screen';
+import SectionD6Screen from '@screens/enumerator/section-d6-screen';
+import SectionC7Screen from '@screens/enumerator/section-c7-screen';
+import SectionD7Screen from '@screens/enumerator/section-d7-screen';
 import SyncSurveysScreen from '@screens/enumerator/sync-surveys-screen';
 import SurveyCompletedScreen from '@screens/enumerator/survey-completed-screen';
 import { useAppSelector } from '@redux/store';
@@ -46,6 +56,16 @@ const EnumeratorStack = () => {
           <Stack.Screen name={Screens.SectionD1} component={SectionD1Screen} />
           <Stack.Screen name={Screens.SectionC2} component={SectionC2Screen} />
           <Stack.Screen name={Screens.SectionD2} component={SectionD2Screen} />
+          <Stack.Screen name={Screens.SectionC3} component={SectionC3Screen} />
+          <Stack.Screen name={Screens.SectionD3} component={SectionD3Screen} />
+          <Stack.Screen name={Screens.SectionC4} component={SectionC4Screen} />
+          <Stack.Screen name={Screens.SectionD4} component={SectionD4Screen} />
+          <Stack.Screen name={Screens.SectionC5} component={SectionC5Screen} />
+          <Stack.Screen name={Screens.SectionD5} component={SectionD5Screen} />
+          <Stack.Screen name={Screens.SectionC6} component={SectionC6Screen} />
+          <Stack.Screen name={Screens.SectionD6} component={SectionD6Screen} />
+          <Stack.Screen name={Screens.SectionC7} component={SectionC7Screen} />
+          <Stack.Screen name={Screens.SectionD7} component={SectionD7Screen} />
           {/* Completed */}
           <Stack.Screen
             name={Screens.SurveyCompleted}

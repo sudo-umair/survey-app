@@ -8,11 +8,11 @@ import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD1ScreenProps } from '@interfaces/screens';
-import { EnumeratorScreens } from '@common/screens';
 import { useAppDispatch, useAppSelector } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { submitSectionD1 } from '@redux/app-state-reducer';
 import { SECTION_D1_QUESTIONS } from '@common/questions/survey-1';
+import { handleSurveyNavigation } from '@helpers/navigation';
 
 const SectionD1Screen = ({
   navigation,
@@ -35,11 +35,7 @@ const SectionD1Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD1(questions));
-      if (surveyComponents.includes(SURVEY_COMPONENTS.S2)) {
-        navigation.navigate(EnumeratorScreens.SectionC2);
-      } else {
-        navigation.navigate(EnumeratorScreens.SurveyCompleted);
-      }
+      handleSurveyNavigation(navigation, surveyComponents);
     }
   };
 
@@ -61,11 +57,7 @@ const SectionD1Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button
-        title='Submit Survey'
-        buttonStyle={styles.button}
-        onPress={onPress}
-      />
+      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
   );
 };

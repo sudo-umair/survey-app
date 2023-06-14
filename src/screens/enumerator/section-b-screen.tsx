@@ -3,16 +3,16 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import { SECTION_TITLES, SURVEY_COMPONENTS } from '@common/data';
+import { SECTION_TITLES } from '@common/data';
 import { SECTION_B_QUESTIONS } from '@common/questions/survey-1';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionBScreenProps } from '@interfaces/screens';
-import { EnumeratorScreens } from '@common/screens';
 import { useAppSelector, useAppDispatch } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { submitSectionB } from '@redux/app-state-reducer';
+import { handleSurveyNavigation } from '@helpers/navigation';
 
 const SectionBScreen = ({
   navigation,
@@ -54,15 +54,15 @@ const SectionBScreen = ({
       //   }
       // }
 
-      if (index === 15) {
-        // index belongs to male HH members currently earning
-        const maleMembers = Number(questions[12].answer);
-        if (Number(newQuestions[15].answer) <= maleMembers) {
-          newQuestions[index].answer = text;
-        } else {
-          newQuestions[15].answer = maleMembers.toString();
-        }
-      }
+      // if (index === 15) {
+      //   // index belongs to male HH members currently earning
+      //   const maleMembers = Number(questions[12].answer);
+      //   if (Number(newQuestions[15].answer) <= maleMembers) {
+      //     newQuestions[index].answer = text;
+      //   } else {
+      //     newQuestions[15].answer = maleMembers.toString();
+      //   }
+      // }
 
       // if (index === 16) {
       //   // index belongs to female HH members currently earning
@@ -81,11 +81,7 @@ const SectionBScreen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionB(questions));
-      if (surveyComponents.includes(SURVEY_COMPONENTS.S1)) {
-        navigation.navigate(EnumeratorScreens.SectionC1);
-      } else if (surveyComponents.includes(SURVEY_COMPONENTS.S2)) {
-        navigation.navigate(EnumeratorScreens.SectionC2);
-      }
+      handleSurveyNavigation(navigation, surveyComponents);
     }
   };
 

@@ -1,3 +1,4 @@
+import { SURVEY_COMPONENTS } from '@common/data';
 import { IQuestion } from './common';
 
 export interface IUserState {
@@ -38,10 +39,12 @@ export interface IEnumeratorState {
   enumeratorId: string;
   token: string;
   isDisabled: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface IAppState {
-  surveyComponents: string[];
+  surveyComponents: SURVEY_COMPONENTS[];
   sectionA: IQuestion[];
   sectionB: IQuestion[];
   sectionC1: IQuestion[];

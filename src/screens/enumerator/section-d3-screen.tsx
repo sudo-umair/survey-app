@@ -9,10 +9,10 @@ import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
 import { IEnumeratorSectionD3ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
-import { useAppDispatch } from '@redux/store';
+import { useAppDispatch, useAppSelector } from '@redux/store';
 import { submitSectionD2 } from '@redux/app-state-reducer';
-import { EnumeratorScreens } from '@common/screens';
 import { SECTION_D3_QUESTIONS } from '@common/questions/survey-3';
+import { handleSurveyNavigation } from '@helpers/navigation';
 
 const SectionD3Screen = ({
   navigation,
@@ -21,6 +21,8 @@ const SectionD3Screen = ({
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D3_QUESTIONS);
 
   const dispatch = useAppDispatch();
+
+  const { surveyComponents } = useAppSelector((state) => state.appState);
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -41,7 +43,7 @@ const SectionD3Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD2(questions));
-      navigation.navigate(EnumeratorScreens.SurveyCompleted);
+      handleSurveyNavigation(navigation, surveyComponents);
     }
   };
 
@@ -71,11 +73,7 @@ const SectionD3Screen = ({
         scrollEnabled={false}
         keyboardShouldPersistTaps='handled'
       />
-      <Button
-        title='Submit Survey'
-        buttonStyle={styles.button}
-        onPress={onPress}
-      />
+      <Button title='Next' buttonStyle={styles.button} onPress={onPress} />
     </ScrollContainer>
   );
 };
