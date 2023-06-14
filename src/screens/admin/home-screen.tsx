@@ -181,24 +181,24 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   rowButton: {
     width: '46%',
-    aspectRatio: 1.5,
+    aspectRatio: 2,
     marginHorizontal: 5,
   },
   colButton: {
     marginHorizontal: 5,
     marginBottom: 10,
-    minHeight: 70,
+    minHeight: 50,
   },
   buttonText: {
-    fontSize: FONT_SIZES.EXTRA_LARGE,
+    fontSize: FONT_SIZES.LARGE,
     textAlign: 'center',
   },
   buttonContainer: {
-    marginVertical: 15,
+    marginVertical: 10,
   },
   button: {
     marginHorizontal: 5,
