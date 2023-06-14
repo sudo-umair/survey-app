@@ -35,7 +35,7 @@ export default function App() {
         />
         <Toast
           position='bottom'
-          visibilityTime={2000}
+          visibilityTime={2500}
           keyboardOffset={10}
           bottomOffset={10}
         />
