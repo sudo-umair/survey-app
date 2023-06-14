@@ -1,7 +1,7 @@
 import { Alert, StyleSheet, Text, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import type { IEnumeratorHomeScreenProps } from '@interfaces/screens';
-import Container from '@components/ui/container';
+import ScrollContainer from '@components/ui/scroll-container';
 import { EnumeratorScreens } from '@common/screens';
 import { COLORS } from '@common/colors';
 import SurveyComponent from '@components/enumerator/survey-component';
@@ -60,17 +60,42 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
   );
 
   return (
-    <Container containerStyle={styles.rootContainer}>
+    <ScrollContainer containerStyle={styles.rootContainer}>
       <Text style={styles.title}>Select Components</Text>
       <SurveyComponent
-        title={SURVEY_COMPONENTS.A}
-        onPress={() => onPress(SURVEY_COMPONENTS.A)}
-        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.A)}
+        title={SURVEY_COMPONENTS.S1}
+        onPress={() => onPress(SURVEY_COMPONENTS.S1)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S1)}
       />
       <SurveyComponent
-        title={SURVEY_COMPONENTS.B}
-        onPress={() => onPress(SURVEY_COMPONENTS.B)}
-        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.B)}
+        title={SURVEY_COMPONENTS.S2}
+        onPress={() => onPress(SURVEY_COMPONENTS.S2)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S2)}
+      />
+      <SurveyComponent
+        title={SURVEY_COMPONENTS.S3}
+        onPress={() => onPress(SURVEY_COMPONENTS.S3)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S3)}
+      />
+      <SurveyComponent
+        title={SURVEY_COMPONENTS.S4}
+        onPress={() => onPress(SURVEY_COMPONENTS.S4)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S4)}
+      />
+      <SurveyComponent
+        title={SURVEY_COMPONENTS.S5}
+        onPress={() => onPress(SURVEY_COMPONENTS.S5)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S5)}
+      />
+      <SurveyComponent
+        title={SURVEY_COMPONENTS.S6}
+        onPress={() => onPress(SURVEY_COMPONENTS.S6)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S6)}
+      />
+      <SurveyComponent
+        title={SURVEY_COMPONENTS.S7}
+        onPress={() => onPress(SURVEY_COMPONENTS.S7)}
+        isSelected={selectedComponents.includes(SURVEY_COMPONENTS.S7)}
       />
       <View style={styles.buttonContainer}>
         <Button
@@ -91,7 +116,7 @@ const HomeScreen = ({ navigation, route }: IEnumeratorHomeScreenProps) => {
           />
         </View>
       </View>
-    </Container>
+    </ScrollContainer>
   );
 };
 
@@ -110,10 +135,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonContainer: {
-    position: 'absolute',
-    bottom: 10,
-    left: 0,
-    right: 0,
+    marginVertical: 15,
   },
   buttonsRow: {
     flexDirection: 'row',

@@ -3,6 +3,7 @@ import React from 'react';
 import type { ISurveyComponentProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FONT_SIZES } from '@common/fonts';
 
 const SurveyComponent: React.FC<ISurveyComponentProps> = ({
   title,
@@ -37,13 +38,13 @@ export default SurveyComponent;
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    minHeight: 40,
     backgroundColor: COLORS.PRIMARY,
     marginTop: 15,
     marginHorizontal: 15,
     borderRadius: 10,
     justifyContent: 'space-between',
-    padding: 20,
+    padding: 15,
     alignItems: 'center',
     flexDirection: 'row',
   },
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.SECONDARY,
   },
   text: {
-    fontSize: 24,
+    fontSize: FONT_SIZES.EXTRA_EXTRA_LARGE,
     color: COLORS.WHITE,
     textAlign: 'left',
     width: '85%',

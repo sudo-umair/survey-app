@@ -3,11 +3,8 @@ import React, { useState } from 'react';
 import ScrollContainer from '@components/ui/scroll-container';
 import { COLORS } from '@common/colors';
 import type { IQuestion } from '@interfaces/common';
-import {
-  SECTION_B_QUESTIONS,
-  SECTION_TITLES,
-  SURVEY_COMPONENTS,
-} from '@common/data';
+import { SECTION_TITLES, SURVEY_COMPONENTS } from '@common/data';
+import { SECTION_B_QUESTIONS } from '@common/questions/survey-1';
 import { FONT_SIZES } from '@common/fonts';
 import QuestionBox from '@components/enumerator/question-box';
 import Button from '@components/ui/button';
@@ -32,30 +29,30 @@ const SectionBScreen = ({
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
 
-      // calculate female members on bases of total members minus male members
-      if (index === 12) {
-        // index belongs to male members
-        const totalMembers = Number(questions[11].answer);
-        const maleMembers = Number(questions[12].answer);
-        if (maleMembers <= totalMembers) {
-          newQuestions[13].answer = (totalMembers - maleMembers).toString();
-        } else {
-          newQuestions[12].answer = newQuestions[11].answer;
-          newQuestions[13].answer = '0';
-        }
-      }
+      // // calculate female members on bases of total members minus male members
+      // if (index === 12) {
+      //   // index belongs to male members
+      //   const totalMembers = Number(questions[11].answer);
+      //   const maleMembers = Number(questions[12].answer);
+      //   if (maleMembers <= totalMembers) {
+      //     newQuestions[13].answer = (totalMembers - maleMembers).toString();
+      //   } else {
+      //     newQuestions[12].answer = newQuestions[11].answer;
+      //     newQuestions[13].answer = '0';
+      //   }
+      // }
 
-      if (index === 13) {
-        // index belongs to female members
-        const totalMembers = Number(questions[11].answer);
-        const maleMembers = Number(questions[12].answer);
-        const femaleMembers = Number(questions[13].answer);
-        if (femaleMembers <= totalMembers - maleMembers) {
-          newQuestions[13].answer = text;
-        } else {
-          newQuestions[13].answer = (totalMembers - maleMembers).toString();
-        }
-      }
+      // if (index === 13) {
+      //   // index belongs to female members
+      //   const totalMembers = Number(questions[11].answer);
+      //   const maleMembers = Number(questions[12].answer);
+      //   const femaleMembers = Number(questions[13].answer);
+      //   if (femaleMembers <= totalMembers - maleMembers) {
+      //     newQuestions[13].answer = text;
+      //   } else {
+      //     newQuestions[13].answer = (totalMembers - maleMembers).toString();
+      //   }
+      // }
 
       if (index === 15) {
         // index belongs to male HH members currently earning
@@ -67,15 +64,15 @@ const SectionBScreen = ({
         }
       }
 
-      if (index === 16) {
-        // index belongs to female HH members currently earning
-        const femaleMembers = Number(questions[13].answer);
-        if (Number(newQuestions[16].answer) <= femaleMembers) {
-          newQuestions[index].answer = text;
-        } else {
-          newQuestions[16].answer = femaleMembers.toString();
-        }
-      }
+      // if (index === 16) {
+      //   // index belongs to female HH members currently earning
+      //   const femaleMembers = Number(questions[13].answer);
+      //   if (Number(newQuestions[16].answer) <= femaleMembers) {
+      //     newQuestions[index].answer = text;
+      //   } else {
+      //     newQuestions[16].answer = femaleMembers.toString();
+      //   }
+      // }
 
       return newQuestions;
     });
@@ -84,9 +81,9 @@ const SectionBScreen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionB(questions));
-      if (surveyComponents.includes(SURVEY_COMPONENTS.A)) {
+      if (surveyComponents.includes(SURVEY_COMPONENTS.S1)) {
         navigation.navigate(EnumeratorScreens.SectionC1);
-      } else if (surveyComponents.includes(SURVEY_COMPONENTS.B)) {
+      } else if (surveyComponents.includes(SURVEY_COMPONENTS.S2)) {
         navigation.navigate(EnumeratorScreens.SectionC2);
       }
     }
