@@ -21,18 +21,10 @@ const ManageEnumeratorItem: React.FC<IManageEnumeratorItemProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Name: {enumerator.name}</Text>
-      <Text style={styles.label}>
-        Enumerator ID: {enumerator.enumeratorId || 'EN-01'}
-      </Text>
-      <Text style={styles.label}>
-        Email: {enumerator.email || 'test@google.com'}
-      </Text>
-      <Text style={styles.label}>
-        Cnic: {enumerator.cnic || '12345-1234567-1'}
-      </Text>
-      <Text style={styles.label}>
-        Phone: {enumerator.mobile || '0300-1234567'}
-      </Text>
+      <Text style={styles.label}>Enumerator ID: {enumerator.enumeratorId}</Text>
+      <Text style={styles.label}>Email: {enumerator.email}</Text>
+      <Text style={styles.label}>Cnic: {enumerator.cnic}</Text>
+      <Text style={styles.label}>Phone: {enumerator.mobile}</Text>
       <Text style={styles.label}>
         Date Joined:{' '}
         {dateFormatter(new Date(enumerator.createdAt).toISOString())}
