@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from '@redux/store';
 import { submitSectionD4 } from '@redux/app-state-reducer';
 import { SECTION_D4_QUESTIONS } from '@common/questions/survey-4';
 import { handleSurveyNavigation } from '@helpers/navigation';
+import { showInfoToast } from '@helpers/toast-message';
 
 const SectionD4Screen = ({
   navigation,
@@ -35,6 +36,7 @@ const SectionD4Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD4(questions));
+      showInfoToast(`${SURVEY_COMPONENTS.S4} completed successfully}`);
       handleSurveyNavigation(navigation, surveyComponents);
     }
   };

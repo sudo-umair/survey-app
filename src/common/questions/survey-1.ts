@@ -1,3 +1,4 @@
+import { districtsInSindh } from '@common/data';
 import { IQuestion } from '@interfaces/common';
 
 export const SECTION_A_QUESTIONS: IQuestion[] = [
@@ -241,8 +242,9 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B10',
     question: 'District',
-    answer: '',
-    questionType: 'text',
+    answer: districtsInSindh.sort()[0],
+    questionType: 'picker',
+    options: districtsInSindh.sort(),
     keyboardType: 'default',
   },
   {

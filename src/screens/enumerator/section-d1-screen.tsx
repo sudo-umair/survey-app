@@ -13,6 +13,7 @@ import { checkSurveyAnswers } from '@utils/input-checks';
 import { submitSectionD1 } from '@redux/app-state-reducer';
 import { SECTION_D1_QUESTIONS } from '@common/questions/survey-1';
 import { handleSurveyNavigation } from '@helpers/navigation';
+import { showInfoToast } from '@helpers/toast-message';
 
 const SectionD1Screen = ({
   navigation,
@@ -32,9 +33,10 @@ const SectionD1Screen = ({
     });
   };
 
-  const onPress = () => {
+  const onPress = async () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD1(questions));
+      showInfoToast(`${SURVEY_COMPONENTS.S1} completed successfully}`);
       handleSurveyNavigation(navigation, surveyComponents);
     }
   };

@@ -28,52 +28,6 @@ const SectionBScreen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-
-      // // calculate female members on bases of total members minus male members
-      // if (index === 12) {
-      //   // index belongs to male members
-      //   const totalMembers = Number(questions[11].answer);
-      //   const maleMembers = Number(questions[12].answer);
-      //   if (maleMembers <= totalMembers) {
-      //     newQuestions[13].answer = (totalMembers - maleMembers).toString();
-      //   } else {
-      //     newQuestions[12].answer = newQuestions[11].answer;
-      //     newQuestions[13].answer = '0';
-      //   }
-      // }
-
-      // if (index === 13) {
-      //   // index belongs to female members
-      //   const totalMembers = Number(questions[11].answer);
-      //   const maleMembers = Number(questions[12].answer);
-      //   const femaleMembers = Number(questions[13].answer);
-      //   if (femaleMembers <= totalMembers - maleMembers) {
-      //     newQuestions[13].answer = text;
-      //   } else {
-      //     newQuestions[13].answer = (totalMembers - maleMembers).toString();
-      //   }
-      // }
-
-      // if (index === 15) {
-      //   // index belongs to male HH members currently earning
-      //   const maleMembers = Number(questions[12].answer);
-      //   if (Number(newQuestions[15].answer) <= maleMembers) {
-      //     newQuestions[index].answer = text;
-      //   } else {
-      //     newQuestions[15].answer = maleMembers.toString();
-      //   }
-      // }
-
-      // if (index === 16) {
-      //   // index belongs to female HH members currently earning
-      //   const femaleMembers = Number(questions[13].answer);
-      //   if (Number(newQuestions[16].answer) <= femaleMembers) {
-      //     newQuestions[index].answer = text;
-      //   } else {
-      //     newQuestions[16].answer = femaleMembers.toString();
-      //   }
-      // }
-
       return newQuestions;
     });
   };

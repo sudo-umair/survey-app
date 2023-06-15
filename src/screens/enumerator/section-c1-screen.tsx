@@ -29,7 +29,6 @@ const SectionC1Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-
       return newQuestions;
     });
   };
