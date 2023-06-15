@@ -5,7 +5,6 @@ import TextInput from '@components/ui/text-input';
 import { COLORS } from '@common/colors';
 import { IEnumeratorSignupRecord } from '@interfaces/common';
 import ScrollContainer from '@components/ui/scroll-container';
-import { CnicFormatter } from '@utils/formatters';
 import { AntDesign } from '@expo/vector-icons';
 import Button from '@components/ui/button';
 import { AuthScreens } from '@common/screens';

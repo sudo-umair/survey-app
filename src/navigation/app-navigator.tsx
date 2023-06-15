@@ -43,7 +43,7 @@ const AppNavigator = () => {
             dispatch(setEnumerator(response.data.enumerator));
           }
         }
-      } catch (error) {
+      } catch (error: any) {
         const errorResponse = handleAxiosError(error);
         console.error(errorResponse);
         showErrorToast(errorResponse.message);

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import React, { useRef } from 'react';
 import Container from '@components/ui/container';
 import Lottie from 'lottie-react-native';
