@@ -128,6 +128,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    marginHorizontal: 10,
+    marginHorizontal: 0,
   },
 });
