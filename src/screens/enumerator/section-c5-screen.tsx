@@ -29,34 +29,6 @@ const SectionC5Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-
-      // if (index === 13) {
-      //   if (newQuestions[13].answer !== 'Yes') {
-      //     // to prevent check inputs error if C14a is not visible
-      //     newQuestions[14].answer = 'None';
-      //   } else {
-      //     newQuestions[14].answer = '';
-      //   }
-      // }
-
-      // if (index === 15) {
-      //   if (newQuestions[15].answer !== 'Yes') {
-      //     // to prevent check inputs error if C15a is not visible
-      //     newQuestions[16].answer = 'None';
-      //   } else {
-      //     newQuestions[16].answer = '';
-      //   }
-      // }
-
-      // if (index === 18) {
-      //   if (newQuestions[18].answer !== 'Yes') {
-      //     // to prevent check inputs error if C17a is not visible
-      //     newQuestions[19].answer = 'None';
-      //   } else {
-      //     newQuestions[19].answer = '';
-      //   }
-      // }
-
       return newQuestions;
     });
   };
@@ -81,27 +53,6 @@ const SectionC5Screen = ({
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          // if (index === 14) {
-          //   if (questions[13].answer !== 'Yes') {
-          //     // to hide C14a if answer of C14 is not Yes
-          //     return null;
-          //   }
-          // }
-
-          // if (index === 16) {
-          //   if (questions[15].answer !== 'Yes') {
-          //     // to hide C15a if answer of A1 is not Yes
-          //     return null;
-          //   }
-          // }
-
-          // if (index === 19) {
-          //   if (questions[18].answer !== 'Yes') {
-          //     // to hide C17a if answer of C17 is not Yes
-          //     return null;
-          //   }
-          // }
-
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
         keyExtractor={(item) => item.questionId}

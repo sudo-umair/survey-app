@@ -28,14 +28,6 @@ const SectionD3Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-      // if (index === 3) {
-      //   if (newQuestions[3].answer === 'Yes') {
-      //     // to prevent check inputs error if D4a is not visible
-      //     newQuestions[4].answer = 'None';
-      //   } else {
-      //     newQuestions[4].answer = '';
-      //   }
-      // }
       return newQuestions;
     });
   };
@@ -60,13 +52,6 @@ const SectionD3Screen = ({
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          // if (index === 4) {
-          //   if (questions[3].answer === 'Yes') {
-          //     // to hide D4a if answer of D4 is Yes
-          //     return null;
-          //   }
-          // }
-
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
         keyExtractor={(item) => item.questionId}

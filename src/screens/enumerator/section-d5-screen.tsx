@@ -28,14 +28,14 @@ const SectionD5Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-      // if (index === 3) {
-      //   if (newQuestions[3].answer === 'Yes') {
-      //     // to prevent check inputs error if D4a is not visible
-      //     newQuestions[4].answer = 'None';
-      //   } else {
-      //     newQuestions[4].answer = '';
-      //   }
-      // }
+      if (index === 10) {
+        if (newQuestions[10].answer !== 'Yes') {
+          // to prevent check inputs error if h2a is not visible
+          newQuestions[11].answer = 'None';
+        } else {
+          newQuestions[11].answer = '';
+        }
+      }
       return newQuestions;
     });
   };
@@ -60,12 +60,11 @@ const SectionD5Screen = ({
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          // if (index === 4) {
-          //   if (questions[3].answer === 'Yes') {
-          //     // to hide D4a if answer of D4 is Yes
-          //     return null;
-          //   }
-          // }
+          if (index === 11) {
+            if (questions[10].answer !== 'Yes') {
+              return null;
+            }
+          }
 
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
