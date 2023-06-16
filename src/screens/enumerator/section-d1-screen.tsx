@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { submitSectionD1 } from '@redux/app-state-reducer';
 import { SECTION_D1_QUESTIONS } from '@common/questions/survey-1';
-import { handleSurveyNavigation } from '@helpers/navigation';
+import { handleNavigationForOtherSurveys } from '@helpers/navigation';
 import { showInfoToast } from '@helpers/toast-message';
 
 const SectionD1Screen = ({
@@ -37,7 +37,12 @@ const SectionD1Screen = ({
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD1(questions));
       showInfoToast(`${SURVEY_COMPONENTS.S1} completed successfully}`);
-      handleSurveyNavigation(navigation, surveyComponents);
+      // handleSurveyNavigation(navigation, surveyComponents);
+      handleNavigationForOtherSurveys(
+        navigation,
+        surveyComponents,
+        SURVEY_COMPONENTS.S1
+      );
     }
   };
 

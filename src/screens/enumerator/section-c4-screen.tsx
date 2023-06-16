@@ -11,10 +11,7 @@ import { IEnumeratorSectionC4ScreenProps } from '@interfaces/screens';
 import { EnumeratorScreens } from '@common/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppDispatch } from '@redux/store';
-import {
-  filterSurveyComponents,
-  submitSectionC4,
-} from '@redux/app-state-reducer';
+import { submitSectionC4 } from '@redux/app-state-reducer';
 import { SECTION_C4_QUESTIONS } from '@common/questions/survey-4';
 
 const SectionC4Screen = ({
@@ -53,7 +50,6 @@ const SectionC4Screen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionC4(questions));
-      dispatch(filterSurveyComponents(SURVEY_COMPONENTS.S4));
       navigation.navigate(EnumeratorScreens.SectionD4);
     }
   };

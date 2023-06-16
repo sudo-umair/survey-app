@@ -12,7 +12,7 @@ import { IEnumeratorSectionBScreenProps } from '@interfaces/screens';
 import { useAppSelector, useAppDispatch } from '@redux/store';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { submitSectionB } from '@redux/app-state-reducer';
-import { handleSurveyNavigation } from '@helpers/navigation';
+import { handleNavigationToFirstSelectedSurvey } from '@helpers/navigation';
 
 const SectionBScreen = ({
   navigation,
@@ -35,7 +35,8 @@ const SectionBScreen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionB(questions));
-      handleSurveyNavigation(navigation, surveyComponents);
+      // handleSurveyNavigation(navigation, surveyComponents);
+      handleNavigationToFirstSelectedSurvey(navigation, surveyComponents);
     }
   };
 
