@@ -25,7 +25,7 @@ const SurveyComponent: React.FC<ISurveyComponentProps> = ({
       {isSelected && (
         <MaterialCommunityIcons
           name='check'
-          size={24}
+          size={20}
           color={COLORS.WHITE}
           style={styles.selectedIcon}
         />
