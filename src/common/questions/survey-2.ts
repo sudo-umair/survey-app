@@ -1,4 +1,3 @@
-import { districtsInSindh } from '@common/data';
 import { IQuestion } from '@interfaces/common';
 
 export const SECTION_C2_QUESTIONS: IQuestion[] = [
