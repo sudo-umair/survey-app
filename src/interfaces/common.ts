@@ -15,6 +15,7 @@ export interface IEnumerator {
 export interface IQuestion {
   questionId: string;
   question: string;
+  subtext?: string;
   options?: string[];
   answer: string;
   questionType:

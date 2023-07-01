@@ -62,6 +62,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
           <Text style={styles.questionId}>{item.questionId}.</Text>{' '}
           {item.question}
         </Text>
+        {item.subtext && <Text style={styles.subtext}>{item.subtext}</Text>}
         {(item.questionType === 'text' ||
           item.questionType === 'number' ||
           item.questionType === 'text-area') && (
@@ -238,6 +239,12 @@ const styles = StyleSheet.create({
   },
   questionId: {
     fontWeight: 'bold',
+  },
+  subtext: {
+    marginVertical: 2,
+    fontSize: FONT_SIZES.SMALL,
+    marginLeft: 5,
+    color: COLORS.DARK_GRAY,
   },
   inputStyle: {
     marginHorizontal: 5,

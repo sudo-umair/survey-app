@@ -3,168 +3,202 @@ import { IQuestion } from '@interfaces/common';
 export const SECTION_C3_QUESTIONS: IQuestion[] = [
   {
     questionId: 'C1',
-    question: 'Do you think KG is effective for women empowerment?',
+    question: 'Did your KGK fully function?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'C2',
     question:
-      'Were the KG activities carried out according to the specified design and plans?',
+      'Did you receive a set of implements free of cost along with the KGK?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
   },
   {
     questionId: 'C3',
     question:
-      'Have you observed any improvements in household income through KG?',
+      'Did you receive a package of seeds and fertilizers for two seasons with the KGK?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'C4',
     question:
-      'Have you observed any improvements for obtaining fresh and hygienic vegetables from your KG?',
+      'Do you think you were given adequate training by the concerned NGO for operating and troubleshooting the KGK?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'C5',
-    question: 'Has KG improved your access to vegetables?',
+    question:
+      'Do you think you were given adequate knowledge about agronomic practices by the concerned NGO?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'C6',
-    question: 'Has KG improved your vegetable consumption?',
+    question: 'Do you think the system was delivered on time as planned?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
+  },
+  {
+    questionId: 'C7',
+    question:
+      'Do you think sufficient vegetables are produced from your plot for your household needs?',
+    options: ['More than our needs', 'As our needs', 'Less than our needs'],
+    answer: '',
+    questionType: 'radio',
   },
   {
     questionId: 'D1',
-    question: 'Do you believe that KG helps improve water productivity?',
+    question: 'Do you think KGK specifications were very economical?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'D2',
     question:
-      'Do you think your time spent on KG is justified in terms of its return?',
+      'Did your family contribute in preparing your plot to economize the cost?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
   },
   {
     questionId: 'D3',
-    question: 'Does KG contribute to your skill development?',
+    question:
+      'Did your family contribute by providing labor during installation of the KGK?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
   },
   {
     questionId: 'D4',
-    question: 'Does KG enhance your ability to solve financial problems?',
+    question: 'Do you think KGK was installed as per design and plan?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
   },
   {
     questionId: 'D5',
-    question: 'Do you think your time has been efficiently utilized?',
+    question:
+      'Do you think resources earmarked for KGK were used for the specified purpose?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
   },
   {
     questionId: 'E1',
-    question: 'Do you think KG is the need of rural women/landless poor?',
+    question:
+      'Do you think time spent on KG does not affect your routine household chores?',
+    options: [
+      'Yes, does not affect.',
+      'Affects partially.',
+      'Competes with chores',
+    ],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
+  },
+  {
+    questionId: 'E2',
+    question:
+      'Do you think KG has emerged as a family activity and has increased cohesion and strengthened family bonds?',
+    options: ['Yes', 'Partially', 'No'],
+    answer: '',
+    questionType: 'radio',
   },
   {
     questionId: 'E3',
-    question: 'Do you think KG has minimized labor cost for watering?',
+    question:
+      'Do you think by operating KG as a manager, it has enhanced your confidence and now you can handle household affairs better?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
   },
   {
     questionId: 'E4',
-    question: 'Do you think KG has helped improve vegetable supplies?',
+    question:
+      'Do you think by sharing surplus KG produce with neighbors has strengthened the social ties?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Partially'],
   },
   {
     questionId: 'F1',
     question: 'How would you rate the durability of the KG unit?',
+    options: ['Good', 'Average', 'Poor'],
     answer: '',
     questionType: 'radio',
-    options: ['Good', 'Average', 'Poor'],
   },
   {
     questionId: 'F2',
-    question: 'Do you think the KG is sustainable for a longer period?',
+    question:
+      'Do you think after-sale services are adequately available when required?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'F3',
-    question: 'Do you think KG has positive effects on the environment?',
+    question: 'Do you think spares are available at an affordable cost?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'F4',
     question: 'Do you think operating KG is farmer-friendly?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'F5',
-    question: 'Are you planning to continue KG?',
+    question: 'Do you think expert/mechanic services are easily accessible?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'F6',
-    question: 'In your opinion, why do people not go for KG?',
+    question:
+      'Do you think KG produce can adequately finance O&M cost of seasonal inputs?',
+    options: ['Yes', 'Partially', 'No'],
     answer: '',
-    questionType: 'checkbox',
-    options: [
-      'Unawareness',
-      'Unavailability of KG kits',
-      'Lack of Skill',
-      'People don’t have time',
-      'Other (Specify)',
-    ],
+    questionType: 'radio',
   },
   {
     questionId: 'F7',
-    question:
-      'What are your major suggestions for the project to improve the quality of support for KG?',
-    answer: '',
-    questionType: 'text-area',
-    maxLength: 1000,
-  },
-  {
-    questionId: 'G1',
-    question: 'Is there any contribution of the KG in your household income?',
+    question: 'Do you think KG has positive effects on the environment?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
+  },
+  {
+    questionId: 'F8',
+    question: 'In your opinion, why do people not go for KG?',
+    options: [
+      'Unawareness',
+      'Unavailability of KG kits',
+      'Lack of Skills',
+      "People don't have time",
+      'Other (Specify)',
+    ],
+    answer: '',
+    questionType: 'radio-text',
+  },
+  {
+    questionId: 'F9',
+    question:
+      'What are your major suggestions for the project to improve upon the quality of support for KG?',
+    answer: '',
+    questionType: 'text-area',
   },
 ];
 
@@ -172,45 +206,71 @@ export const SECTION_D3_QUESTIONS: IQuestion[] = [
   {
     questionId: 'G1',
     question: 'Is there any contribution of the KG in your household income?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Don’t know'],
   },
   {
     questionId: 'G2',
     question:
-      'Either in your opinion the neighboring household are motivated to install KG?',
+      'Have you observed any improvement in obtaining fresh and hygienic vegetables from your KG?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'G3',
-    question: 'Do you think KG is a good tool for learning?',
+    question:
+      'Do you think KG has improved social linkages among landless poor/rural communities?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'G4',
-    question:
-      'Do you think KG has improved social linkages among landless poor/rural communities?',
+    question: 'Do you think KG has improved your nutritional intake/health?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'G5',
-    question: 'Do you think KG has improved the nutritional intake and health?',
+    question:
+      'Do you think due to managing KG, your role in household decision making has improved?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
   },
   {
     questionId: 'H1',
-    question: 'Do you think for installing additional KG in your HH?',
+    question:
+      'Do you think provision of KGK under SIAPEP is in line with other women empowerment programs/policies (SDG Goal 5: Gender Equality)?',
+    options: ['Yes', 'Not sure', 'No'],
     answer: '',
     questionType: 'radio',
-    options: ['Yes', 'No', 'Not Sure'],
+  },
+  {
+    questionId: 'H2',
+    question:
+      'Do you think KG is in line with Govt. programs/policies to improve nutritional intake of people in the province?',
+    options: ['Yes', 'Not sure', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'H3',
+    question:
+      'Do you think KG is in line with policies/programs to reduce poverty?',
+    options: ['Yes', 'Not sure', 'No'],
+    answer: '',
+    questionType: 'radio',
+  },
+  {
+    questionId: 'H4',
+    question:
+      'Did the installation of KG align with other agricultural development programs or policies in the province?',
+    options: ['Yes', 'No', "Don't know"],
+    answer: '',
+    questionType: 'radio',
   },
 ];
