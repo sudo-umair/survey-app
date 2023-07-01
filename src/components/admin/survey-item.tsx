@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 import React from 'react';
 import { ISurveyItemProps } from '@interfaces/components';
 import { COLORS } from '@common/colors';
@@ -19,10 +19,14 @@ const SurveyItem: React.FC<ISurveyItemProps> = ({ survey }) => {
     });
   };
 
+  const district = survey.sectionB.find(
+    (item) => item.question === 'District'
+  )?.answer;
+
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <Text style={styles.title}>Survey: {survey.surveyId}</Text>
-      <Text style={styles.label}>District: {survey.sectionB[0].answer}</Text>
+      <Text style={styles.label}>District: {district}</Text>
       <Text style={styles.label}>
         Enumerator Name: {survey.submittedBy.name}
       </Text>

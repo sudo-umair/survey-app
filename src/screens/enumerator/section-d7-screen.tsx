@@ -23,7 +23,9 @@ const SectionD7Screen = ({
 
   const dispatch = useAppDispatch();
 
-  const { surveyComponents } = useAppSelector((state) => state.appState);
+  const surveyComponents = useAppSelector(
+    (state) => state.appState.surveyComponents
+  );
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {

@@ -124,7 +124,7 @@ const QuestionBox: React.FC<IQuestionBoxProps> = ({
         {item.questionType === 'picker' && (
           <Picker
             selectedValue={item.answer ?? item.options?.[0] ?? ''}
-            mode='dropdown'
+            mode='dialog'
             onValueChange={(itemValue) => onChange(itemValue, index)}
             style={styles.inputStyle}
             dropdownIconColor={COLORS.PRIMARY}

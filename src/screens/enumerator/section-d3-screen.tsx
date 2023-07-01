@@ -23,7 +23,9 @@ const SectionD3Screen = ({
 
   const dispatch = useAppDispatch();
 
-  const { surveyComponents } = useAppSelector((state) => state.appState);
+  const surveyComponents = useAppSelector(
+    (state) => state.appState.surveyComponents
+  );
 
   const onChange = (text: string, index: number) => {
     setQuestions((prev) => {
@@ -37,7 +39,6 @@ const SectionD3Screen = ({
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD2(questions));
       showInfoToast(`${SURVEY_COMPONENTS.S3} completed successfully}`);
-      // handleSurveyNavigation(navigation, surveyComponents);
       handleNavigationForOtherSurveys(
         navigation,
         surveyComponents,

@@ -27,11 +27,8 @@ const SurveyCompletedScreen = ({
 
   const dispatch = useAppDispatch();
 
-  const rootState = useAppSelector((state) => state);
-  const {
-    appState,
-    user: { user },
-  } = rootState;
+  const appState = useAppSelector((state) => state.appState);
+  const user = useAppSelector((state) => state.user.user);
 
   const { isInternetReachable } = useNetInfo();
 

@@ -20,7 +20,9 @@ const SectionBScreen = ({
 }: IEnumeratorSectionBScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
 
-  const { surveyComponents } = useAppSelector((state) => state.appState);
+  const surveyComponents = useAppSelector(
+    (state) => state.appState.surveyComponents
+  );
 
   const dispatch = useAppDispatch();
 

@@ -21,7 +21,9 @@ const SectionD2Screen = ({
 }: IEnumeratorSectionD2ScreenProps) => {
   const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D2_QUESTIONS);
 
-  const { surveyComponents } = useAppSelector((state) => state.appState);
+  const surveyComponents = useAppSelector(
+    (state) => state.appState.surveyComponents
+  );
 
   const dispatch = useAppDispatch();
 
@@ -37,7 +39,6 @@ const SectionD2Screen = ({
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionD2(questions));
       showInfoToast(`${SURVEY_COMPONENTS.S2} completed successfully}`);
-      // handleSurveyNavigation(navigation, surveyComponents);
       handleNavigationForOtherSurveys(
         navigation,
         surveyComponents,
