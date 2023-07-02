@@ -47,7 +47,9 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B2',
     question: 'CNIC #',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'numeric',
+    subtext: '12345-1234567-1',
     answer: '',
   },
   {
@@ -96,7 +98,9 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B9',
     question: 'Contact No.',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'decimal-pad',
+    subtext: '0300-1234567',
     answer: '',
   },
   {
@@ -129,13 +133,15 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B14a',
     question: 'Number of Male HH members currently earning',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'decimal-pad',
     answer: '',
   },
   {
     questionId: 'B14b',
     question: 'Number of Female HH members currently earning',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'decimal-pad',
     answer: '',
   },
   {

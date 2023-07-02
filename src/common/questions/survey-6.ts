@@ -144,7 +144,7 @@ export const SECTION_C6_QUESTIONS: IQuestion[] = [
     questionId: 'E5',
     question: 'If yes, specify',
     questionType: 'text',
-    answer: '',
+    answer: 'None',
   },
   {
     questionId: 'E6',

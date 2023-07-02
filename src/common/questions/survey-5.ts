@@ -40,14 +40,16 @@ export const SECTION_C5_QUESTIONS: IQuestion[] = [
     question:
       'How many days in a year does your DR equipment remain in operation?',
     answer: '',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'C6',
     question:
       'How much acreage in a year, on average, is treated by your DR equipment?',
     answer: '',
-    questionType: 'text',
+    questionType: 'number',
+    keyboardType: 'numeric',
   },
   {
     questionId: 'C7',
