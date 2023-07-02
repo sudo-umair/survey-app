@@ -26,14 +26,14 @@ const SectionC6Screen = ({
     setQuestions((prev) => {
       const newQuestions = [...prev];
       newQuestions[index].answer = text;
-      if (index === 10) {
-        if (newQuestions[10].answer !== 'Yes') {
-          // to prevent check inputs error if c4 is not visible
-          newQuestions[11].answer = 'None';
-        } else {
-          newQuestions[11].answer = '';
-        }
-      }
+      // if (index === 10) {
+      //   if (newQuestions[10].answer !== 'Yes') {
+      //     // to prevent check inputs error if c4 is not visible
+      //     newQuestions[11].answer = 'None';
+      //   } else {
+      //     newQuestions[11].answer = '';
+      //   }
+      // }
       return newQuestions;
     });
   };
@@ -57,11 +57,11 @@ const SectionC6Screen = ({
       <FlatList
         data={questions}
         renderItem={({ item, index }) => {
-          if (index === 11) {
-            if (questions[10].answer !== 'Yes') {
-              return null;
-            }
-          }
+          // if (index === 11) {
+          //   if (questions[10].answer !== 'Yes') {
+          //     return null;
+          //   }
+          // }
           return <QuestionBox onChange={onChange} index={index} item={item} />;
         }}
         keyExtractor={(item) => item.questionId}

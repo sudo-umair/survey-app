@@ -37,7 +37,6 @@ const SectionBScreen = ({
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
       dispatch(submitSectionB(questions));
-      // handleSurveyNavigation(navigation, surveyComponents);
       handleNavigationToFirstSelectedSurvey(navigation, surveyComponents);
     }
   };
