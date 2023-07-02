@@ -128,7 +128,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B13',
     question: 'Status of House',
-    questionType: 'radio',
+    questionType: 'radio-text',
     options: ['Own', 'Rented', 'Other (Specify)'],
     answer: '',
   },
