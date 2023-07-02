@@ -19,7 +19,9 @@ const SectionD3Screen = ({
   navigation,
   route,
 }: IEnumeratorSectionD3ScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D3_QUESTIONS);
+  const [questions, setQuestions] = useState<IQuestion[]>(() =>
+    JSON.parse(JSON.stringify(SECTION_D3_QUESTIONS))
+  );
 
   const dispatch = useAppDispatch();
 

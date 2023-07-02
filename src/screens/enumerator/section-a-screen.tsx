@@ -20,7 +20,9 @@ const SectionAScreen = ({
   navigation,
   route,
 }: IEnumeratorSectionAScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_A_QUESTIONS);
+  const [questions, setQuestions] = useState<IQuestion[]>(() =>
+    JSON.parse(JSON.stringify(SECTION_A_QUESTIONS))
+  );
 
   const { name } = useAppSelector((state) => state.user.user);
 

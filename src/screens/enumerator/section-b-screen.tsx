@@ -18,7 +18,9 @@ const SectionBScreen = ({
   navigation,
   route,
 }: IEnumeratorSectionBScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_B_QUESTIONS);
+  const [questions, setQuestions] = useState<IQuestion[]>(() =>
+    JSON.parse(JSON.stringify(SECTION_B_QUESTIONS))
+  );
 
   const surveyComponents = useAppSelector(
     (state) => state.appState.surveyComponents

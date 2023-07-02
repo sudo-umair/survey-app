@@ -19,7 +19,9 @@ const SectionD5Screen = ({
   navigation,
   route,
 }: IEnumeratorSectionD5ScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_D5_QUESTIONS);
+  const [questions, setQuestions] = useState<IQuestion[]>(() =>
+    JSON.parse(JSON.stringify(SECTION_D5_QUESTIONS))
+  );
 
   const surveyComponents = useAppSelector(
     (state) => state.appState.surveyComponents

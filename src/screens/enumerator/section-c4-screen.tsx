@@ -18,7 +18,9 @@ const SectionC4Screen = ({
   navigation,
   route,
 }: IEnumeratorSectionC4ScreenProps) => {
-  const [questions, setQuestions] = useState<IQuestion[]>(SECTION_C4_QUESTIONS);
+  const [questions, setQuestions] = useState<IQuestion[]>(() =>
+    JSON.parse(JSON.stringify(SECTION_C4_QUESTIONS))
+  );
 
   const dispatch = useAppDispatch();
 
