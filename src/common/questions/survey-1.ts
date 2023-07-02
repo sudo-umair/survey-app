@@ -149,7 +149,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
   {
     questionId: 'B15',
     question: 'Source of Income of the HH',
-    questionType: 'radio',
+    questionType: 'radio-text',
     options: [
       'Farming',
       'Govt. Service',
