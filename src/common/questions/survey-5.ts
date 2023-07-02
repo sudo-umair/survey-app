@@ -41,6 +41,7 @@ export const SECTION_C5_QUESTIONS: IQuestion[] = [
       'How many days in a year does your DR equipment remain in operation?',
     answer: '',
     questionType: 'number',
+    maxLength: 3,
     keyboardType: 'numeric',
   },
   {

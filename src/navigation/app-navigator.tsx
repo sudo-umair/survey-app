@@ -11,6 +11,7 @@ import { enumeratorResumeSession } from '@api/enumerator';
 import { handleAxiosError } from '@helpers/api';
 import { showErrorToast, showSuccessToast } from '@helpers/toast-message';
 import LoadingScreen from '@screens/loading-screen';
+import { clearData } from '@redux/app-state-reducer';
 
 const AppNavigator = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -53,6 +54,7 @@ const AppNavigator = () => {
       }
     }
     if (isLoggedIn) prepare();
+    dispatch(clearData());
   }, []);
 
   if (loading) return <LoadingScreen />;

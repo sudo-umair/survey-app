@@ -42,6 +42,7 @@ export const SECTION_C4_QUESTIONS: IQuestion[] = [
     answer: '',
     questionType: 'number',
     keyboardType: 'decimal-pad',
+    maxLength: 3,
   },
   {
     questionId: 'C6',

@@ -50,6 +50,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     questionType: 'number',
     keyboardType: 'numeric',
     subtext: '12345-1234567-1',
+    maxLength: 15,
     answer: '',
   },
   {
@@ -101,6 +102,7 @@ export const SECTION_B_QUESTIONS: IQuestion[] = [
     questionType: 'number',
     keyboardType: 'decimal-pad',
     subtext: '0300-1234567',
+    maxLength: 12,
     answer: '',
   },
   {
