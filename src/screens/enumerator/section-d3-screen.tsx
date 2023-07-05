@@ -10,7 +10,7 @@ import Button from '@components/ui/button';
 import { IEnumeratorSectionD3ScreenProps } from '@interfaces/screens';
 import { checkSurveyAnswers } from '@utils/input-checks';
 import { useAppDispatch, useAppSelector } from '@redux/store';
-import { submitSectionD2 } from '@redux/app-state-reducer';
+import { submitSectionD3 } from '@redux/app-state-reducer';
 import { SECTION_D3_QUESTIONS } from '@common/questions/survey-3';
 import { handleNavigationForOtherSurveys } from '@helpers/navigation';
 import { showInfoToast } from '@helpers/toast-message';
@@ -39,7 +39,7 @@ const SectionD3Screen = ({
 
   const onPress = () => {
     if (checkSurveyAnswers(questions)) {
-      dispatch(submitSectionD2(questions));
+      dispatch(submitSectionD3(questions));
       showInfoToast(`${SURVEY_COMPONENTS.S3} completed successfully}`);
       handleNavigationForOtherSurveys(
         navigation,
